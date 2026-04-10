@@ -5,4 +5,1014 @@
   Author: Chinonso Anyanwu
   College: Schwarzman College, Tsinghua University
   Year: 2026
+  Typography: Zodiak (hero) + DM Sans (body/UI)
 -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>China's AI Ecosystem — Top 40 Startups</title>
+<meta name="description" content="An interactive map of China's top 40 AI startups, analyzing public-private partnerships, AI Pilot Zones, and developmental orchestration.">
+<meta name="author" content="Chinonso Anyanwu, Schwarzman College, Tsinghua University">
+<meta property="og:title" content="China AI Ecosystem — Top 40 Startups">
+<meta property="og:description" content="Interactive capstone research map: China's AI Pilot Zones, startup ecosystem, and developmental orchestration.">
+<meta property="og:type" content="website">
+<!-- Zodiak for hero display text (Fontshare) -->
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,500,700&display=swap" rel="stylesheet">
+<!-- DM Sans for all UI / body text (Google Fonts) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300..700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<style>
+/*
+  Art direction: China AI policy research capstone
+  Tone: Academic research tool — precise, not flashy
+  Palette: Original Nexus teal — cool surfaces, teal accent
+  Typography: Zodiak (hero display only) + DM Sans (all UI/body)
+  Density: Balanced
+*/
+:root, [data-theme="light"] {
+  --color-bg:               #f7f6f2;
+  --color-surface:          #f9f8f5;
+  --color-surface-2:        #fbfbf9;
+  --color-surface-offset:   #f3f0ec;
+  --color-surface-dynamic:  #e6e4df;
+  --color-divider:          #dcd9d5;
+  --color-border:           #d4d1ca;
+  --color-text:             #28251d;
+  --color-text-muted:       #7a7974;
+  --color-text-faint:       #bab9b4;
+  --color-text-inverse:     #f9f8f4;
+  --color-primary:          #01696f;
+  --color-primary-hover:    #0c4e54;
+  --color-primary-active:   #0f3638;
+  --color-primary-highlight:#cedcd8;
+  --color-gold:             #d19900;
+  --color-orange:           #da7101;
+  --color-blue:             #006494;
+  --color-purple:           #7a39bb;
+  --color-success:          #437a22;
+  --color-error:            #a12c7b;
+  --shadow-sm: 0 1px 2px oklch(0.2 0.01 80 / 0.06);
+  --shadow-md: 0 4px 12px oklch(0.2 0.01 80 / 0.08);
+  --shadow-lg: 0 12px 32px oklch(0.2 0.01 80 / 0.12);
+  --radius-sm: 0.375rem; --radius-md: 0.5rem; --radius-lg: 0.75rem;
+  --radius-xl: 1rem; --radius-full: 9999px;
+  --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  --font-display: 'Zodiak', 'Georgia', serif;
+  --font-body:    'DM Sans', 'Helvetica Neue', sans-serif;
+  --text-xs:   clamp(0.75rem,  0.7rem  + 0.25vw, 0.875rem);
+  --text-sm:   clamp(0.875rem, 0.8rem  + 0.35vw, 1rem);
+  --text-base: clamp(1rem,     0.95rem + 0.25vw, 1.125rem);
+  --text-lg:   clamp(1.125rem, 1rem    + 0.75vw, 1.5rem);
+  --text-xl:   clamp(1.5rem,   1.2rem  + 1.25vw, 2.25rem);
+  --text-2xl:  clamp(2rem,     1.2rem  + 2.5vw,  3.5rem);
+  --space-1:.25rem; --space-2:.5rem; --space-3:.75rem; --space-4:1rem;
+  --space-5:1.25rem; --space-6:1.5rem; --space-8:2rem; --space-10:2.5rem;
+  --space-12:3rem; --space-16:4rem; --space-20:5rem;
+}
+
+[data-theme="dark"] {
+  --color-bg:               #111010;
+  --color-surface:          #181716;
+  --color-surface-2:        #1e1d1b;
+  --color-surface-offset:   #232220;
+  --color-surface-dynamic:  #2d2c2a;
+  --color-divider:          #262523;
+  --color-border:           #393836;
+  --color-text:             #cdccca;
+  --color-text-muted:       #797876;
+  --color-text-faint:       #5a5957;
+  --color-text-inverse:     #2b2a28;
+  --color-primary:          #4f98a3;
+  --color-primary-hover:    #227f8b;
+  --color-primary-active:   #1a626b;
+  --color-primary-highlight:#1e3438;
+  --color-gold:             #e8af34;
+  --color-orange:           #fdab43;
+  --color-blue:             #5591c7;
+  --color-purple:           #a86fdf;
+  --color-success:          #6daa45;
+  --color-error:            #d163a7;
+  --shadow-sm: 0 1px 2px oklch(0 0 0 / 0.2);
+  --shadow-md: 0 4px 12px oklch(0 0 0 / 0.3);
+  --shadow-lg: 0 12px 32px oklch(0 0 0 / 0.4);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --color-bg:#111010; --color-surface:#181716; --color-surface-2:#1e1d1b;
+    --color-surface-offset:#232220; --color-surface-dynamic:#2d2c2a;
+    --color-divider:#262523; --color-border:#393836;
+    --color-text:#cdccca; --color-text-muted:#797876; --color-text-faint:#5a5957;
+    --color-primary:#4f98a3; --color-primary-hover:#227f8b; --color-primary-highlight:#1e3438;
+    --color-gold:#e8af34; --color-orange:#fdab43; --color-blue:#5591c7;
+    --color-purple:#a86fdf; --color-success:#6daa45;
+    --shadow-sm:0 1px 2px oklch(0 0 0 / 0.2);
+    --shadow-md:0 4px 12px oklch(0 0 0 / 0.3);
+    --shadow-lg:0 12px 32px oklch(0 0 0 / 0.4);
+  }
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    --color-bg:#f7f6f2; --color-surface:#f9f8f5; --color-surface-2:#fbfbf9;
+    --color-surface-offset:#f3f0ec; --color-surface-dynamic:#e6e4df;
+    --color-divider:#dcd9d5; --color-border:#d4d1ca;
+    --color-text:#28251d; --color-text-muted:#7a7974; --color-text-faint:#bab9b4;
+    --color-primary:#01696f; --color-primary-hover:#0c4e54; --color-primary-highlight:#cedcd8;
+    --color-gold:#d19900; --color-orange:#da7101; --color-blue:#006494;
+    --color-purple:#7a39bb; --color-success:#437a22;
+    --shadow-sm:0 1px 2px oklch(0.2 0.01 80 / 0.06);
+    --shadow-md:0 4px 12px oklch(0.2 0.01 80 / 0.08);
+    --shadow-lg:0 12px 32px oklch(0.2 0.01 80 / 0.12);
+  }
+}
+
+/* BASE */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{-webkit-font-smoothing:antialiased;scroll-behavior:smooth;scroll-padding-top:5rem;text-rendering:optimizeLegibility;}
+body{min-height:100dvh;line-height:1.6;font-family:var(--font-body);font-size:var(--text-base);color:var(--color-text);background:var(--color-bg);}
+img,svg{display:block;max-width:100%;}
+button{cursor:pointer;background:none;border:none;font:inherit;color:inherit;}
+table{border-collapse:collapse;width:100%;}
+a{color:var(--color-primary);text-decoration:none;transition:color var(--transition-interactive);}
+a:hover{color:var(--color-primary-hover);}
+::selection{background:oklch(from var(--color-primary) l c h / 0.25);color:var(--color-text);}
+:focus-visible{outline:2px solid var(--color-primary);outline-offset:3px;border-radius:var(--radius-sm);}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;}}
+a,button,[role="button"]{transition:color var(--transition-interactive),background var(--transition-interactive),border-color var(--transition-interactive),box-shadow var(--transition-interactive);}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+a.skip-link{position:fixed;top:var(--space-4);left:var(--space-4);z-index:999;padding:var(--space-2) var(--space-4);background:var(--color-primary);color:var(--color-text-inverse);border-radius:var(--radius-md);transform:translateY(-200%);}
+a.skip-link:focus{transform:translateY(0);}
+
+/* LAYOUT */
+.container{max-width:1200px;margin-inline:auto;padding-inline:var(--space-6);}
+.container--narrow{max-width:960px;margin-inline:auto;padding-inline:var(--space-6);}
+
+/* HEADER */
+header{
+  position:sticky;top:0;z-index:100;
+  background:color-mix(in oklab,var(--color-bg) 85%,transparent);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid oklch(from var(--color-text) l c h / 0.08);
+  padding:var(--space-3) var(--space-6);
+}
+.header-inner{max-width:1200px;margin-inline:auto;display:flex;align-items:center;gap:var(--space-4);justify-content:space-between;}
+.logo{display:flex;align-items:center;gap:var(--space-3);text-decoration:none;color:var(--color-text);}
+.logo-mark{width:36px;height:36px;flex-shrink:0;}
+.logo-text{display:flex;flex-direction:column;line-height:1.1;}
+/* Logo uses Zodiak too — small but consistent with hero brand voice */
+.logo-text strong{font-family:var(--font-display);font-size:var(--text-base);font-weight:700;letter-spacing:-0.01em;}
+.logo-text span{font-size:var(--text-xs);color:var(--color-text-muted);font-weight:400;}
+nav{display:flex;align-items:center;gap:var(--space-6);}
+nav a{font-size:var(--text-sm);color:var(--color-text-muted);font-weight:500;}
+nav a:hover{color:var(--color-text);}
+nav a.active{color:var(--color-primary);font-weight:600;}
+.theme-toggle{display:flex;align-items:center;justify-content:center;gap:6px;padding:0 var(--space-3);height:36px;border-radius:var(--radius-full);background:var(--color-surface-offset);border:1px solid oklch(from var(--color-text) l c h / 0.1);font-size:var(--text-xs);font-weight:600;letter-spacing:0.04em;color:var(--color-text-muted);transition:background var(--transition-interactive),color var(--transition-interactive),border-color var(--transition-interactive);}
+.theme-toggle::after{content:attr(data-label);}
+.theme-toggle:hover{background:var(--color-surface-dynamic);}
+@media(max-width:768px){nav{display:none;}}
+
+/* =============================================
+   HERO — Zodiak serif throughout
+   All other sections use DM Sans (--font-body)
+   ============================================= */
+.hero{
+  padding:var(--space-16) 0 var(--space-12);
+  background:radial-gradient(ellipse 80% 60% at 50% -10%,
+    color-mix(in oklab,var(--color-primary) 12%,var(--color-bg)),
+    var(--color-bg));
+}
+
+/* Masthead — two-line institution block */
+.hero-masthead{margin-bottom:var(--space-5);}
+.hero-institution{
+  font-family:var(--font-body);
+  font-size:var(--text-xs);
+  font-weight:600;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--color-text);
+  margin-bottom:var(--space-1);
+}
+.hero-doctype{
+  font-family:var(--font-display);
+  font-size:var(--text-xs);
+  font-weight:400;
+  font-style:italic;
+  color:var(--color-text-muted);
+  letter-spacing:0.02em;
+}
+
+/* Main title — Zodiak, large, italic weight contrast */
+.hero h1{
+  font-family:var(--font-display);
+  font-size:var(--text-2xl);
+  font-weight:700;
+  line-height:1.08;
+  letter-spacing:-0.025em;
+  max-width:18ch;
+  margin-bottom:var(--space-5);
+  color:var(--color-text);
+}
+.hero h1 em{
+  font-style:italic;
+  font-weight:400;
+  color:var(--color-primary);
+}
+/* Subtitle line — lighter weight, sits just below h1 */
+.hero-subtitle{
+  font-family:var(--font-display);
+  font-size:var(--text-lg);
+  font-weight:400;
+  color:var(--color-text-muted);
+  letter-spacing:-0.01em;
+  margin-bottom:var(--space-6);
+  line-height:1.2;
+}
+
+/* Description — Zodiak at body size for this section only */
+.hero-desc{
+  font-family:var(--font-display);
+  font-size:var(--text-base);
+  font-weight:400;
+  color:var(--color-text-muted);
+  max-width:60ch;
+  margin-bottom:var(--space-3);
+  line-height:1.8;
+  font-style:normal;
+}
+.hero-desc strong{
+  font-style:normal;
+  font-weight:700;
+  color:var(--color-text);
+}
+/* Footnote — italic, faint, methodological anchor */
+.hero-footnote{
+  font-family:var(--font-display);
+  font-size:var(--text-xs);
+  font-weight:400;
+  font-style:italic;
+  color:var(--color-text-faint);
+  max-width:60ch;
+  margin-bottom:var(--space-8);
+  line-height:1.6;
+}
+
+/* Stats — Zodiak numbers, DM Sans labels */
+.hero-stats{
+  display:flex;gap:var(--space-8);flex-wrap:wrap;
+  padding-top:var(--space-6);
+  border-top:1px solid var(--color-divider);
+}
+.stat{display:flex;flex-direction:column;}
+.stat-num{
+  font-family:var(--font-display);
+  font-size:var(--text-xl);
+  font-weight:700;
+  color:var(--color-primary);
+  line-height:1;
+  letter-spacing:-0.03em;
+}
+/* Stat labels revert to DM Sans — clean contrast with Zodiak numbers */
+.stat-label{
+  font-family:var(--font-body);
+  font-size:var(--text-xs);
+  color:var(--color-text-muted);
+  margin-top:var(--space-1);
+  text-transform:uppercase;
+  letter-spacing:0.08em;
+  font-weight:500;
+}
+
+/* TAB BAR */
+.tab-bar{display:flex;gap:var(--space-2);border-bottom:1px solid var(--color-divider);margin-bottom:var(--space-8);padding-top:var(--space-10);}
+.tab-btn{padding:var(--space-3) var(--space-5);font-size:var(--text-sm);font-weight:500;color:var(--color-text-muted);border-bottom:2px solid transparent;margin-bottom:-1px;transition:color var(--transition-interactive),border-color var(--transition-interactive);border-radius:var(--radius-sm) var(--radius-sm) 0 0;}
+.tab-btn:hover{color:var(--color-text);}
+.tab-btn.active{color:var(--color-primary);border-color:var(--color-primary);}
+.tab-panel{display:none;}
+.tab-panel.active{display:block;}
+
+/* FILTER BAR */
+.filter-bar{display:flex;flex-wrap:wrap;gap:var(--space-3);align-items:center;margin-bottom:var(--space-6);}
+.filter-bar label{font-size:var(--text-sm);font-weight:500;color:var(--color-text-muted);}
+.filter-chips{display:flex;flex-wrap:wrap;gap:var(--space-2);}
+.chip{padding:var(--space-1) var(--space-3);border-radius:var(--radius-full);font-size:var(--text-xs);font-weight:500;cursor:pointer;border:1px solid oklch(from var(--color-text) l c h / 0.15);color:var(--color-text-muted);background:var(--color-surface);transition:all var(--transition-interactive);}
+.chip:hover,.chip.active{background:var(--color-primary);color:var(--color-text-inverse);border-color:var(--color-primary);}
+
+/* TABLE */
+.table-wrap{overflow-x:auto;border-radius:var(--radius-lg);border:1px solid var(--color-border);}
+table{font-size:var(--text-sm);}
+thead th{background:var(--color-surface-offset);padding:var(--space-3) var(--space-4);text-align:left;font-size:var(--text-xs);font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--color-text-muted);white-space:nowrap;border-bottom:1px solid var(--color-border);}
+thead th.th-sort{cursor:pointer;user-select:none;}
+thead th.th-sort:hover{color:var(--color-text);background:var(--color-surface-dynamic);}
+thead th.th-sort[aria-sort="ascending"] .sort-icon,
+thead th.th-sort[aria-sort="descending"] .sort-icon{color:var(--color-primary);}
+thead th.th-sort[aria-sort="ascending"] .sort-icon::after{content:"↑";}
+thead th.th-sort[aria-sort="descending"] .sort-icon::after{content:"↓";}
+thead th.th-sort .sort-icon{font-style:normal;margin-left:3px;opacity:0.5;font-size:0.9em;}
+thead th.th-sort:hover .sort-icon{opacity:1;}
+tbody tr{border-bottom:1px solid oklch(from var(--color-text) l c h / 0.06);transition:background var(--transition-interactive);}
+tbody tr:last-child{border-bottom:none;}
+tbody tr:hover{background:var(--color-surface);}
+tbody td{padding:var(--space-3) var(--space-4) var(--space-4);vertical-align:top;}
+.company-cell{display:flex;flex-direction:column;gap:var(--space-1);}
+.company-name{font-weight:600;color:var(--color-text);font-size:var(--text-sm);}
+.company-cn{font-size:var(--text-xs);color:var(--color-text-faint);}
+.city-tag{display:inline-block;padding:2px var(--space-2);border-radius:var(--radius-sm);font-size:var(--text-xs);font-weight:600;}
+.city-tag--beijing {background:color-mix(in oklab,var(--color-primary) 15%,var(--color-bg));color:var(--color-primary);}
+.city-tag--hangzhou{background:color-mix(in oklab,var(--color-orange) 15%,var(--color-bg));color:var(--color-orange);}
+.city-tag--shanghai{background:color-mix(in oklab,var(--color-blue) 15%,var(--color-bg));color:var(--color-blue);}
+.city-tag--shenzhen{background:color-mix(in oklab,var(--color-purple) 15%,var(--color-bg));color:var(--color-purple);}
+.badge{display:inline-block;padding:2px var(--space-2);border-radius:var(--radius-sm);font-size:var(--text-xs);font-weight:500;white-space:nowrap;}
+.badge--llm  {background:color-mix(in oklab,var(--color-primary) 12%,var(--color-bg));color:var(--color-primary);}
+.badge--cloud{background:color-mix(in oklab,var(--color-blue) 12%,var(--color-bg));color:var(--color-blue);}
+.badge--chip {background:color-mix(in oklab,var(--color-gold) 15%,var(--color-bg));color:var(--color-gold);}
+.badge--robot{background:color-mix(in oklab,var(--color-orange) 12%,var(--color-bg));color:var(--color-orange);}
+.badge--app  {background:color-mix(in oklab,var(--color-purple) 12%,var(--color-bg));color:var(--color-purple);}
+.badge--infra{background:color-mix(in oklab,var(--color-success) 12%,var(--color-bg));color:var(--color-success);}
+.funding-chip{font-size:var(--text-xs);font-weight:500;}
+.funding-chip.high{color:var(--color-success);}
+.funding-chip.mid {color:var(--color-gold);}
+.funding-chip.low {color:var(--color-text-muted);}
+.rel-dots{display:flex;gap:3px;align-items:center;}
+.rel-dot{width:7px;height:7px;border-radius:var(--radius-full);}
+.rel-dot.on {background:var(--color-primary);}
+.rel-dot.off{background:var(--color-surface-dynamic);}
+
+/* CITY PANEL */
+.city-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:var(--space-4);}
+.city-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:var(--space-5);}
+.city-card-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:var(--space-3);}
+/* City card names use Zodiak for a light touch of display type outside the hero */
+.city-card-name{font-family:var(--font-display);font-size:var(--text-lg);font-style:italic;color:var(--color-text);}
+.city-card-count{font-size:var(--text-xs);font-weight:600;color:var(--color-text-muted);}
+.city-bar-wrap{height:4px;background:var(--color-surface-dynamic);border-radius:var(--radius-full);margin-bottom:var(--space-3);overflow:hidden;}
+.city-bar-fill{height:100%;background:var(--color-primary);border-radius:var(--radius-full);width:0%;transition:width 0.8s cubic-bezier(0.16,1,0.3,1);}
+.city-firms{font-size:var(--text-xs);color:var(--color-text-muted);line-height:1.6;}
+.city-zone{margin-top:var(--space-2);font-size:var(--text-xs);color:var(--color-primary);font-weight:500;}
+
+/* ===== CITIES PANEL — VISUAL MAP ===== */
+.cities-layout{display:grid;grid-template-columns:1fr;gap:var(--space-6);}
+@media(min-width:1000px){.cities-layout{grid-template-columns:1.6fr 1fr;align-items:start;}}
+.map-container{position:relative;background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:var(--space-5);overflow:hidden;}
+.map-header{margin-bottom:var(--space-4);}
+.map-title{font-family:var(--font-display);font-size:var(--text-lg);font-style:italic;color:var(--color-text);margin-bottom:var(--space-1);}
+.map-subtitle{font-size:var(--text-xs);color:var(--color-text-muted);}
+#chinaMapCanvas{width:100%;display:block;border-radius:var(--radius-md);}
+.map-legend{display:flex;align-items:center;gap:var(--space-4);margin-top:var(--space-4);flex-wrap:wrap;}
+.legend-label{font-size:var(--text-xs);color:var(--color-text-muted);font-weight:500;}
+.legend-bubbles{display:flex;align-items:center;gap:var(--space-5);}
+.legend-item{display:flex;align-items:center;gap:var(--space-2);}
+.legend-circle{border-radius:50%;background:var(--color-primary);opacity:0.7;flex-shrink:0;}
+.legend-item span{font-size:var(--text-xs);color:var(--color-text-muted);}
+.map-tooltip{position:absolute;background:var(--color-surface-2);border:1px solid var(--color-border);border-radius:var(--radius-md);padding:var(--space-3) var(--space-4);font-size:var(--text-xs);color:var(--color-text);pointer-events:none;opacity:0;transition:opacity 0.15s;box-shadow:var(--shadow-lg);z-index:20;min-width:180px;max-width:240px;}
+.map-tooltip strong{display:block;font-size:var(--text-sm);margin-bottom:var(--space-1);color:var(--color-text);}
+.map-tooltip .tt-count{color:var(--color-primary);font-weight:700;font-size:var(--text-base);}
+.map-tooltip .tt-firms{color:var(--color-text-muted);margin-top:var(--space-1);line-height:1.5;}
+
+/* City cards sidebar */
+.city-cards-panel{display:flex;flex-direction:column;gap:var(--space-3);}
+.city-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:var(--space-4);transition:box-shadow var(--transition-interactive),border-color var(--transition-interactive);}
+.city-card:hover{box-shadow:var(--shadow-md);border-color:oklch(from var(--color-primary) l c h / 0.4);}
+.city-card.highlighted{border-color:var(--color-primary);box-shadow:0 0 0 2px oklch(from var(--color-primary) l c h / 0.15);}
+.city-card-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:var(--space-2);}
+.city-card-name{font-family:var(--font-display);font-size:var(--text-lg);font-style:italic;color:var(--color-text);}
+.city-card-count{font-size:var(--text-xs);color:var(--color-text-inverse);background:var(--color-primary);padding:2px 8px;border-radius:var(--radius-full);font-weight:600;}
+.city-bar-wrap{height:4px;background:var(--color-surface-offset);border-radius:var(--radius-full);overflow:hidden;margin-bottom:var(--space-2);}
+.city-bar-fill{height:100%;background:var(--color-primary);border-radius:var(--radius-full);transition:width 0.8s cubic-bezier(0.16,1,0.3,1);}
+.city-firms{font-size:var(--text-xs);color:var(--color-text-muted);line-height:1.5;}
+.city-zone{margin-top:var(--space-2);font-size:var(--text-xs);color:var(--color-primary);font-weight:500;}
+
+/* INSIGHTS */
+.insights-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:var(--space-4);}
+.insight-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:var(--space-5);}
+.insight-icon{width:40px;height:40px;border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;margin-bottom:var(--space-4);}
+.insight-card h3{font-size:var(--text-base);font-weight:600;color:var(--color-text);margin-bottom:var(--space-2);}
+.insight-card p{font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.65;max-width:100%;}
+
+/* FOOTER */
+footer{margin-top:var(--space-16);border-top:1px solid var(--color-divider);padding:var(--space-6);}
+.footer-inner{max-width:1200px;margin-inline:auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:var(--space-4);}
+.footer-note{font-size:var(--text-xs);color:var(--color-text-muted);}
+.footer-tag{font-size:var(--text-xs);color:var(--color-text-faint);font-style:italic;}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .hero{padding:var(--space-10) 0 var(--space-8);}
+  .hero h1{font-size:var(--text-xl);}
+  .hero-stats{gap:var(--space-6);}
+  .tab-bar{gap:var(--space-1);overflow-x:auto;}
+  .tab-btn{padding:var(--space-2) var(--space-3);white-space:nowrap;}
+  .footer-inner{flex-direction:column;text-align:center;}
+}
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+
+<header>
+  <div class="header-inner">
+    <a href="#" class="logo" aria-label="China AI Ecosystem Map home">
+      <svg class="logo-mark" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+        <rect width="36" height="36" rx="8" fill="currentColor" opacity="0.08"/>
+        <circle cx="18" cy="18" r="7" stroke="currentColor" stroke-width="1.5" fill="none"/>
+        <circle cx="18" cy="18" r="2.5" fill="currentColor"/>
+        <line x1="18" y1="4" x2="18" y2="11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="18" y1="25" x2="18" y2="32" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="4" y1="18" x2="11" y2="18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="25" y1="18" x2="32" y2="18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <div class="logo-text">
+        <strong>China AI Map</strong>
+        <span>Capstone Research · 2026</span>
+      </div>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="#tab-ecosystem" data-nav-tab="ecosystem">Ecosystem</a>
+      <a href="#tab-map" data-nav-tab="map">Cities</a>
+      <a href="#tab-insights" data-nav-tab="insights">Insights</a>
+    </nav>
+    <button class="theme-toggle" data-theme-toggle aria-label="Toggle dark mode" data-label="Dark"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="container--narrow">
+      <div class="hero-masthead">
+        <p class="hero-institution">Schwarzman College &nbsp;·&nbsp; Tsinghua University</p>
+        <p class="hero-doctype">Capstone Research &mdash; 2026</p>
+      </div>
+      <h1 id="hero-title">China's <em>AI Ecosystem</em></h1>
+      <p class="hero-subtitle">Top 40 Startups</p>
+      <p class="hero-desc">
+        Mapping China's leading AI companies across three domains of <strong>developmental orchestration</strong>: capital coordination, data &amp; infrastructure governance, and institutional integration.
+      </p>
+      <p class="hero-footnote">Analysed through Beijing's AI Pilot Zone programme.</p>
+      <div class="hero-stats" role="list">
+        <div class="stat" role="listitem">
+          <span class="stat-num">40</span>
+          <span class="stat-label">Startups profiled</span>
+        </div>
+        <div class="stat" role="listitem">
+          <span class="stat-num">5</span>
+          <span class="stat-label">City clusters</span>
+        </div>
+        <div class="stat" role="listitem">
+          <span class="stat-num">6</span>
+          <span class="stat-label">Sectors covered</span>
+        </div>
+        <div class="stat" role="listitem">
+          <span class="stat-num">3</span>
+          <span class="stat-label">Orchestration domains</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="tab-bar" id="tab-ecosystem" role="tablist" aria-label="Ecosystem views">
+      <button class="tab-btn active" role="tab" aria-selected="true" data-tab="ecosystem" aria-controls="panel-ecosystem">Ecosystem Table</button>
+      <button class="tab-btn" role="tab" aria-selected="false" data-tab="map" aria-controls="panel-map">City Breakdown</button>
+      <button class="tab-btn" role="tab" aria-selected="false" data-tab="insights" aria-controls="panel-insights">Research Insights</button>
+    </div>
+
+    <div class="tab-panel active" id="panel-ecosystem" role="tabpanel">
+      <div class="filter-bar">
+        <label id="filter-label">Filter by sector:</label>
+        <div class="filter-chips" role="group" aria-labelledby="filter-label">
+          <button class="chip active" data-filter="all">All (40)</button>
+          <button class="chip" data-filter="llm">Foundation Models</button>
+          <button class="chip" data-filter="cloud">Cloud / Compute</button>
+          <button class="chip" data-filter="chip">AI Chips</button>
+          <button class="chip" data-filter="robot">Robotics</button>
+          <button class="chip" data-filter="app">Applications</button>
+          <button class="chip" data-filter="infra">Research Infra</button>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table aria-label="China AI Startup Ecosystem — Top 40">
+          <thead>
+            <tr>
+              <th scope="col" class="th-sort" data-sort="rank" aria-sort="ascending"># <span class="sort-icon">↕</span></th>
+              <th scope="col" class="th-sort" data-sort="name">Company <span class="sort-icon">↕</span></th>
+              <th scope="col" class="th-sort" data-sort="city">City <span class="sort-icon">↕</span></th>
+              <th scope="col" class="th-sort" data-sort="sector">Sector <span class="sort-icon">↕</span></th>
+              <th scope="col" class="th-sort" data-sort="founded">Founded <span class="sort-icon">↕</span></th>
+              <th scope="col">Funding / Scale</th>
+              <th scope="col">Policy Alignment</th>
+              <th scope="col" class="th-sort" data-sort="relevance">Relevance <span class="sort-icon">↕</span></th>
+              <th scope="col">Capstone Role</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="panel-map" role="tabpanel">
+      <div class="cities-layout">
+
+        <!-- LEFT: Canvas dot map -->
+        <div class="map-container" id="mapContainer">
+          <div class="map-header">
+            <div class="map-title">AI Startup Concentration by City</div>
+            <div class="map-subtitle">Bubble size proportional to number of top-40 companies · Hover to explore</div>
+          </div>
+          <canvas id="chinaMapCanvas" width="860" height="640" aria-label="China AI startup density map"></canvas>
+          <div class="map-tooltip" id="mapTooltip"></div>
+          <div class="map-legend">
+            <span class="legend-label">Scale:</span>
+            <div class="legend-bubbles">
+              <div class="legend-item"><div class="legend-circle" style="width:10px;height:10px;"></div><span>1</span></div>
+              <div class="legend-item"><div class="legend-circle" style="width:18px;height:18px;"></div><span>5</span></div>
+              <div class="legend-item"><div class="legend-circle" style="width:28px;height:28px;"></div><span>10</span></div>
+              <div class="legend-item"><div class="legend-circle" style="width:40px;height:40px;"></div><span>19</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: City detail cards -->
+        <div class="city-cards-panel" id="cityPanel"></div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="panel-insights" role="tabpanel">
+      <div class="insights-grid" id="insightsGrid"></div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-note">China AI Startup Ecosystem Map · Capstone Research · Chinonso Anyanwu · Schwarzman College, Tsinghua University · 2026</span>
+    <span class="footer-tag">Based on fieldwork aligned with Beijing AI Pilot Zone analysis</span>
+  </div>
+</footer>
+
+<script>
+const startups = [
+  {rank:1,name:"Moonshot AI (Kimi)",cn:"月之暗面",city:"Beijing",cityClass:"beijing",sector:"llm",sectorLabel:"Foundation Model / LLM",founded:2023,funding:"~$1.2B+; $10B valuation (2026)",fundingLevel:"high",policyAlignment:"AI Pilot Zone; Zhongguancun; BNGI-backed",relevance:5,role:"Primary case: TU/CMU alumni pipeline; university-industry institutional integration"},
+  {rank:2,name:"Zhipu AI",cn:"智谱AI",city:"Beijing",cityClass:"beijing",sector:"llm",sectorLabel:"Foundation Model / LLM",founded:2019,funding:"¥3B+ valuation",fundingLevel:"high",policyAlignment:"Tsinghua KEG spinout; joint labs; guidance fund",relevance:5,role:"Primary case: canonical university-industry transfer; institutional integration domain"},
+  {rank:3,name:"DeepSeek",cn:"深度求索",city:"Hangzhou",cityClass:"hangzhou",sector:"llm",sectorLabel:"Foundation Model / LLM",founded:2023,funding:"Self-funded (High-Flyer quant)",fundingLevel:"mid",policyAlignment:"Hangzhou AI pilot; Zhejiang Univ. ecosystem",relevance:5,role:"Hangzhou case: non-state-capital model; tests scope conditions of orchestration framework"},
+  {rank:4,name:"Baidu (ERNIE)",cn:"百度",city:"Beijing",cityClass:"beijing",sector:"cloud",sectorLabel:"Cloud / Platform AI",founded:2000,funding:"Public (~$34B mkt cap)",fundingLevel:"high",policyAlignment:"National AI open innovation platform; compute partner",relevance:5,role:"State-designated national AI platform; compute & data governance domain"},
+  {rank:5,name:"Huawei Cloud",cn:"华为云",city:"Shenzhen",cityClass:"shenzhen",sector:"cloud",sectorLabel:"Cloud / Compute Infra",founded:2011,funding:"Part of Huawei (~$100B revenue)",fundingLevel:"high",policyAlignment:"National compute backbone; Ascend chip; EDWC",relevance:4,role:"Infrastructure domain: subsidized compute within Beijing pilot zone"},
+  {rank:6,name:"Alibaba Cloud (Qwen)",cn:"阿里云",city:"Hangzhou",cityClass:"hangzhou",sector:"cloud",sectorLabel:"Cloud / LLM Platform",founded:2009,funding:"Part of Alibaba (~$200B mkt cap)",fundingLevel:"high",policyAlignment:"Hangzhou anchor; Qwen open-source LLM; EDWC",relevance:4,role:"Hangzhou platform-anchored orchestration; Qwen underpins downstream startups"},
+  {rank:7,name:"Cambricon",cn:"寒武纪",city:"Beijing",cityClass:"beijing",sector:"chip",sectorLabel:"AI Chips",founded:2016,funding:"Public (STAR Market); #1 Hurun AI Top 50",fundingLevel:"high",policyAlignment:"National AI chip champion; Zhongguancun; state guidance fund",relevance:4,role:"Compute sovereignty: domestic AI chip supply chain for pilot zones"},
+  {rank:8,name:"Moore Threads",cn:"摩尔线程",city:"Beijing",cityClass:"beijing",sector:"chip",sectorLabel:"AI Chips / GPGPUs",founded:2020,funding:"#2 Hurun AI Top 50; 3× revenue growth 2025",fundingLevel:"high",policyAlignment:"Zhongguancun; state-backed investors; AI Pilot Zone compute",relevance:3,role:"Domestic GPGPU alternative to Nvidia under export controls"},
+  {rank:9,name:"Unitree Robotics",cn:"宇树科技",city:"Hangzhou",cityClass:"hangzhou",sector:"robot",sectorLabel:"Robotics / Embodied AI",founded:2016,funding:"~$100M+; global sales leader",fundingLevel:"mid",policyAlignment:"Hangzhou government support; Zhejiang manufacturing",relevance:3,role:"Hangzhou case: manufacturing-AI convergence; PPP in robotics"},
+  {rank:10,name:"MiniMax",cn:"MiniMax",city:"Shanghai",cityClass:"shanghai",sector:"llm",sectorLabel:"Multimodal LLM",founded:2021,funding:"~$600M; ~$2.5B valuation",fundingLevel:"high",policyAlignment:"Shanghai AI pilot; Zhangjiang Hi-Tech Park",relevance:4,role:"Shanghai ecosystem: multimodal AI; PPP via foundation model incubator"},
+  {rank:11,name:"Manus AI",cn:"Manus",city:"Beijing",cityClass:"beijing",sector:"app",sectorLabel:"AI Agents / Applications",founded:2024,funding:"Undisclosed; Tencent backed",fundingLevel:"mid",policyAlignment:"AI Pilot Zone; agent-oriented AI; digital economy",relevance:3,role:"Application layer: commercialisation of foundation models into AI agents"},
+  {rank:12,name:"Stepfun (阶跃星辰)",cn:"阶跃星辰",city:"Shanghai",cityClass:"shanghai",sector:"llm",sectorLabel:"Foundation Model / LLM",founded:2023,funding:"~$200M+",fundingLevel:"mid",policyAlignment:"Shanghai AI pilot; state/private co-invest",relevance:3,role:"AGI-focused LLM; ecosystem diversity example in capstone"},
+  {rank:13,name:"Zhongguancun Kejin",cn:"中关村科金",city:"Beijing",cityClass:"beijing",sector:"app",sectorLabel:"Enterprise AI Applications",founded:2015,funding:"Hurun AI Top 50; enterprise-grade",fundingLevel:"mid",policyAlignment:"ZGC Science Park; DeZhu LLM; state enterprise ties",relevance:4,role:"Institutional integration: commercialising AI across finance & public services"},
+  {rank:14,name:"MetaX (壁仞科技)",cn:"壁仞科技",city:"Shanghai",cityClass:"shanghai",sector:"chip",sectorLabel:"AI Chips",founded:2020,funding:"IPO Jan 2026 (STAR Market); $207M",fundingLevel:"high",policyAlignment:"Shanghai STAR Market; state guidance fund; compute sovereignty",relevance:3,role:"Domestic AI chip IPO; Shanghai as financial hub for AI hardware"},
+  {rank:15,name:"Spirit AI (具身智能)",cn:"精灵智能",city:"Beijing",cityClass:"beijing",sector:"robot",sectorLabel:"Robotics / Embodied AI",founded:2022,funding:"~$290M (unicorn, ¥10B+ valuation)",fundingLevel:"high",policyAlignment:"Beijing embodied AI pilot; HongShan/YF Capital",relevance:3,role:"Embodied AI: ¥73.5B investment wave; capital coordination domain"},
+  {rank:16,name:"BAAI",cn:"北京智源人工智能研究院",city:"Beijing",cityClass:"beijing",sector:"infra",sectorLabel:"Research Institution / Infra",founded:2018,funding:"State-funded (Beijing Municipal Gov.)",fundingLevel:"mid",policyAlignment:"State research arm; AI governance & safety standards",relevance:5,role:"Institutional integration domain: state research bridging university-industry"},
+  {rank:17,name:"Sensetime",cn:"商汤科技",city:"Shanghai",cityClass:"shanghai",sector:"app",sectorLabel:"Computer Vision / AI",founded:2014,funding:"Public (HK); ~$3B mkt cap",fundingLevel:"high",policyAlignment:"National AI open innovation platform; state procurement",relevance:3,role:"Smart city AI: national platform designation; state-as-customer PPP model"},
+  
+  {rank:18,name:"Xiaomi Robotics",cn:"小米机器人",city:"Beijing",cityClass:"beijing",sector:"robot",sectorLabel:"Robotics / Embodied AI",founded:2021,funding:"Part of Xiaomi (~$60B mkt cap); ¥200B R&D pledge 2030",fundingLevel:"high",policyAlignment:"Lei Jun at Two Sessions 2026; 15th Five-Year Plan named pillar; Beijing + Shenzhen dual footprint",relevance:4,role:"Manufacturing-AI convergence: Xiaomi-Robotics-0 (4.7B open-source physical intelligence model) on EV factory floor; Lei Jun NPC advocacy; tests consumer hardware giant as embodied AI orchestration anchor"},
+  {rank:19,name:"DJI",cn:"大疆创新",city:"Shenzhen",cityClass:"shenzhen",sector:"robot",sectorLabel:"Robotics / Drones",founded:2006,funding:"~$15B valuation",fundingLevel:"high",policyAlignment:"Shenzhen hardware ecosystem; low-altitude economy policy",relevance:2,role:"Manufacturing-AI convergence: Shenzhen's hardware-anchored orchestration path"},
+  {rank:20,name:"iFlytek",cn:"科大讯飞",city:"Hefei (Anhui)",cityClass:"",sector:"app",sectorLabel:"AI Voice / NLP Platform",founded:1999,funding:"Public (A-share); ~¥60B mkt cap",fundingLevel:"high",policyAlignment:"National AI platform (smart voice); USTC ties",relevance:3,role:"National platform: canonical PPP in AI voice/NLP outside tier-1 cities"},
+  {rank:21,name:"Manycore Digital (曼恒)",cn:"曼恒数字",city:"Hangzhou",cityClass:"hangzhou",sector:"app",sectorLabel:"AI Apps / XR",founded:2008,funding:"First of Six Dragons to IPO",fundingLevel:"mid",policyAlignment:"Hangzhou AI fund; Six Dragons; ZJU ecosystem",relevance:3,role:"First 'Six Little Dragons' IPO; municipal orchestration producing commercialisation"},
+  {rank:22,name:"Baichuan AI",cn:"百川智能",city:"Beijing",cityClass:"beijing",sector:"llm",sectorLabel:"Foundation Model / LLM",founded:2023,funding:"¥5B (~$693M) Series A; $2.75B valuation",fundingLevel:"high",policyAlignment:"AI Pilot Zone; Zhongguancun; Alibaba, Tencent, Beijing AI Fund",relevance:4,role:"Leading LLM; pivoting to AI medical tech; IPO target 2027"},
+  {rank:23,name:"01.AI (Yi Series)",cn:"零一万物",city:"Beijing",cityClass:"beijing",sector:"llm",sectorLabel:"Foundation Model / LLM",founded:2023,funding:"~$200M+; Kai-Fu Lee led",fundingLevel:"high",policyAlignment:"AI Pilot Zone; open-source Yi model",relevance:3,role:"Open-source LLM; cross-border talent circulation as institutional integration"},
+  {rank:24,name:"Tencent Cloud AI",cn:"腾讯云AI",city:"Shenzhen",cityClass:"shenzhen",sector:"cloud",sectorLabel:"Cloud / Platform AI",founded:2010,funding:"Part of Tencent (~$400B mkt cap)",fundingLevel:"high",policyAlignment:"National platform; Hunyuan LLM; WeChat ecosystem",relevance:3,role:"Platform-anchored orchestration: Shenzhen alternative to state-capital model"},
+  {rank:25,name:"Zhijiang Lab",cn:"之江实验室",city:"Hangzhou",cityClass:"hangzhou",sector:"infra",sectorLabel:"Research Institution / Infra",founded:2017,funding:"State-funded (Zhejiang Province)",fundingLevel:"mid",policyAlignment:"Zhejiang provincial gov.; ZJU partnership",relevance:4,role:"Hangzhou institutional integration: bridges ZJU and industry"},
+  {rank:26,name:"Tongyi / Alibaba DAMO",cn:"通义千问/达摩院",city:"Hangzhou",cityClass:"hangzhou",sector:"llm",sectorLabel:"Foundation Model / LLM",founded:2021,funding:"Part of Alibaba DAMO Academy",fundingLevel:"high",policyAlignment:"Hangzhou anchor; open-source Qwen; national AI platform",relevance:4,role:"Hangzhou orchestration anchor: Qwen deployed across municipal public services"},
+  {rank:27,name:"SoundAI (声智科技)",cn:"声智科技",city:"Beijing",cityClass:"beijing",sector:"app",sectorLabel:"AI Voice / Edge AI",founded:2016,funding:"¥500M+; Tsinghua spinout",fundingLevel:"mid",policyAlignment:"Tsinghua X-LANCE lab; edge AI; IoT + smart devices",relevance:3,role:"Institutional integration: Tsinghua spinout in voice and edge AI"},
+  {rank:28,name:"Agibot (智元机器人)",cn:"智元机器人",city:"Shanghai",cityClass:"shanghai",sector:"robot",sectorLabel:"Robotics / Embodied AI",founded:2023,funding:"LG Electronics, Mirae Asset; $142M revenue target",fundingLevel:"high",policyAlignment:"Shanghai AI pilot; humanoid robot sector; guidance fund",relevance:3,role:"Shanghai embodied AI: 5,000 units shipped Mar 2026; capital coordination domain"},
+  {rank:29,name:"Horizon Robotics",cn:"地平线机器人",city:"Beijing",cityClass:"beijing",sector:"chip",sectorLabel:"AI Chips / Autonomous Driving",founded:2015,funding:"Public (HK IPO Oct 2024); $696M raised",fundingLevel:"high",policyAlignment:"Beijing AI chip champion; Baidu alum; smart car policy",relevance:3,role:"HK IPO: capital coordination domain; state smart vehicle industrial policy"},
+  {rank:30,name:"Black Sesame Tech",cn:"黑芝麻智能",city:"Wuhan",cityClass:"",sector:"chip",sectorLabel:"AI Chips / Automotive",founded:2016,funding:"Public (HK Stock Exchange 2024)",fundingLevel:"high",policyAlignment:"National smart vehicle chip; Wuhan automotive cluster",relevance:2,role:"Orchestration beyond tier-1 zones; state smart vehicle supply chain"},
+  {rank:31,name:"Kuaishou AI (Kling)",cn:"快手AI/可灵",city:"Beijing",cityClass:"beijing",sector:"app",sectorLabel:"AI Video / Multimodal",founded:2021,funding:"Part of Kuaishou (~$10B mkt cap)",fundingLevel:"high",policyAlignment:"Beijing AI ecosystem; Kling video model; content policy",relevance:3,role:"Video AI: content-AI convergence under digital economy policy"},
+  {rank:32,name:"Vidu (生数科技)",cn:"生数科技",city:"Beijing",cityClass:"beijing",sector:"app",sectorLabel:"AI Video Generation",founded:2023,funding:"¥2B (~$293M); Alibaba Cloud led",fundingLevel:"high",policyAlignment:"Tsinghua spinout; Zhongguancun Science City; Beijing AI Fund",relevance:3,role:"Generative video AI: Tsinghua spinout; 10× revenue growth 2025"},
+  {rank:33,name:"Lingyi Wanwu / AI Health",cn:"灵医万物",city:"Beijing",cityClass:"beijing",sector:"app",sectorLabel:"AI Healthcare",founded:2023,funding:"~$50M Series A",fundingLevel:"mid",policyAlignment:"AI + healthcare priority; Pilot Zone; NHSA data partnership",relevance:3,role:"Healthcare AI: data governance domain — hospital data under NHSA framework"},
+  {rank:34,name:"Fourier Intelligence",cn:"傅利叶智能",city:"Shanghai",cityClass:"shanghai",sector:"robot",sectorLabel:"Robotics / Humanoid",founded:2015,funding:"~$100M+; Series B",fundingLevel:"mid",policyAlignment:"Shanghai humanoid robot policy; Lingang Special Zone",relevance:2,role:"Shanghai robotics: PPP via rehabilitation data partnerships"},
+  {rank:35,name:"Midea / KUKA China",cn:"美的AI/库卡",city:"Guangzhou",cityClass:"",sector:"robot",sectorLabel:"Industrial Robotics / AI",founded:2017,funding:"KUKA acquisition ~$5B (Midea Group)",fundingLevel:"high",policyAlignment:"GBA manufacturing policy; KUKA localization; MiC 2025",relevance:2,role:"Manufacturing-AI PPP: Midea/KUKA localisation into China's AI supply chain"},
+  {rank:36,name:"CAS Star (中科星图)",cn:"中科星图",city:"Beijing",cityClass:"beijing",sector:"infra",sectorLabel:"Geospatial AI / Remote Sensing",founded:2006,funding:"Public (A-share STAR Market)",fundingLevel:"mid",policyAlignment:"CAS spinout; national geospatial data platform; dual-use AI",relevance:3,role:"Institutional integration: CAS spinout; state data asset monetisation via PPP"},
+  {rank:37,name:"MEGVII (Face++)",cn:"旷视科技",city:"Beijing",cityClass:"beijing",sector:"app",sectorLabel:"Computer Vision / AI",founded:2011,funding:"Pre-IPO; ~$4B valuation",fundingLevel:"high",policyAlignment:"AI Pilot Zone; smart city platform; CITIC PE",relevance:3,role:"Computer vision pioneer: national platform designation; state-as-buyer PPP"},
+  {rank:38,name:"Tencent Yuanbao",cn:"腾讯元宝",city:"Shenzhen",cityClass:"shenzhen",sector:"app",sectorLabel:"AI Consumer App",founded:2024,funding:"Tencent product (~$400B parent mkt cap)",fundingLevel:"high",policyAlignment:"Hunyuan LLM consumer; WeChat integration",relevance:2,role:"Consumer AI diffusion: Yuanbao distributes Hunyuan via WeChat to 1.3B users"},
+  {rank:39,name:"Lightyear Beyond (光年之外)",cn:"光年之外",city:"Beijing",cityClass:"beijing",sector:"app",sectorLabel:"AI Agents / Applications",founded:2023,funding:"Acquired by Meituan ~$234M",fundingLevel:"high",policyAlignment:"Beijing AI ecosystem; Meituan strategic acquisition",relevance:2,role:"M&A: platform consolidation of AI agent startups; diffusion into consumer services"},
+  {rank:40,name:"Ubiquant / IQuest Labs",cn:"九坤投资 / IQuest",city:"Beijing",cityClass:"beijing",sector:"llm",sectorLabel:"Foundation Model / LLM",founded:2012,funding:"Self-funded ($12B AUM quant fund)",fundingLevel:"high",policyAlignment:"Minimal state-capital ties; Beijing AI ecosystem; Zhongguancun",relevance:2,role:"Scope condition: quant-fund-to-LLM pathway (cf. DeepSeek); IQuest open-source code LLMs benchmark vs GPT-5.1; tests non-state-capital route to frontier AI"}
+];
+
+const cityData=[
+  {name:"Beijing",count:19,bar:100,class:"beijing",firms:"Moonshot AI, Zhipu AI, Baidu, Cambricon, Moore Threads, Manus, Zhongguancun Kejin, Spirit AI, BAAI, Baichuan AI, 01.AI, SoundAI, Horizon Robotics, Kuaishou AI, Vidu, Lingyi Wanwu, CAS Star, MEGVII, Comate, Lightyear Beyond",zone:"First AI Pilot Zone (Feb 2019)"},
+  {name:"Hangzhou",count:8,bar:42,class:"hangzhou",firms:"DeepSeek, Alibaba Cloud/Qwen, Unitree Robotics, Manycore Tech, Zhijiang Lab, Tongyi/DAMO, Six Dragons ecosystem",zone:"AI Pilot Zone · Municipal fund ¥50.2B"},
+  {name:"Shanghai",count:6,bar:32,class:"shanghai",firms:"MiniMax, Stepfun, MetaX, Sensetime, Agibot, Fourier Intelligence",zone:"AI Pilot Zone (May 2019) · Foundation Model Incubator"},
+  {name:"Shenzhen/GBA",count:5,bar:26,class:"shenzhen",firms:"Huawei Cloud, DJI, Tencent Cloud AI, Tencent Yuanbao + GBA ecosystem",zone:"Shenzhen AI Pilot Zone · Hardware-AI convergence"},
+  {name:"Other Cities",count:2,bar:11,class:"",firms:"iFlytek (Hefei), Black Sesame Tech (Wuhan), Midea/KUKA (Guangzhou)",zone:"Provincial clusters · Automotive + manufacturing corridors"}
+];
+
+const insights=[
+  {icon:"building-2",color:"var(--color-primary)",title:"Capital Coordination Domain",body:"28 of 40 companies received guidance fund investment or state-backed capital. Beijing State-owned Capital Operation and municipal AI funds operationalise the first orchestration domain in the capstone framework."},
+  {icon:"database",color:"var(--color-blue)",title:"Data & Compute Governance",body:"Huawei Cloud, Alibaba Cloud, Cambricon, and Moore Threads collectively form the compute infrastructure layer. Within Beijing's Pilot Zone, firms receive subsidised access — a direct expression of the infrastructure governance domain."},
+  {icon:"graduation-cap",color:"var(--color-gold)",title:"Institutional Integration",body:"Zhipu AI (Tsinghua KEG spinout), Moonshot AI (TU/CMU alumni), Vidu, and SoundAI directly evidence the university-industry transfer pathway. Zhejiang University underlies Hangzhou's Six Dragons and Unitree Robotics."},
+  {icon:"map-pin",color:"var(--color-orange)",title:"AI Pilot Zone Clustering",body:"Over 82% of companies cluster in Beijing (19), Hangzhou (8), or Shanghai (6) — the three most mature AI Pilot Zones. This validates the capstone's argument that zone designation shapes ecosystem outcomes."},
+  {icon:"git-branch",color:"var(--color-purple)",title:"Two Orchestration Models",body:"Beijing (research-state-capital) vs. Hangzhou (platform-anchored / Alibaba-led) represent the two institutional pathways compared in the capstone. DeepSeek and Unitree test non-state-capital orchestration."},
+  {icon:"cpu",color:"var(--color-error)",title:"Compute Sovereignty Imperative",body:"Under US export controls on Nvidia GPUs, Cambricon, Moore Threads, MetaX, Horizon Robotics, and Huawei's Ascend chips are now strategic assets — directly supporting the data & infrastructure governance domain."}
+];
+
+
+
+function renderCityPanel(){
+  // City cards
+  document.getElementById("cityPanel").innerHTML=cityData.map(c=>`
+    <div class="city-card" data-city="${c.name}" id="card-${c.name.replace(/\s/g,'-')}">
+      <div class="city-card-header">
+        <span class="city-card-name">${c.name}</span>
+        <span class="city-card-count">${c.count} ${c.count===1?'company':'companies'}</span>
+      </div>
+      <div class="city-bar-wrap"><div class="city-bar-fill" style="width:0%" data-width="${c.bar}%"></div></div>
+      <div class="city-firms">${c.firms}</div>
+      <div class="city-zone">${c.zone}</div>
+    </div>`).join("");
+  setTimeout(()=>document.querySelectorAll(".city-bar-fill").forEach(el=>el.style.width=el.dataset.width),120);
+  drawChinaMap();
+}
+
+function getCSSVar(name){
+  return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+}
+
+function drawChinaMap(){
+  const canvas=document.getElementById("chinaMapCanvas");
+  if(!canvas)return;
+  const ctx=canvas.getContext("2d");
+  const W=860,H=640;
+  canvas.width=W; canvas.height=H;
+
+  const isDark=document.documentElement.getAttribute("data-theme")==="dark";
+  const bgColor    = isDark?"#1c1b19":"#f9f8f5";
+  const seaColor   = isDark?"#14181f":"#e8eef5";
+  const landColor  = isDark?"#2a2926":"#edeae5";
+  const borderColor= isDark?"rgba(255,255,255,0.06)":"rgba(0,0,0,0.08)";
+  const primary    = isDark?"#4f98a3":"#01696f";
+  const textColor  = isDark?"#cdccca":"#28251d";
+  const mutedColor = isDark?"#797876":"#7a7974";
+
+  // --- Background (sea) ---
+  ctx.fillStyle=seaColor;
+  ctx.fillRect(0,0,W,H);
+
+  // --- Draw simplified China outline + provinces as filled polygons ---
+  // Using Mercator-approximate screen coords for 900x700 space, scaled to 860x640
+  const sx=W/900, sy=H/700;
+  function p(pts){ return pts.map(([x,y])=>[x*sx,y*sy]); }
+
+  function drawPoly(pts, fill, stroke){
+    const scaled=p(pts);
+    ctx.beginPath();
+    ctx.moveTo(scaled[0][0],scaled[0][1]);
+    scaled.slice(1).forEach(([x,y])=>ctx.lineTo(x,y));
+    ctx.closePath();
+    ctx.fillStyle=fill;
+    ctx.fill();
+    ctx.strokeStyle=stroke||borderColor;
+    ctx.lineWidth=0.8;
+    ctx.stroke();
+  }
+
+  // Province data: [name, points, isHighlighted, highlightLevel 0-1]
+  const provinces=[
+    // Xinjiang (large western)
+    ["xinjiang",[[62,88],[235,55],[260,102],[272,148],[242,188],[196,215],[140,220],[90,195],[62,148]],false,0],
+    // Tibet
+    ["tibet",[[182,260],[355,232],[365,295],[348,342],[300,362],[238,357],[184,320],[168,285]],false,0],
+    // Qinghai
+    ["qinghai",[[235,195],[302,165],[342,178],[350,215],[330,250],[290,262],[248,254],[224,228]],false,0],
+    // Inner Mongolia
+    ["inner-mongolia",[[378,80],[542,60],[602,80],[612,112],[582,132],[546,126],[510,132],[480,132],[440,116],[390,122],[370,106]],false,0],
+    // Heilongjiang
+    ["heilongjiang",[[628,55],[720,45],[757,70],[742,102],[696,108],[670,88],[628,90]],false,0],
+    // Jilin
+    ["jilin",[[628,90],[680,88],[696,106],[682,126],[652,130],[628,115]],false,0],
+    // Liaoning
+    ["liaoning",[[578,120],[630,115],[650,130],[640,156],[610,166],[580,156],[564,140]],false,0],
+    // Hebei
+    ["hebei",[[498,130],[560,120],[580,140],[572,166],[554,176],[540,176],[530,192],[504,186],[494,166],[488,146]],false,0],
+    // Shanxi
+    ["shanxi",[[478,154],[504,144],[510,176],[504,202],[484,216],[467,200],[464,176]],false,0],
+    // Shaanxi
+    ["shaanxi",[[458,175],[500,168],[513,196],[508,234],[481,240],[456,228],[446,206]],false,0],
+    // Gansu
+    ["gansu",[[290,148],[390,118],[410,140],[416,166],[400,196],[374,212],[340,216],[294,202],[270,176]],false,0],
+    // Ningxia
+    ["ningxia",[[430,158],[458,152],[465,172],[458,192],[436,196],[424,178]],false,0],
+    // Shandong
+    ["shandong",[[574,194],[640,184],[660,200],[650,226],[620,236],[578,232],[564,214]],false,0],
+    // Henan
+    ["henan",[[494,218],[542,212],[558,234],[554,260],[527,270],[496,258],[484,238]],false,0],
+    // Jiangsu
+    ["jiangsu",[[568,235],[616,230],[630,256],[624,286],[608,296],[578,290],[563,270],[558,250]],false,0],
+    // Anhui
+    ["anhui",[[533,254],[572,248],[578,276],[572,306],[548,316],[528,300],[520,276]],false,0],
+    // Sichuan
+    ["sichuan",[[358,258],[435,245],[448,272],[442,314],[420,330],[384,324],[354,300],[344,274]],false,0],
+    // Chongqing
+    ["chongqing",[[436,288],[466,282],[472,302],[459,320],[438,316],[428,302]],false,0],
+    // Jiangxi
+    ["jiangxi",[[538,314],[572,308],[578,336],[566,366],[543,378],[518,360],[513,335]],false,0],
+    // Hunan
+    ["hunan",[[478,312],[518,305],[528,330],[518,358],[493,370],[468,356],[460,330]],false,0],
+    // Guizhou
+    ["guizhou",[[418,328],[462,320],[472,342],[460,368],[436,376],[412,358],[408,338]],false,0],
+    // Yunnan
+    ["yunnan",[[344,330],[415,322],[422,356],[408,396],[373,406],[338,390],[318,360],[326,334]],false,0],
+    // Guangxi
+    ["guangxi",[[428,370],[478,365],[482,392],[466,416],[438,422],[416,400],[413,378]],false,0],
+    // Fujian
+    ["fujian",[[568,324],[612,318],[625,340],[618,368],[594,378],[570,360],[562,340]],false,0],
+    // Hainan
+    ["hainan",[[478,434],[510,430],[514,448],[493,456],[476,448]],false,0],
+    // Tianjin (tiny)
+    ["tianjin",[[556,158],[568,155],[571,165],[561,170],[553,165]],false,0],
+  ];
+
+  // Draw all neutral provinces first
+  provinces.forEach(([name,pts])=>drawPoly(pts,landColor));
+
+  // Highlighted provinces (cities with data)
+  const highlights=[
+    {pts:[[540,148],[558,142],[565,155],[562,168],[545,170],[535,160]], level:1.0, city:"Beijing"},       // Beijing
+    {pts:[[576,292],[616,288],[625,312],[614,336],[588,340],[570,326],[566,305]], level:0.62, city:"Hangzhou"}, // Zhejiang
+    {pts:[[613,289],[628,285],[633,295],[622,302],[611,297]], level:0.50, city:"Shanghai"},              // Shanghai
+    {pts:[[476,370],[530,362],[570,370],[576,394],[553,416],[518,420],[488,410],[468,392]], level:0.38, city:"Shenzhen"}, // Guangdong
+    {pts:[[478,270],[530,263],[545,280],[539,308],[513,318],[483,308],[468,288]], level:0.18, city:"Wuhan"}, // Hubei
+    {pts:[[533,254],[572,248],[578,276],[572,306],[548,316],[528,300],[520,276]], level:0.12, city:"Hefei"}, // Anhui (Hefei)
+  ];
+
+  function hexToRGB(hex){
+    const r=parseInt(hex.slice(1,3),16);
+    const g=parseInt(hex.slice(3,5),16);
+    const b=parseInt(hex.slice(5,7),16);
+    return [r,g,b];
+  }
+  // Parse primary color (teal)
+  let [pr,pg,pb]=[1,105,111]; // fallback for #01696f
+  if(primary.startsWith('#')&&primary.length===7)[pr,pg,pb]=hexToRGB(primary);
+  else if(isDark)[pr,pg,pb]=[79,152,163]; // #4f98a3
+
+  highlights.forEach(h=>{
+    const a=0.15+h.level*0.72;
+    drawPoly(h.pts,`rgba(${pr},${pg},${pb},${a.toFixed(2)})`);
+  });
+
+  // --- City bubbles ---
+  const cities=[
+    {name:"Beijing",   cn:"北京", x:549,y:158, count:19, firms:"Moonshot AI, Zhipu AI, Baidu, Cambricon, Moore Threads + 14 more"},
+    {name:"Hangzhou",  cn:"杭州", x:596,y:312, count:8,  firms:"DeepSeek, Alibaba/Qwen, Unitree Robotics + 5 more"},
+    {name:"Shanghai",  cn:"上海", x:622,y:292, count:6,  firms:"MiniMax, Stepfun, MetaX, Sensetime + 2 more"},
+    {name:"Shenzhen",  cn:"深圳", x:522,y:393, count:5,  firms:"Huawei Cloud, DJI, Tencent Cloud + 2 more"},
+    {name:"Wuhan",     cn:"武汉", x:508,y:290, count:1,  firms:"Black Sesame Tech"},
+    {name:"Hefei",     cn:"合肥", x:555,y:278, count:1,  firms:"iFlytek"},
+    {name:"Guangzhou", cn:"广州", x:505,y:388, count:1,  firms:"Midea / KUKA"},
+  ];
+
+  const MAX_R=42, MIN_R=9;
+  const maxCount=19;
+
+  // Store for hit-testing
+  canvas._cities=cities.map(c=>({
+    ...c,
+    cx:c.x*sx, cy:c.y*sy,
+    r: MIN_R+(c.count/maxCount)*(MAX_R-MIN_R)
+  }));
+
+  // Animate bubbles in
+  let progress=0;
+  function animateBubbles(){
+    progress=Math.min(progress+0.04,1);
+    const ease=1-Math.pow(1-progress,3);
+
+    // Redraw base (clear bubbles area)
+    ctx.clearRect(0,0,W,H);
+    ctx.fillStyle=seaColor; ctx.fillRect(0,0,W,H);
+    provinces.forEach(([name,pts])=>drawPoly(pts,landColor));
+    highlights.forEach(h=>{
+      const a=0.15+h.level*0.72;
+      drawPoly(h.pts,`rgba(${pr},${pg},${pb},${a.toFixed(2)})`);
+    });
+
+    canvas._cities.forEach(c=>{
+      const r=c.r*ease;
+      // Glow ring
+      const grd=ctx.createRadialGradient(c.cx,c.cy,r*0.4,c.cx,c.cy,r*1.6);
+      grd.addColorStop(0,`rgba(${pr},${pg},${pb},0.18)`);
+      grd.addColorStop(1,`rgba(${pr},${pg},${pb},0)`);
+      ctx.beginPath();ctx.arc(c.cx,c.cy,r*1.6,0,Math.PI*2);
+      ctx.fillStyle=grd; ctx.fill();
+
+      // Main bubble
+      ctx.beginPath(); ctx.arc(c.cx,c.cy,r,0,Math.PI*2);
+      const a=0.25+(c.count/maxCount)*0.55;
+      ctx.fillStyle=`rgba(${pr},${pg},${pb},${a.toFixed(2)})`;
+      ctx.fill();
+      ctx.strokeStyle=`rgba(${pr},${pg},${pb},0.8)`;
+      ctx.lineWidth=1.5; ctx.stroke();
+
+      // Label (only show for larger bubbles)
+      if(c.count>=5&&ease>0.6){
+        ctx.fillStyle=textColor;
+        ctx.font=`600 ${c.count>=8?12:11}px 'DM Sans',sans-serif`;
+        ctx.textAlign="center";
+        ctx.textBaseline="middle";
+        const labelY=c.cy+r+13;
+        ctx.fillText(c.name,c.cx,labelY);
+        ctx.font=`400 10px 'DM Sans',sans-serif`;
+        ctx.fillStyle=mutedColor;
+        ctx.fillText(c.cn,c.cx,labelY+13);
+      }
+    });
+
+    if(progress<1) requestAnimationFrame(animateBubbles);
+    else{
+      // Draw all labels after animation
+      canvas._cities.forEach(c=>{
+        ctx.fillStyle=textColor;
+        ctx.font=`600 ${c.count>=8?12:11}px 'DM Sans',sans-serif`;
+        ctx.textAlign="center";
+        ctx.textBaseline="middle";
+        const labelY=c.cy+c.r+13;
+        ctx.fillText(c.name,c.cx,labelY);
+        ctx.font=`400 10px 'DM Sans',sans-serif`;
+        ctx.fillStyle=mutedColor;
+        ctx.fillText(c.cn,c.cx,labelY+13);
+      });
+    }
+  }
+  animateBubbles();
+
+  // --- Tooltip on hover ---
+  const container=document.getElementById("mapContainer");
+  const tooltip=document.getElementById("mapTooltip");
+
+  canvas.onmousemove=function(e){
+    const rect=canvas.getBoundingClientRect();
+    const scaleX=canvas.width/rect.width;
+    const scaleY=canvas.height/rect.height;
+    const mx=(e.clientX-rect.left)*scaleX;
+    const my=(e.clientY-rect.top)*scaleY;
+    let hit=null;
+    canvas._cities.forEach(c=>{
+      const dx=mx-c.cx, dy=my-c.cy;
+      if(Math.sqrt(dx*dx+dy*dy)<=c.r+4) hit=c;
+    });
+    if(hit){
+      const compWord=hit.count===1?"company":"companies";
+      tooltip.innerHTML=`<strong>${hit.name} <span style="color:var(--color-text-muted);font-weight:400">${hit.cn}</span></strong><span class="tt-count">${hit.count} ${compWord}</span><div class="tt-firms">${hit.firms}</div>`;
+      const canvasRect=canvas.getBoundingClientRect();
+      const containerRect=container.getBoundingClientRect();
+      const tx=e.clientX-containerRect.left+14;
+      const ty=e.clientY-containerRect.top-20;
+      tooltip.style.left=Math.min(tx,containerRect.width-250)+"px";
+      tooltip.style.top=Math.max(ty,8)+"px";
+      tooltip.style.opacity="1";
+      canvas.style.cursor="pointer";
+      // Highlight corresponding card
+      document.querySelectorAll(".city-card").forEach(el=>el.classList.remove("highlighted"));
+      const card=document.getElementById("card-"+hit.name.replace(/\s/g,'-'));
+      if(card) card.classList.add("highlighted");
+    } else {
+      tooltip.style.opacity="0";
+      canvas.style.cursor="default";
+      document.querySelectorAll(".city-card").forEach(el=>el.classList.remove("highlighted"));
+    }
+  };
+  canvas.onmouseleave=function(){
+    tooltip.style.opacity="0";
+    document.querySelectorAll(".city-card").forEach(el=>el.classList.remove("highlighted"));
+  };
+}
+
+
+function renderInsights(){
+  document.getElementById("insightsGrid").innerHTML=insights.map(ins=>`
+    <div class="insight-card">
+      <div class="insight-icon" style="background:color-mix(in oklab,${ins.color} 15%,var(--color-bg));color:${ins.color}">
+        <i data-lucide="${ins.icon}" width="20" height="20"></i>
+      </div>
+      <h3>${ins.title}</h3>
+      <p>${ins.body}</p>
+    </div>`).join("");
+  lucide.createIcons();
+}
+
+document.querySelectorAll(".chip").forEach(chip=>{
+  chip.addEventListener("click",()=>{
+    document.querySelectorAll(".chip").forEach(c=>c.classList.remove("active"));
+    chip.classList.add("active");
+    renderTable(chip.dataset.filter);
+  });
+});
+
+function activateTab(tabName){
+  document.querySelectorAll(".tab-btn").forEach(b=>{b.classList.remove("active");b.setAttribute("aria-selected","false");});
+  document.querySelectorAll(".tab-panel").forEach(p=>p.classList.remove("active"));
+  const btn=document.querySelector(`.tab-btn[data-tab="${tabName}"]`);
+  const panel=document.getElementById(`panel-${tabName}`);
+  if(btn){btn.classList.add("active");btn.setAttribute("aria-selected","true");}
+  if(panel){
+    panel.classList.add("active");
+    if(tabName==="map")renderCityPanel();
+    if(tabName==="insights")renderInsights();
+  }
+}
+
+document.querySelectorAll(".tab-btn").forEach(btn=>{
+  btn.addEventListener("click",()=>activateTab(btn.dataset.tab));
+});
+
+document.querySelectorAll("[data-nav-tab]").forEach(link=>{
+  link.addEventListener("click",(e)=>{
+    e.preventDefault();
+    const tabName=link.dataset.navTab;
+    activateTab(tabName);
+    document.querySelectorAll("[data-nav-tab]").forEach(l=>l.classList.remove("active"));
+    link.classList.add("active");
+    requestAnimationFrame(()=>{
+      requestAnimationFrame(()=>{
+        document.getElementById("tab-ecosystem").scrollIntoView({behavior:"smooth",block:"start"});
+      });
+    });
+  });
+});
+
+// Handle direct hash navigation on load
+(function(){
+  const map={"#tab-ecosystem":"ecosystem","#tab-map":"map","#tab-insights":"insights"};
+  const tabName = map[location.hash] || "ecosystem";
+  if(map[location.hash]) activateTab(tabName);
+  // Set active nav link on load
+  const activeLink = document.querySelector('[data-nav-tab="'+tabName+'"]');
+  if(activeLink){
+    document.querySelectorAll("[data-nav-tab]").forEach(l=>l.classList.remove("active"));
+    activeLink.classList.add("active");
+  }
+})();
+
+(function(){
+  const t=document.querySelector('[data-theme-toggle]');
+  const r=document.documentElement;
+  const sun='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>';
+  const moon='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+  let d=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';
+  function applyTheme(){
+    r.setAttribute('data-theme',d);
+    if(!t)return;
+    t.innerHTML=d==='dark'?sun:moon;
+    t.setAttribute('data-label',d==='dark'?'Light':'Dark');
+    t.setAttribute('aria-label','Switch to '+(d==='dark'?'light':'dark')+' mode');
+    // Re-draw canvas map if Cities tab is active
+    if(document.getElementById("chinaMapCanvas")){
+      setTimeout(drawChinaMap,50);
+    }
+  }
+  applyTheme();
+  if(t){t.addEventListener('click',()=>{d=d==='dark'?'light':'dark';applyTheme();});}
+})();
+
+// ── Column sort ────────────────────────────────────────────────────────────────
+let sortKey='rank', sortDir=1;
+function renderTable(filter="all"){
+  const tbody=document.getElementById("tableBody");
+  tbody.innerHTML="";
+  let data=startups.filter(s=>filter==="all"||s.sector===filter);
+  data.sort((a,b)=>{
+    let av=a[sortKey], bv=b[sortKey];
+    if(typeof av==="string") return av.localeCompare(bv)*sortDir;
+    return (av-bv)*sortDir;
+  });
+  data.forEach(s=>{
+    const dots=Array.from({length:5},(_,i)=>`<span class="rel-dot ${i<s.relevance?'on':'off'}"></span>`).join("");
+    tbody.insertAdjacentHTML("beforeend",`<tr>
+      <td style="color:var(--color-text-faint);font-variant-numeric:tabular-nums;font-weight:600">${s.rank}</td>
+      <td><div class="company-cell"><span class="company-name">${s.name}</span><span class="company-cn">${s.cn}</span></div></td>
+      <td><span class="city-tag city-tag--${s.cityClass}">${s.city}</span></td>
+      <td><span class="badge badge--${s.sector}">${s.sectorLabel}</span></td>
+      <td style="font-variant-numeric:tabular-nums;color:var(--color-text-muted)">${s.founded}</td>
+      <td><span class="funding-chip ${s.fundingLevel}">${s.funding}</span></td>
+      <td style="font-size:var(--text-xs);color:var(--color-text-muted);max-width:180px">${s.policyAlignment}</td>
+      <td><div class="rel-dots" aria-label="${s.relevance} out of 5">${dots}</div></td>
+      <td style="font-size:var(--text-xs);color:var(--color-text-muted);max-width:220px;line-height:1.5">${s.role}</td>
+    </tr>`);
+  });
+}
+
+document.querySelectorAll(".th-sort").forEach(th=>{
+  th.addEventListener("click",()=>{
+    const key=th.dataset.sort;
+    if(sortKey===key){sortDir*=-1;}else{sortKey=key;sortDir=1;}
+    document.querySelectorAll(".th-sort").forEach(h=>{h.removeAttribute("aria-sort");h.querySelector(".sort-icon").textContent="↕";});
+    th.setAttribute("aria-sort",sortDir===1?"ascending":"descending");
+    const activeChip=document.querySelector(".chip.active");
+    renderTable(activeChip?activeChip.dataset.filter:"all");
+  });
+});
+
+renderTable();
+</script>
+</body>
+</html>
