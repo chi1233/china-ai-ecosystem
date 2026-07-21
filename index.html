@@ -280,16 +280,65 @@ nav a.active{color:var(--color-primary);font-weight:600;}
   .hero-cluster{column-gap:var(--space-4);}
 }
 .hero-cluster-item{display:flex;flex-direction:column;align-items:center;gap:var(--space-2);}
+
+/* Wrap handles hover growth (transform) — kept separate from the dot's own
+   entrance + breathing animations so the two never fight over one property. */
+.hero-cluster-dot-wrap{
+  position:relative;
+  border-radius:50%;
+  transition:transform 0.25s cubic-bezier(0.16,1,0.3,1);
+}
+.hero-cluster-item:hover .hero-cluster-dot-wrap{transform:scale(1.14);}
+
 .hero-cluster-dot{
+  display:block;
+  width:100%;height:100%;
   border-radius:50%;
   background:var(--color-primary);
   opacity:0;
   transform:scale(0.5);
-  animation:heroClusterIn 0.6s cubic-bezier(0.16,1,0.3,1) forwards;
+  animation-name:heroClusterIn,heroClusterBreathe;
+  animation-timing-function:cubic-bezier(0.16,1,0.3,1),ease-in-out;
+  animation-iteration-count:1,infinite;
+  animation-fill-mode:forwards,none;
 }
 @keyframes heroClusterIn{to{opacity:var(--n-op,1);transform:scale(1);}}
+/* Breathing animates the standalone `scale` property (not `transform`), so it
+   layers on top of the entrance transform instead of overwriting it. */
+@keyframes heroClusterBreathe{0%,100%{scale:1;}50%{scale:1.06;}}
+
 .hero-cluster-label{font-size:var(--text-xs);color:var(--color-text-muted);font-weight:600;}
 .hero-cluster-count{font-family:var(--font-display);font-size:0.7rem;color:var(--color-text-faint);}
+
+/* Hover tooltip — same idea as the map tooltip, pure CSS, no JS needed */
+.hero-cluster-tooltip{
+  position:absolute;
+  bottom:calc(100% + 12px);
+  left:50%;
+  transform:translateX(-50%) translateY(4px);
+  background:var(--color-surface-2);
+  border:1px solid var(--color-border);
+  border-radius:var(--radius-md);
+  padding:var(--space-2) var(--space-3);
+  font-size:var(--text-xs);
+  color:var(--color-text-muted);
+  white-space:nowrap;
+  box-shadow:var(--shadow-md);
+  opacity:0;
+  pointer-events:none;
+  transition:opacity 0.2s ease, transform 0.2s ease;
+  z-index:5;
+}
+.hero-cluster-tooltip strong{
+  display:block;
+  font-family:var(--font-display);
+  font-style:italic;
+  font-size:var(--text-sm);
+  font-weight:600;
+  color:var(--color-primary);
+  margin-bottom:2px;
+}
+.hero-cluster-item:hover .hero-cluster-tooltip{opacity:1;transform:translateX(-50%) translateY(0);}
 
 /* Fact box — "at a glance" index, styled like a report sidebar, not a SaaS stat bar */
 .hero-index{
@@ -503,27 +552,42 @@ footer{margin-top:var(--space-16);border-top:1px solid var(--color-divider);padd
           </p>
           <div class="hero-cluster" aria-hidden="true">
             <div class="hero-cluster-item">
-              <div class="hero-cluster-dot" style="width:56px;height:56px;--n-op:0.9;animation-delay:850ms;"></div>
+              <div class="hero-cluster-dot-wrap" style="width:56px;height:56px;">
+                <div class="hero-cluster-dot" style="--n-op:0.9;animation-duration:0.6s,3.4s;animation-delay:850ms,1450ms;"></div>
+                <div class="hero-cluster-tooltip"><strong>Beijing</strong>19 startups · First AI Pilot Zone (Feb 2019)</div>
+              </div>
               <span class="hero-cluster-label">Beijing</span>
               <span class="hero-cluster-count">19</span>
             </div>
             <div class="hero-cluster-item">
-              <div class="hero-cluster-dot" style="width:38px;height:38px;--n-op:0.6;animation-delay:930ms;"></div>
+              <div class="hero-cluster-dot-wrap" style="width:38px;height:38px;">
+                <div class="hero-cluster-dot" style="--n-op:0.6;animation-duration:0.6s,3.8s;animation-delay:930ms,1530ms;"></div>
+                <div class="hero-cluster-tooltip"><strong>Hangzhou</strong>8 startups · Municipal AI fund ¥50.2B</div>
+              </div>
               <span class="hero-cluster-label">Hangzhou</span>
               <span class="hero-cluster-count">8</span>
             </div>
             <div class="hero-cluster-item">
-              <div class="hero-cluster-dot" style="width:33px;height:33px;--n-op:0.5;animation-delay:1000ms;"></div>
+              <div class="hero-cluster-dot-wrap" style="width:33px;height:33px;">
+                <div class="hero-cluster-dot" style="--n-op:0.5;animation-duration:0.6s,3.6s;animation-delay:1000ms,1600ms;"></div>
+                <div class="hero-cluster-tooltip"><strong>Shanghai</strong>6 startups · Foundation Model Incubator</div>
+              </div>
               <span class="hero-cluster-label">Shanghai</span>
               <span class="hero-cluster-count">6</span>
             </div>
             <div class="hero-cluster-item">
-              <div class="hero-cluster-dot" style="width:30px;height:30px;--n-op:0.42;animation-delay:1060ms;"></div>
+              <div class="hero-cluster-dot-wrap" style="width:30px;height:30px;">
+                <div class="hero-cluster-dot" style="--n-op:0.42;animation-duration:0.6s,4.0s;animation-delay:1060ms,1660ms;"></div>
+                <div class="hero-cluster-tooltip"><strong>Shenzhen</strong>5 startups · Hardware-AI convergence</div>
+              </div>
               <span class="hero-cluster-label">Shenzhen</span>
               <span class="hero-cluster-count">5</span>
             </div>
             <div class="hero-cluster-item">
-              <div class="hero-cluster-dot" style="width:20px;height:20px;--n-op:0.3;animation-delay:1110ms;"></div>
+              <div class="hero-cluster-dot-wrap" style="width:20px;height:20px;">
+                <div class="hero-cluster-dot" style="--n-op:0.3;animation-duration:0.6s,3.2s;animation-delay:1110ms,1710ms;"></div>
+                <div class="hero-cluster-tooltip"><strong>Other cities</strong>2 startups · Provincial clusters</div>
+              </div>
               <span class="hero-cluster-label">Other</span>
               <span class="hero-cluster-count">2</span>
             </div>
