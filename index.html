@@ -185,12 +185,7 @@ nav a.active{color:var(--color-primary);font-weight:600;}
   border-bottom:1px solid var(--color-divider);
 }
 
-/* Two-column report layout: copy left, fact box right */
-.hero-grid{display:grid;grid-template-columns:1fr;gap:var(--space-10);}
-@media(min-width:900px){
-  .hero-grid{grid-template-columns:1fr auto;align-items:start;gap:var(--space-16);}
-}
-.hero-main{max-width:640px;}
+.hero-main{max-width:900px;}
 
 /* Staggered entrance — byline, eyebrow, headline, deck fade/slide in in sequence */
 @keyframes heroFadeUp{
@@ -262,119 +257,39 @@ nav a.active{color:var(--color-primary);font-weight:600;}
   font-style:normal;
   font-weight:600;
   color:var(--color-text);
+  margin-left:0.15em;
 }
 
-/* Cluster preview — real city-count data, echoes the bubble map on the Cities tab.
-   Dots animate in on a common baseline like a small bar/bubble chart. */
-.hero-cluster{
-  display:flex;
-  flex-wrap:wrap;
-  align-items:flex-end;
-  column-gap:var(--space-6);
-  row-gap:var(--space-5);
+/* Metrics line — a single typeset row of figures, divided by hairlines
+   rather than boxed pills, continuing the byline's editorial voice. */
+.hero-metrics{
+  display:flex;flex-wrap:wrap;
   margin-top:var(--space-8);
   padding-top:var(--space-6);
   border-top:1px solid var(--color-divider);
 }
-@media(max-width:480px){
-  .hero-cluster{column-gap:var(--space-4);}
-}
-.hero-cluster-item{display:flex;flex-direction:column;align-items:center;gap:var(--space-2);}
-
-/* Wrap handles hover growth (transform) — kept separate from the dot's own
-   entrance + breathing animations so the two never fight over one property. */
-.hero-cluster-dot-wrap{
-  position:relative;
-  border-radius:50%;
-  transition:transform 0.25s cubic-bezier(0.16,1,0.3,1);
-}
-.hero-cluster-item:hover .hero-cluster-dot-wrap{transform:scale(1.14);}
-
-.hero-cluster-dot{
-  display:block;
-  width:100%;height:100%;
-  border-radius:50%;
-  background:var(--color-primary);
+.hero-metric{
+  padding:0 var(--space-6);
+  border-left:1px solid var(--color-divider);
   opacity:0;
-  transform:scale(0.5);
-  animation-name:heroClusterIn,heroClusterBreathe;
-  animation-timing-function:cubic-bezier(0.16,1,0.3,1),ease-in-out;
-  animation-iteration-count:1,infinite;
-  animation-fill-mode:forwards,none;
+  animation:heroFadeUp 0.6s cubic-bezier(0.16,1,0.3,1) forwards;
 }
-@keyframes heroClusterIn{to{opacity:var(--n-op,1);transform:scale(1);}}
-/* Breathing animates the standalone `scale` property (not `transform`), so it
-   layers on top of the entrance transform instead of overwriting it. */
-@keyframes heroClusterBreathe{0%,100%{scale:1;}50%{scale:1.06;}}
+.hero-metric:first-child{padding-left:0;border-left:none;}
+.hero-metric-num{font-family:var(--font-display);font-size:var(--text-xl);font-weight:700;color:var(--color-primary);line-height:1;letter-spacing:-0.03em;}
+.hero-metric-label{font-size:var(--text-xs);color:var(--color-text-muted);text-transform:uppercase;letter-spacing:0.08em;font-weight:500;margin-top:var(--space-1);}
 
-.hero-cluster-label{font-size:var(--text-xs);color:var(--color-text-muted);font-weight:600;}
-.hero-cluster-count{font-family:var(--font-display);font-size:0.7rem;color:var(--color-text-faint);}
-
-/* Hover tooltip — same idea as the map tooltip, pure CSS, no JS needed */
-.hero-cluster-tooltip{
-  position:absolute;
-  bottom:calc(100% + 12px);
-  left:50%;
-  transform:translateX(-50%) translateY(4px);
-  background:var(--color-surface-2);
-  border:1px solid var(--color-border);
-  border-radius:var(--radius-md);
-  padding:var(--space-2) var(--space-3);
-  font-size:var(--text-xs);
-  color:var(--color-text-muted);
-  white-space:nowrap;
-  box-shadow:var(--shadow-md);
-  opacity:0;
-  pointer-events:none;
-  transition:opacity 0.2s ease, transform 0.2s ease;
-  z-index:5;
-}
-.hero-cluster-tooltip strong{
-  display:block;
-  font-family:var(--font-display);
-  font-style:italic;
-  font-size:var(--text-sm);
-  font-weight:600;
-  color:var(--color-primary);
-  margin-bottom:2px;
-}
-.hero-cluster-item:hover .hero-cluster-tooltip{opacity:1;transform:translateX(-50%) translateY(0);}
-
-/* Fact box — "at a glance" index, styled like a report sidebar, not a SaaS stat bar */
-.hero-index{
-  align-self:start;
-  margin-top:var(--space-10);
-  min-width:240px;
-  border:1px solid var(--color-border);
-  border-radius:var(--radius-lg);
-  background:var(--color-surface);
-  padding:var(--space-5) var(--space-6);
-}
-.hero-index-title{
-  font-size:var(--text-xs);
-  font-weight:600;
-  text-transform:uppercase;
-  letter-spacing:0.1em;
-  color:var(--color-text-muted);
-  margin-bottom:var(--space-4);
-  padding-bottom:var(--space-3);
-  border-bottom:1px solid var(--color-divider);
-}
-.hero-index-list{display:flex;flex-direction:column;}
-.hero-index-row{
-  display:flex;justify-content:space-between;align-items:baseline;gap:var(--space-6);
-  padding:var(--space-3) 0;
-  border-bottom:1px solid var(--color-divider);
-}
-.hero-index-row:last-child{border-bottom:none;padding-bottom:0;}
-.hero-index-row dt{font-size:var(--text-sm);color:var(--color-text-muted);font-weight:500;}
-.hero-index-row dd{
-  font-family:var(--font-display);
-  font-size:var(--text-lg);
-  font-weight:700;
-  color:var(--color-primary);
-  letter-spacing:-0.02em;
-}
+/* Distribution bar — one proportional strip standing in for the old bubble
+   cluster; segment widths mirror the real per-city startup counts. */
+.hero-distribution{margin-top:var(--space-8);}
+.hero-distribution-label{font-size:var(--text-xs);color:var(--color-text-muted);text-transform:uppercase;letter-spacing:0.08em;font-weight:600;margin-bottom:var(--space-3);}
+.hero-distribution-bar{display:flex;width:100%;height:22px;border-radius:var(--radius-md);overflow:hidden;background:var(--color-surface-offset);animation:heroBarFloat 4s ease-in-out 1.8s infinite;}
+@keyframes heroBarFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-4px);}}
+.hero-distribution-seg{height:100%;width:0%;background:var(--color-primary);transition:width 1s cubic-bezier(0.16,1,0.3,1);}
+.hero-distribution-seg:not(:last-child){border-right:2px solid var(--color-bg);}
+.hero-distribution-legend{display:flex;flex-wrap:wrap;gap:var(--space-5);margin-top:var(--space-3);}
+.hero-distribution-item{display:flex;align-items:center;gap:var(--space-2);font-size:var(--text-xs);color:var(--color-text-muted);}
+.hero-distribution-swatch{width:9px;height:9px;border-radius:2px;flex-shrink:0;background:var(--color-primary);}
+.hero-distribution-item strong{color:var(--color-text);font-weight:600;}
 
 /* TAB BAR */
 .tab-bar{display:flex;gap:var(--space-2);border-bottom:1px solid var(--color-divider);margin-bottom:var(--space-8);padding-top:var(--space-10);}
@@ -431,18 +346,14 @@ tbody td{padding:var(--space-3) var(--space-4) var(--space-4);vertical-align:top
 .rel-dot.on {background:var(--color-primary);}
 .rel-dot.off{background:var(--color-surface-dynamic);}
 
-/* LIVE SIGNAL COLUMN — weekly auto-refresh from free Google News RSS */
-.live-badge{display:inline-block;margin-left:var(--space-2);padding:1px var(--space-2);border-radius:var(--radius-full);font-size:9px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--color-primary);background:var(--color-primary-highlight);vertical-align:middle;}
+/* LATEST SIGNAL COLUMN — weekly news reference from free Google News RSS */
 .signal-cell{display:flex;flex-direction:column;gap:var(--space-1);max-width:240px;}
 .signal-cell a{font-size:var(--text-xs);color:var(--color-text);font-weight:500;line-height:1.4;}
 .signal-cell a:hover{color:var(--color-primary);}
 .signal-meta{display:flex;gap:var(--space-2);align-items:center;font-size:10px;color:var(--color-text-faint);margin-top:2px;}
-.signal-figure{color:var(--color-success);font-weight:600;}
 .signal-empty{font-size:var(--text-xs);color:var(--color-text-faint);font-style:italic;}
 .live-updated-note{font-size:var(--text-xs);color:var(--color-text-muted);margin-bottom:var(--space-4);line-height:1.6;}
 .live-updated-note .dot{display:inline-block;width:6px;height:6px;margin-right:var(--space-2);border-radius:50%;background:var(--color-success);vertical-align:middle;}
-.funding-cell{display:flex;flex-direction:column;gap:var(--space-1);}
-.funding-baseline{font-size:10px;color:var(--color-text-faint);margin-top:1px;}
 
 /* CITY PANEL */
 .city-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:var(--space-4);}
@@ -596,10 +507,16 @@ footer{margin-top:var(--space-16);border-top:1px solid var(--color-divider);padd
 .footer-tag{font-size:var(--text-xs);color:var(--color-text-faint);font-style:italic;}
 
 /* RESPONSIVE */
+/* Below ~960px, four metrics won't fit on one line — switch the divider
+   from a side rule to a top rule so a wrapped row never leaves an
+   orphaned vertical line with nothing to its left. */
+@media(max-width:960px){
+  .hero-metrics{gap:var(--space-5) var(--space-6);}
+  .hero-metric{flex:1 1 40%;padding:var(--space-3) 0 0;border-left:none;border-top:1px solid var(--color-divider);}
+}
 @media(max-width:768px){
   .hero{padding:var(--space-10) 0 var(--space-8);}
   .hero h1{font-size:var(--text-xl);}
-  .hero-index{padding:var(--space-4) var(--space-5);}
   .tab-bar{gap:var(--space-1);overflow-x:auto;}
   .tab-btn{padding:var(--space-2) var(--space-3);white-space:nowrap;}
   .footer-inner{flex-direction:column;text-align:center;}
@@ -614,10 +531,10 @@ footer{margin-top:var(--space-16);border-top:1px solid var(--color-divider);padd
     <a href="#" class="logo" aria-label="China AI Ecosystem Map home">
       <svg class="logo-mark" viewBox="0 0 36 36" fill="none" aria-hidden="true">
         <rect width="36" height="36" rx="8" fill="currentColor" opacity="0.06"/>
-        <circle cx="15" cy="15" r="6.5" fill="currentColor" opacity="0.9"/>
-        <circle cx="25" cy="21" r="4" fill="currentColor" opacity="0.55"/>
-        <circle cx="11" cy="26" r="3" fill="currentColor" opacity="0.4"/>
-        <circle cx="27" cy="10" r="2" fill="currentColor" opacity="0.3"/>
+        <circle cx="15" cy="15" r="6.5" fill="var(--color-blue)" opacity="0.9"/>
+        <circle cx="25" cy="21" r="4" fill="var(--color-blue)" opacity="0.55"/>
+        <circle cx="11" cy="26" r="3" fill="var(--color-blue)" opacity="0.4"/>
+        <circle cx="27" cy="10" r="2" fill="var(--color-blue)" opacity="0.3"/>
       </svg>
       <div class="logo-text">
         <strong>China AI Map</strong>
@@ -638,66 +555,50 @@ footer{margin-top:var(--space-16);border-top:1px solid var(--color-divider);padd
 <main id="main">
   <section class="hero" aria-labelledby="hero-title">
     <div class="container">
-      <div class="hero-grid">
-        <div class="hero-main">
-          <p class="hero-byline">Schwarzman College, Tsinghua University &nbsp;·&nbsp; Thesis Research, 2026</p>
-          <p class="hero-eyebrow">Top 40 Startups</p>
-          <h1 id="hero-title">China's <em>AI Ecosystem</em></h1>
-          <p class="hero-deck">
-            Mapping China's leading AI companies across three domains of <strong>developmental orchestration</strong>: capital coordination, data &amp; infrastructure governance, and institutional integration, analysed through Beijing's AI Pilot Zone programme.
-          </p>
-          <div class="hero-cluster" aria-hidden="true">
-            <div class="hero-cluster-item">
-              <div class="hero-cluster-dot-wrap" style="width:56px;height:56px;">
-                <div class="hero-cluster-dot" style="--n-op:0.9;animation-duration:0.6s,3.4s;animation-delay:850ms,1450ms;"></div>
-                <div class="hero-cluster-tooltip"><strong>Beijing</strong>19 startups · First AI Pilot Zone (Feb 2019)</div>
-              </div>
-              <span class="hero-cluster-label">Beijing</span>
-              <span class="hero-cluster-count">19</span>
-            </div>
-            <div class="hero-cluster-item">
-              <div class="hero-cluster-dot-wrap" style="width:38px;height:38px;">
-                <div class="hero-cluster-dot" style="--n-op:0.6;animation-duration:0.6s,3.8s;animation-delay:930ms,1530ms;"></div>
-                <div class="hero-cluster-tooltip"><strong>Hangzhou</strong>8 startups · Municipal AI fund ¥50.2B</div>
-              </div>
-              <span class="hero-cluster-label">Hangzhou</span>
-              <span class="hero-cluster-count">8</span>
-            </div>
-            <div class="hero-cluster-item">
-              <div class="hero-cluster-dot-wrap" style="width:33px;height:33px;">
-                <div class="hero-cluster-dot" style="--n-op:0.5;animation-duration:0.6s,3.6s;animation-delay:1000ms,1600ms;"></div>
-                <div class="hero-cluster-tooltip"><strong>Shanghai</strong>6 startups · Foundation Model Incubator</div>
-              </div>
-              <span class="hero-cluster-label">Shanghai</span>
-              <span class="hero-cluster-count">6</span>
-            </div>
-            <div class="hero-cluster-item">
-              <div class="hero-cluster-dot-wrap" style="width:30px;height:30px;">
-                <div class="hero-cluster-dot" style="--n-op:0.42;animation-duration:0.6s,4.0s;animation-delay:1060ms,1660ms;"></div>
-                <div class="hero-cluster-tooltip"><strong>Shenzhen</strong>5 startups · Hardware-AI convergence</div>
-              </div>
-              <span class="hero-cluster-label">Shenzhen</span>
-              <span class="hero-cluster-count">5</span>
-            </div>
-            <div class="hero-cluster-item">
-              <div class="hero-cluster-dot-wrap" style="width:20px;height:20px;">
-                <div class="hero-cluster-dot" style="--n-op:0.3;animation-duration:0.6s,3.2s;animation-delay:1110ms,1710ms;"></div>
-                <div class="hero-cluster-tooltip"><strong>Other cities</strong>2 startups · Provincial clusters</div>
-              </div>
-              <span class="hero-cluster-label">Other</span>
-              <span class="hero-cluster-count">2</span>
-            </div>
+      <div class="hero-main">
+        <p class="hero-byline">Schwarzman College, Tsinghua University &nbsp;·&nbsp; Thesis Research, 2026</p>
+        <p class="hero-eyebrow">Top 40 Startups</p>
+        <h1 id="hero-title">China's <em>AI Ecosystem</em></h1>
+        <p class="hero-deck">
+          Mapping China's leading AI companies across three domains of <strong>developmental orchestration</strong>: capital coordination, data &amp; infrastructure governance, and institutional integration, analysed through Beijing's AI Pilot Zone programme.
+        </p>
+
+        <div class="hero-metrics" role="list">
+          <div class="hero-metric" role="listitem" style="animation-delay:120ms">
+            <div class="hero-metric-num">40</div>
+            <div class="hero-metric-label">Startups profiled</div>
+          </div>
+          <div class="hero-metric" role="listitem" style="animation-delay:190ms">
+            <div class="hero-metric-num">5</div>
+            <div class="hero-metric-label">City clusters</div>
+          </div>
+          <div class="hero-metric" role="listitem" style="animation-delay:260ms">
+            <div class="hero-metric-num">6</div>
+            <div class="hero-metric-label">Sectors covered</div>
+          </div>
+          <div class="hero-metric" role="listitem" style="animation-delay:330ms">
+            <div class="hero-metric-num">3</div>
+            <div class="hero-metric-label">Orchestration domains</div>
           </div>
         </div>
-        <aside class="hero-index" aria-label="Report at a glance">
-          <p class="hero-index-title">At a glance</p>
-          <dl class="hero-index-list">
-            <div class="hero-index-row"><dt>Startups profiled</dt><dd>40</dd></div>
-            <div class="hero-index-row"><dt>City clusters</dt><dd>5</dd></div>
-            <div class="hero-index-row"><dt>Sectors covered</dt><dd>6</dd></div>
-            <div class="hero-index-row"><dt>Orchestration domains</dt><dd>3</dd></div>
-          </dl>
-        </aside>
+
+        <div class="hero-distribution" aria-hidden="true">
+          <p class="hero-distribution-label">Startup distribution by city</p>
+          <div class="hero-distribution-bar">
+            <div class="hero-distribution-seg" style="opacity:0.95" data-width="47.5%"></div>
+            <div class="hero-distribution-seg" style="opacity:0.68" data-width="20%"></div>
+            <div class="hero-distribution-seg" style="opacity:0.5" data-width="15%"></div>
+            <div class="hero-distribution-seg" style="opacity:0.38" data-width="12.5%"></div>
+            <div class="hero-distribution-seg" style="opacity:0.26" data-width="5%"></div>
+          </div>
+          <div class="hero-distribution-legend">
+            <span class="hero-distribution-item"><span class="hero-distribution-swatch" style="opacity:0.95"></span>Beijing <strong>19</strong></span>
+            <span class="hero-distribution-item"><span class="hero-distribution-swatch" style="opacity:0.68"></span>Hangzhou <strong>8</strong></span>
+            <span class="hero-distribution-item"><span class="hero-distribution-swatch" style="opacity:0.5"></span>Shanghai <strong>6</strong></span>
+            <span class="hero-distribution-item"><span class="hero-distribution-swatch" style="opacity:0.38"></span>Shenzhen <strong>5</strong></span>
+            <span class="hero-distribution-item"><span class="hero-distribution-swatch" style="opacity:0.26"></span>Other <strong>2</strong></span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -713,12 +614,13 @@ footer{margin-top:var(--space-16);border-top:1px solid var(--color-divider);padd
 
     <div class="tab-panel active" id="panel-ecosystem" role="tabpanel">
       <div class="insights-header">
-        <p class="live-updated-note" id="liveUpdatedNote" style="margin-bottom:0;"><span class="dot"></span> Loading latest signals…</p>
+        <h2 class="panel-section-title">Ecosystem Table</h2>
         <button class="share-btn" id="shareEcosystemBtn" aria-label="Copy link to Ecosystem tab">
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="3" r="1.5"/><circle cx="4" cy="8" r="1.5"/><circle cx="12" cy="13" r="1.5"/><line x1="5.5" y1="7" x2="10.5" y2="4"/><line x1="5.5" y1="9" x2="10.5" y2="12"/></svg>
           Share
         </button>
       </div>
+      <p class="live-updated-note" id="liveUpdatedNote"><span class="dot"></span> Loading latest signals…</p>
       <div class="filter-bar">
         <label id="filter-label">Filter by sector:</label>
         <div class="filter-chips" role="group" aria-labelledby="filter-label">
@@ -743,8 +645,8 @@ footer{margin-top:var(--space-16);border-top:1px solid var(--color-divider);padd
               <th scope="col">Funding / Scale</th>
               <th scope="col">Policy Alignment</th>
               <th scope="col" class="th-sort" data-sort="relevance">Relevance <span class="sort-icon">↕</span></th>
-              <th scope="col">Capstone Role</th>
-              <th scope="col">Latest Signal <span class="live-badge" title="Auto-refreshed weekly from Google News; unverified">auto</span></th>
+              <th scope="col">Thesis Role</th>
+              <th scope="col">Latest Signal</th>
             </tr>
           </thead>
           <tbody id="tableBody"></tbody>
@@ -1570,21 +1472,13 @@ function relativeTime(dateStr){
 function renderSignalCell(name){
   const s=liveData.companies[name];
   if(!s)return`<span class="signal-empty">No recent signal</span>`;
-  const figure=s.detectedFigure?`<span class="signal-figure">${escapeHtml(s.detectedFigure)}</span>`:"";
   return`<div class="signal-cell">
     <a href="${escapeHtml(s.link)}" target="_blank" rel="noopener noreferrer">${escapeHtml(s.headline)}</a>
-    <div class="signal-meta">${figure}<span>${relativeTime(s.date)}</span></div>
+    <div class="signal-meta"><span>${relativeTime(s.date)}</span></div>
   </div>`;
 }
 
 function renderFundingCell(s){
-  const sig=liveData.companies[s.name];
-  if(sig&&sig.detectedFigure){
-    return`<div class="funding-cell">
-      <span class="funding-chip ${s.fundingLevel}">${escapeHtml(sig.detectedFigure)} <span class="live-badge" title="Auto-detected from a recent news headline; may reflect a funding round, revenue, or valuation figure; unverified">auto</span></span>
-      <span class="funding-baseline">was: ${escapeHtml(s.funding)}</span>
-    </div>`;
-  }
   return`<span class="funding-chip ${s.fundingLevel}">${escapeHtml(s.funding)}</span>`;
 }
 
@@ -1622,7 +1516,7 @@ async function loadLiveData(){
     const noteEl=document.getElementById("liveUpdatedNote");
     if(noteEl&&liveData.generatedAt){
       const d=new Date(liveData.generatedAt);
-      noteEl.innerHTML=`<span class="dot"></span> Funding/Scale &amp; Latest Signal columns auto-refreshed ${relativeTime(liveData.generatedAt)} (${d.toLocaleDateString(undefined,{year:"numeric",month:"short",day:"numeric"})}) via free Google News RSS. Figures marked <span class="live-badge" style="margin-left:0">auto</span> are unverified; original researched value shown below each.`;
+      noteEl.innerHTML=`<span class="dot"></span> Latest Signal column refreshed ${relativeTime(liveData.generatedAt)} (${d.toLocaleDateString(undefined,{year:"numeric",month:"short",day:"numeric"})}) via free Google News RSS. Funding/Scale figures are independently researched.`;
     }
     const activeChip=document.querySelector(".chip.active");
     renderTable(activeChip?activeChip.dataset.filter:"all");
@@ -1644,6 +1538,11 @@ document.querySelectorAll(".th-sort").forEach(th=>{
 
 renderTable();
 loadLiveData();
+
+// Hero distribution bar — fill segments in on load, staggered
+document.querySelectorAll(".hero-distribution-seg").forEach((el,i)=>{
+  setTimeout(()=>{el.style.width=el.dataset.width;},400+i*90);
+});
 </script>
 <div class="share-toast" id="shareToast">Link copied</div>
 </body>
