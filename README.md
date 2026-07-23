@@ -79,4 +79,4 @@ This tool was built from first principles alongside the thesis. Each company was
 
 ---
 
-*Single-file SPA — no build step, no dependencies. All data as of Q1 2026. v1.0 · April 2026*
+*Single-file SPA — no build step, no dependencies. All data as of Q3 2026. v1.0 · Thesis Submitted June 2026*
