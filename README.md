@@ -6,7 +6,6 @@ Chinonso Anyanwu · Schwarzman College, Tsinghua University · 2026
 [**Live Site →**](https://china-ai-ecosystem.vercel.app/)
 
 ## What This Is
-
 An interactive, single-page research tool mapping China's top 40 AI startups against the analytical framework of this thesis: *developmental orchestration* — the mechanism by which China's AI Pilot Zones coordinate capital, institutional resources, and talent to produce frontier AI ecosystems.
 
 Built as a portfolio artifact for investors, researchers, and institutional audiences. Every data point is sourced; every relationship is verified.
