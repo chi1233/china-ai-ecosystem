@@ -58,6 +58,7 @@
   --color-accent-2:         #8b3ff0;
   --color-accent-3:         #b06cff;
   --c-bj:#6d28d9; --c-hz:#d8480a; --c-sh:#1263d2; --c-sz:#0b8a52; --c-ot:#94a1a8;
+  --logo-1:#26292a; --logo-2:#4c5354;
   --gradient-accent: linear-gradient(95deg, #6d28d9 0%, #8b3ff0 48%, #b06cff 100%);
   --gradient-wash:   linear-gradient(140deg, #faf9fd 0%, #f5f2fc 30%, #fcfbfe 60%, #ffffff 100%);
   --shadow-sm: 0 1px 1px rgba(0,0,0,.02), 0 1px 3px rgba(0,0,0,.06);
@@ -111,6 +112,7 @@
   --color-accent-2:         #c0aaff;
   --color-accent-3:         #ddd0ff;
   --c-bj:#a78bfa; --c-hz:#fd8f4a; --c-sh:#62a8ff; --c-sz:#3fd598; --c-ot:#6b7272;
+  --logo-1:#5b6263; --logo-2:#868d8e;
   --gradient-accent: linear-gradient(95deg, #a78bfa 0%, #c0aaff 50%, #e0d0ff 100%);
   --gradient-wash:   linear-gradient(140deg, #17141f 0%, #131019 34%, #0e0d11 66%, #0b0c0c 100%);
   --shadow-sm: 0 1px 2px rgba(0,0,0,.4);
@@ -215,48 +217,8 @@ nav a.active::after{
    plotted as one dot each on the right
    ============================================= */
 @keyframes heroFadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
-.hero{position:relative;isolation:isolate;overflow:hidden;padding:var(--space-16) 0 var(--space-12);}
+.hero{padding:var(--space-16) 0 var(--space-12);}
 
-/* Glowing beam — two soft wedges raking down from above the fold, plus a
-   bloom where they originate. Pure CSS, no paint cost beyond a blur. */
-.hero-beam{position:absolute;inset:0;z-index:-2;pointer-events:none;overflow:hidden;}
-.hero-beam i{
-  position:absolute;top:-38%;display:block;
-  background:linear-gradient(to bottom,
-    color-mix(in oklab,var(--color-primary) 22%,transparent) 0%,
-    color-mix(in oklab,var(--color-primary) 8%,transparent) 34%,
-    transparent 70%);
-  clip-path:polygon(46% 0%, 54% 0%, 100% 100%, 0% 100%);
-  filter:blur(90px);transform-origin:50% 0;
-  animation:beamSway 14s ease-in-out infinite alternate;
-}
-.hero-beam i:nth-child(1){left:-6%;width:46%;height:155%;transform:rotate(-17deg);opacity:.9;}
-.hero-beam i:nth-child(2){left:24%;width:34%;height:138%;transform:rotate(11deg);opacity:.32;animation-delay:-7s;animation-duration:18s;}
-/* Bloom at the origin, so the beams read as light rather than shapes */
-.hero-beam::after{
-  content:"";position:absolute;inset:0;
-  background:radial-gradient(56% 42% at 16% -10%,
-    color-mix(in oklab,var(--color-primary) 16%,transparent) 0%, transparent 72%);
-}
-@keyframes beamSway{
-  from{transform:rotate(var(--beam-a,-15deg)) translateX(0);}
-  to  {transform:rotate(calc(var(--beam-a,-15deg) + 3deg)) translateX(2%);}
-}
-.hero-beam i:nth-child(1){--beam-a:-15deg;}
-.hero-beam i:nth-child(2){--beam-a:9deg;}
-/* Dark mode: the beam is the light source, so let it burn brighter */
-[data-theme="dark"] .hero-beam i{
-  filter:blur(80px);
-  background:linear-gradient(to bottom,
-    color-mix(in oklab,var(--color-primary) 46%,transparent) 0%,
-    color-mix(in oklab,var(--color-primary) 18%,transparent) 38%,
-    transparent 74%);
-}
-[data-theme="dark"] .hero-beam::after{
-  background:radial-gradient(56% 42% at 16% -10%,
-    color-mix(in oklab,var(--color-primary) 30%,transparent) 0%, transparent 72%);
-}
-@media(prefers-reduced-motion:reduce){.hero-beam i{animation:none;}}
 .hero-grid{
   display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
   gap:var(--space-16);align-items:center;
@@ -300,6 +262,17 @@ nav a.active::after{
   background:var(--color-surface);border:1px solid var(--color-border);
   border-radius:var(--radius-2xl);padding:var(--space-8);box-shadow:var(--shadow-lg);
   max-width:440px;margin-left:auto;
+  /* Settles in, then drifts — slow enough to read as weightlessness, not motion */
+  opacity:0;animation:figureIn .7s var(--ease-out) .1s forwards, figureFloat 7s ease-in-out 1s infinite;
+  will-change:transform;
+}
+@keyframes figureIn{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+@keyframes figureFloat{
+  0%,100%{transform:translateY(0);}
+  50%    {transform:translateY(-9px);}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero-figure{opacity:1;animation:none;}
 }
 .hero-figcap{
   display:flex;align-items:baseline;justify-content:space-between;gap:var(--space-4);
@@ -704,9 +677,8 @@ footer{border-top:1px solid var(--color-border);background:var(--color-bg);paddi
       <svg class="logo-mark" viewBox="0 0 36 36" fill="none" aria-hidden="true">
         <defs>
           <linearGradient id="logoGrad" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
-            <stop offset="0" style="stop-color:var(--color-primary)"/>
-            <stop offset="0.55" style="stop-color:var(--color-accent-2)"/>
-            <stop offset="1" style="stop-color:var(--color-accent-3)"/>
+            <stop offset="0" style="stop-color:var(--logo-1)"/>
+            <stop offset="1" style="stop-color:var(--logo-2)"/>
           </linearGradient>
         </defs>
         <rect width="36" height="36" rx="9" fill="url(#logoGrad)"/>
@@ -741,7 +713,6 @@ footer{border-top:1px solid var(--color-border);background:var(--color-bg);paddi
 
 <main id="main">
   <section class="hero" aria-labelledby="hero-title">
-    <div class="hero-beam" aria-hidden="true"><i></i><i></i></div>
     <div class="container hero-grid">
       <div class="hero-copy">
         <p class="hero-kicker">Top 40 startups · Updated weekly</p>
