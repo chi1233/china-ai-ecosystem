@@ -5,23 +5,17 @@ Chinonso Anyanwu · Schwarzman College, Tsinghua University · 2026
 
 [**Live Site →**](https://china-ai-ecosystem.vercel.app/)
 
----
-
 ## What This Is
 
 An interactive, single-page research tool mapping China's top 40 AI startups against the analytical framework of this thesis: *developmental orchestration* — the mechanism by which China's AI Pilot Zones coordinate capital, institutional resources, and talent to produce frontier AI ecosystems.
 
 Built as a portfolio artifact for investors, researchers, and institutional audiences. Every data point is sourced; every relationship is verified.
 
----
-
 ## Core Argument
 
 > China's AI Pilot Zones represent a new form of digital-era state capacity — exercised not through direct ownership, but through *developmental orchestration*: coordinating capital allocation, governing data and compute infrastructure, and integrating universities, startups, and government agencies into shared innovation platforms.
 
 This extends Justin Yifu Lin's New Structural Economics to the digital economy, with Beijing's AI Pilot Zone as the primary case and Hangzhou as a secondary reference point.
-
----
 
 ## Tabs
 
@@ -33,8 +27,6 @@ This extends Justin Yifu Lin's New Structural Economics to the digital economy, 
 | **Relationships** | 22 verified linkages: Funding, University Spinouts, Research Labs, Platform Dependencies. Each sourced. |
 | **Talent** | Institutional pipeline map. Origin to company. Filtered by institution type. |
 
----
-
 ## Key Findings
 
 - **51%** of the world's top AI researchers originate from Chinese undergraduate institutions (up from 29% in 2019)
@@ -42,8 +34,6 @@ This extends Justin Yifu Lin's New Structural Economics to the digital economy, 
 - **Universities are the primary formation mechanism**: direct spinouts (Zhipu AI, Vidu, SoundAI) and founder pipelines (DeepSeek/ZJU, MiniMax/CAS) account for the majority of top-10 companies
 - **Two orchestration models**: Beijing's state-academic integration vs. Hangzhou's platform-anchored coordination under Alibaba
 - **Compute sovereignty** is a binding constraint: US export controls have made Cambricon, Moore Threads, and Huawei Ascend strategic infrastructure assets
-
----
 
 ## Data Standards
 
@@ -60,8 +50,6 @@ This tool was built from first principles alongside the thesis. Each company was
 - Bloomberg/LexisNexis patent data (Fortune, Nov 2025)
 - aiworld.eu investment data (2025)
 
----
-
 ## Theoretical Grounding
 
 | Framework | Application |
@@ -71,12 +59,8 @@ This tool was built from first principles alongside the thesis. Each company was
 | Entrepreneurial State (Mazzucato) | State as risk-absorber and market-maker in AI |
 | AI Governance in China (Ding, DigiChina) | Diffusion constraints and regulatory architecture |
 
----
-
 ## Citation
 
 > Anyanwu, C. (2026). *China's AI Pilot Zones and Developmental Orchestration: Public-Private Partnerships, Capital Coordination, and Institutional Integration in the Digital Economy.* Schwarzman College, Tsinghua University.
-
----
 
 *Single-file SPA — no build step, no dependencies. All data as of Q3 2026. v1.0 · Thesis Submitted June 2026*
