@@ -27,7 +27,8 @@
   Art direction: China AI policy research capstone
   Tone: Stripe-grade product surface — pure white, hairline structure,
         one confident accent, generous air, motion that is felt not seen.
-  Palette: White ground + Stripe navy ink (#0A2540) + blurple accent (#635BFF)
+  Palette: White ground + near-black ink (#0E1111) + teal accent (#01696F),
+           with saturated category colours as the bursts
   Typography: Inter Tight (display) · Inter (UI) · JetBrains Mono (micro-labels)
   Density: Airy — Stripe blog spacing rhythm
 */
@@ -35,32 +36,34 @@
   --color-bg:               #ffffff;
   --color-surface:          #ffffff;
   --color-surface-2:        #ffffff;
-  --color-surface-offset:   #f6f9fc;
-  --color-surface-dynamic:  #e9eef5;
-  --color-divider:          #eef2f7;
-  --color-border:           #e3e8ee;
-  --color-text:             #0a2540;
-  --color-text-muted:       #425466;
-  --color-text-faint:       #8792a2;
+  --color-surface-offset:   #f7f8f8;
+  --color-surface-dynamic:  #e8eaea;
+  --color-divider:          #eef0f0;
+  --color-border:           #e2e5e5;
+  --color-text:             #0e1111;
+  --color-text-muted:       #545b5c;
+  --color-text-faint:       #949a9b;
   --color-text-inverse:     #ffffff;
-  --color-primary:          #635bff;
-  --color-primary-hover:    #7a73ff;
-  --color-primary-active:   #4b45c6;
-  --color-primary-highlight:#efeefe;
-  --color-gold:             #b25e09;
-  --color-orange:           #c2410c;
-  --color-blue:             #0570de;
-  --color-purple:           #7c3aed;
-  --color-success:          #0e7c5a;
-  --color-error:            #b3093c;
-  --color-cyan:             #00b8d9;
-  --gradient-accent: linear-gradient(95deg, #635bff 0%, #0570de 52%, #00b8d9 100%);
-  --gradient-wash:   linear-gradient(140deg, #f6f9fc 0%, #eef3ff 32%, #f7fbff 62%, #ffffff 100%);
-  --shadow-sm: 0 1px 1px rgba(10,37,64,.02), 0 1px 3px rgba(10,37,64,.06);
-  --shadow-md: 0 2px 5px -1px rgba(50,50,93,.15), 0 1px 3px -1px rgba(10,37,64,.12);
-  --shadow-lg: 0 13px 27px -8px rgba(50,50,93,.18), 0 8px 16px -10px rgba(10,37,64,.16);
-  --shadow-xl: 0 30px 60px -14px rgba(50,50,93,.22), 0 18px 36px -20px rgba(10,37,64,.2);
-  --shadow-ring: 0 0 0 1px rgba(10,37,64,.05);
+  --color-primary:          #01696f;
+  --color-primary-hover:    #015d63;
+  --color-primary-active:   #013f44;
+  --color-primary-highlight:#e2f0f0;
+  --color-gold:             #ad6200;
+  --color-orange:           #d8480a;
+  --color-blue:             #1263d2;
+  --color-purple:           #7a2fd6;
+  --color-success:          #0b8a52;
+  --color-error:            #c40d63;
+  --color-cyan:             #00a7bd;
+  --color-accent-2:         #14b8b0;
+  --color-accent-3:         #2ad4a3;
+  --gradient-accent: linear-gradient(95deg, #01696f 0%, #0a8f8c 42%, #14b8b0 74%, #2ad4a3 100%);
+  --gradient-wash:   linear-gradient(140deg, #f4f8f8 0%, #edf5f4 30%, #f8fbfb 60%, #ffffff 100%);
+  --shadow-sm: 0 1px 1px rgba(0,0,0,.02), 0 1px 3px rgba(0,0,0,.06);
+  --shadow-md: 0 2px 5px -1px rgba(0,0,0,.12), 0 1px 3px -1px rgba(0,0,0,.1);
+  --shadow-lg: 0 13px 27px -8px rgba(0,0,0,.14), 0 8px 16px -10px rgba(0,0,0,.12);
+  --shadow-xl: 0 30px 60px -14px rgba(0,0,0,.18), 0 18px 36px -20px rgba(0,0,0,.16);
+  --shadow-ring: 0 0 0 1px rgba(0,0,0,.05);
   --radius-sm: 4px; --radius-md: 8px; --radius-lg: 12px;
   --radius-xl: 16px; --radius-2xl: 22px; --radius-full: 9999px;
   --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
@@ -82,30 +85,32 @@
 }
 
 [data-theme="dark"] {
-  --color-bg:               #0b1220;
-  --color-surface:          #101a2c;
-  --color-surface-2:        #142132;
-  --color-surface-offset:   #16233a;
-  --color-surface-dynamic:  #223350;
-  --color-divider:          #1a2740;
-  --color-border:           #24344f;
-  --color-text:             #e6edf7;
-  --color-text-muted:       #9aabc4;
-  --color-text-faint:       #6b7c96;
-  --color-text-inverse:     #0b1220;
-  --color-primary:          #8b85ff;
-  --color-primary-hover:    #a9a4ff;
-  --color-primary-active:   #6f68e8;
-  --color-primary-highlight:#1e2450;
-  --color-gold:             #e3a008;
-  --color-orange:           #fb8a3c;
-  --color-blue:             #5eabff;
-  --color-purple:           #b18aff;
-  --color-success:          #34d399;
-  --color-error:            #ff7096;
-  --color-cyan:             #4fd8ef;
-  --gradient-accent: linear-gradient(95deg, #8b85ff 0%, #5eabff 52%, #4fd8ef 100%);
-  --gradient-wash:   linear-gradient(140deg, #101a2c 0%, #131f3a 34%, #0d1626 66%, #0b1220 100%);
+  --color-bg:               #0b0c0c;
+  --color-surface:          #131515;
+  --color-surface-2:        #181a1a;
+  --color-surface-offset:   #1a1d1d;
+  --color-surface-dynamic:  #2a2e2e;
+  --color-divider:          #1f2222;
+  --color-border:           #2c3030;
+  --color-text:             #ededec;
+  --color-text-muted:       #9ba2a2;
+  --color-text-faint:       #6b7272;
+  --color-text-inverse:     #0b0c0c;
+  --color-primary:          #3fc9cf;
+  --color-primary-hover:    #62dade;
+  --color-primary-active:   #2aa7ad;
+  --color-primary-highlight:#0f2a2c;
+  --color-gold:             #e8af34;
+  --color-orange:           #fd8f4a;
+  --color-blue:             #62a8ff;
+  --color-purple:           #b48cff;
+  --color-success:          #3fd598;
+  --color-error:            #ff6fa8;
+  --color-cyan:             #4fdcee;
+  --color-accent-2:         #2ad4b8;
+  --color-accent-3:         #6ee7a5;
+  --gradient-accent: linear-gradient(95deg, #3fc9cf 0%, #2ad4b8 48%, #6ee7a5 100%);
+  --gradient-wash:   linear-gradient(140deg, #141818 0%, #101616 34%, #0d0f0f 66%, #0b0c0c 100%);
   --shadow-sm: 0 1px 2px rgba(0,0,0,.4);
   --shadow-md: 0 2px 6px rgba(0,0,0,.45);
   --shadow-lg: 0 14px 30px -10px rgba(0,0,0,.6);
@@ -697,8 +702,8 @@ footer{border-top:1px solid var(--color-divider);background:var(--color-surface-
         <defs>
           <linearGradient id="logoGrad" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
             <stop offset="0" style="stop-color:var(--color-primary)"/>
-            <stop offset="0.55" style="stop-color:var(--color-blue)"/>
-            <stop offset="1" style="stop-color:var(--color-cyan)"/>
+            <stop offset="0.55" style="stop-color:var(--color-accent-2)"/>
+            <stop offset="1" style="stop-color:var(--color-accent-3)"/>
           </linearGradient>
         </defs>
         <rect width="36" height="36" rx="9" fill="url(#logoGrad)"/>
@@ -1035,13 +1040,13 @@ function drawChinaMap(){
   canvas.width=W; canvas.height=H;
 
   const isDark=document.documentElement.getAttribute("data-theme")==="dark";
-  const bgColor    = isDark?"#101a2c":"#ffffff";
-  const seaColor   = isDark?"#0d1626":"#f6f9fc";
-  const landColor  = isDark?"#1a2740":"#e9eef5";
-  const borderColor= isDark?"rgba(255,255,255,0.06)":"rgba(10,37,64,0.07)";
-  const primary    = isDark?"#8b85ff":"#635bff";
-  const textColor  = isDark?"#e6edf7":"#0a2540";
-  const mutedColor = isDark?"#6b7c96":"#8792a2";
+  const bgColor    = isDark?"#131515":"#ffffff";
+  const seaColor   = isDark?"#0f1111":"#f7f8f8";
+  const landColor  = isDark?"#1f2323":"#e8eaea";
+  const borderColor= isDark?"rgba(255,255,255,0.06)":"rgba(0,0,0,0.07)";
+  const primary    = isDark?"#3fc9cf":"#01696f";
+  const textColor  = isDark?"#ededec":"#0e1111";
+  const mutedColor = isDark?"#6b7272":"#949a9b";
 
   // --- Background (sea) ---
   ctx.fillStyle=seaColor;
@@ -1141,9 +1146,9 @@ function drawChinaMap(){
     return [r,g,b];
   }
   // Parse primary accent
-  let [pr,pg,pb]=[99,91,255]; // fallback for #635bff
+  let [pr,pg,pb]=[1,105,111]; // fallback for #01696f
   if(primary.startsWith('#')&&primary.length===7)[pr,pg,pb]=hexToRGB(primary);
-  else if(isDark)[pr,pg,pb]=[139,133,255]; // #8b85ff
+  else if(isDark)[pr,pg,pb]=[63,201,207]; // #3fc9cf
 
   highlights.forEach(h=>{
     const a=0.15+h.level*0.72;
@@ -1296,7 +1301,7 @@ function renderInsights(){
   }
   document.getElementById("insightsGrid").innerHTML=insights.map(ins=>`
     <div class="insight-card">
-      <div class="insight-icon" style="background:color-mix(in oklab,${ins.color} 15%,var(--color-bg));color:${ins.color}">
+      <div class="insight-icon" style="background:color-mix(in oklab,${ins.color} 18%,var(--color-bg));color:${ins.color}">
         <i data-lucide="${ins.icon}" width="20" height="20"></i>
       </div>
       <h3>${ins.title}</h3>
@@ -1430,7 +1435,7 @@ function renderRelGroups(){
     return `
       <div class="rel-group" data-group-type="${group.id}">
         <div class="rel-group-header">
-          <div class="rel-group-icon" style="background:color-mix(in oklab,${group.color} 15%,var(--color-bg));color:${group.color}">
+          <div class="rel-group-icon" style="background:color-mix(in oklab,${group.color} 18%,var(--color-bg));color:${group.color}">
             <i data-lucide="${group.icon}" width="16" height="16"></i>
           </div>
           <span class="rel-group-title">${group.title}</span>
