@@ -215,7 +215,48 @@ nav a.active::after{
    plotted as one dot each on the right
    ============================================= */
 @keyframes heroFadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
-.hero{padding:var(--space-16) 0 var(--space-12);}
+.hero{position:relative;isolation:isolate;overflow:hidden;padding:var(--space-16) 0 var(--space-12);}
+
+/* Glowing beam — two soft wedges raking down from above the fold, plus a
+   bloom where they originate. Pure CSS, no paint cost beyond a blur. */
+.hero-beam{position:absolute;inset:0;z-index:-2;pointer-events:none;overflow:hidden;}
+.hero-beam i{
+  position:absolute;top:-38%;display:block;
+  background:linear-gradient(to bottom,
+    color-mix(in oklab,var(--color-primary) 22%,transparent) 0%,
+    color-mix(in oklab,var(--color-primary) 8%,transparent) 34%,
+    transparent 70%);
+  clip-path:polygon(46% 0%, 54% 0%, 100% 100%, 0% 100%);
+  filter:blur(90px);transform-origin:50% 0;
+  animation:beamSway 14s ease-in-out infinite alternate;
+}
+.hero-beam i:nth-child(1){left:-6%;width:46%;height:155%;transform:rotate(-17deg);opacity:.9;}
+.hero-beam i:nth-child(2){left:24%;width:34%;height:138%;transform:rotate(11deg);opacity:.32;animation-delay:-7s;animation-duration:18s;}
+/* Bloom at the origin, so the beams read as light rather than shapes */
+.hero-beam::after{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(56% 42% at 16% -10%,
+    color-mix(in oklab,var(--color-primary) 16%,transparent) 0%, transparent 72%);
+}
+@keyframes beamSway{
+  from{transform:rotate(var(--beam-a,-15deg)) translateX(0);}
+  to  {transform:rotate(calc(var(--beam-a,-15deg) + 3deg)) translateX(2%);}
+}
+.hero-beam i:nth-child(1){--beam-a:-15deg;}
+.hero-beam i:nth-child(2){--beam-a:9deg;}
+/* Dark mode: the beam is the light source, so let it burn brighter */
+[data-theme="dark"] .hero-beam i{
+  filter:blur(80px);
+  background:linear-gradient(to bottom,
+    color-mix(in oklab,var(--color-primary) 46%,transparent) 0%,
+    color-mix(in oklab,var(--color-primary) 18%,transparent) 38%,
+    transparent 74%);
+}
+[data-theme="dark"] .hero-beam::after{
+  background:radial-gradient(56% 42% at 16% -10%,
+    color-mix(in oklab,var(--color-primary) 30%,transparent) 0%, transparent 72%);
+}
+@media(prefers-reduced-motion:reduce){.hero-beam i{animation:none;}}
 .hero-grid{
   display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
   gap:var(--space-16);align-items:center;
@@ -700,6 +741,7 @@ footer{border-top:1px solid var(--color-border);background:var(--color-bg);paddi
 
 <main id="main">
   <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-beam" aria-hidden="true"><i></i><i></i></div>
     <div class="container hero-grid">
       <div class="hero-copy">
         <p class="hero-kicker">Top 40 startups · Updated weekly</p>
