@@ -184,9 +184,8 @@ header.is-scrolled{background:var(--color-bg);border-bottom-color:var(--color-di
 .logo{display:flex;align-items:center;gap:var(--space-3);text-decoration:none;color:var(--color-text);}
 .logo:hover{color:var(--color-text);}
 .logo-mark{width:32px;height:32px;flex-shrink:0;border-radius:var(--radius-md);}
-.logo-text{display:flex;flex-direction:column;line-height:1.15;}
-.logo-text strong{font-family:var(--font-display);font-size:0.9375rem;font-weight:600;letter-spacing:-0.02em;}
-.logo-text span{font-family:var(--font-mono);font-size:10px;color:var(--color-text-faint);font-weight:400;letter-spacing:0.06em;text-transform:uppercase;}
+.logo-text{display:flex;align-items:center;line-height:1.15;}
+.logo-text strong{font-family:var(--font-display);font-size:1.0625rem;font-weight:600;letter-spacing:-0.025em;}
 .header-right{display:flex;align-items:center;gap:var(--space-3);}
 nav{display:flex;align-items:center;gap:var(--space-1);}
 nav a{
@@ -240,20 +239,14 @@ nav a.active::after{
 
 /* Staggered entrance */
 @keyframes heroFadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
-.hero-byline,.hero-eyebrow,.hero h1,.hero-deck,.hero-actions{
+.hero-eyebrow,.hero h1,.hero-deck,.hero-actions{
   opacity:0;animation:heroFadeUp 0.6s var(--ease-out) forwards;
 }
-.hero-byline{animation-delay:0ms;}
-.hero-eyebrow{animation-delay:80ms;}
-.hero h1{animation-delay:160ms;}
-.hero-deck{animation-delay:260ms;}
-.hero-actions{animation-delay:360ms;}
+.hero-eyebrow{animation-delay:0ms;}
+.hero h1{animation-delay:90ms;}
+.hero-deck{animation-delay:190ms;}
+.hero-actions{animation-delay:290ms;}
 
-.hero-byline{
-  font-family:var(--font-mono);font-size:11px;font-weight:500;
-  text-transform:uppercase;letter-spacing:0.14em;color:var(--color-text-faint);
-  margin-bottom:var(--space-5);
-}
 /* Eyebrow — a live pill badge, Stripe "what's new" style */
 .hero-eyebrow{
   display:inline-flex;align-items:center;gap:var(--space-2);
@@ -713,7 +706,6 @@ footer{border-top:1px solid var(--color-border);background:var(--color-bg);paddi
       </svg>
       <div class="logo-text">
         <strong>China AI Map</strong>
-        <span>Thesis Research · 2026</span>
       </div>
     </a>
     <nav id="primaryNav" aria-label="Primary navigation">
@@ -740,7 +732,6 @@ footer{border-top:1px solid var(--color-border);background:var(--color-bg);paddi
   <section class="hero" aria-labelledby="hero-title">
     <div class="container">
       <div class="hero-main">
-        <p class="hero-byline">Schwarzman College, Tsinghua University &nbsp;·&nbsp; Thesis Research, 2026</p>
         <p class="hero-eyebrow">Top 40 startups · Updated weekly</p>
         <h1 id="hero-title">Mapping China's <em>AI ecosystem</em></h1>
         <p class="hero-deck">
