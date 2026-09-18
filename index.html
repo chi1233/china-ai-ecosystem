@@ -1005,9 +1005,7 @@ footer{border-top:1px solid var(--color-border);background:var(--color-bg);paddi
               <th scope="col" class="th-sort" data-sort="caseRole">Case role <span class="sort-icon">↕</span></th>
               <th scope="col" class="th-sort" data-sort="sector">Segment <span class="sort-icon">↕</span></th>
               <th scope="col" class="th-sort" data-sort="founded">Founded <span class="sort-icon">↕</span></th>
-              <th scope="col">Capital event</th>
-              <th scope="col">Public-market value</th>
-              <th scope="col">Operating scale</th>
+              <th scope="col">Financials</th>
               <th scope="col">Evidence note</th>
               <th scope="col">News signal</th>
               <th scope="col">Evidence verified</th>
@@ -1039,7 +1037,7 @@ footer{border-top:1px solid var(--color-border);background:var(--color-bg);paddi
               <div class="legend-item"><div class="legend-circle" style="width:10px;height:10px;"></div><span>1</span></div>
               <div class="legend-item"><div class="legend-circle" style="width:18px;height:18px;"></div><span>5</span></div>
               <div class="legend-item"><div class="legend-circle" style="width:28px;height:28px;"></div><span>10</span></div>
-              <div class="legend-item"><div class="legend-circle" style="width:40px;height:40px;"></div><span>19</span></div>
+              <div class="legend-item"><div class="legend-circle" style="width:40px;height:40px;"></div><span>21</span></div>
             </div>
           </div>
         </div>
@@ -1100,11 +1098,9 @@ footer{border-top:1px solid var(--color-border);background:var(--color-bg);paddi
 
         <section class="meth-block">
           <h3>Financial data schema</h3>
-          <p>The former combined funding and scale field has been removed because it merged incompatible categories. Three separate fields replace it, and a value appears only with a type, a date or reporting period, a source, and a claim status.</p>
+          <p>The table presents one concise Financials field per entity so unlike metrics are not mistaken for directly comparable measures. Each displayed figure is classified by type and accompanied by a date or reporting period, claim status, and source.</p>
           <dl class="meth-defs">
-            <div><dt>Capital event</dt><dd>Completed or credibly reported financing, IPO, placement, or acquisition.</dd></div>
-            <div><dt>Public-market value</dt><dd>Market capitalization for a listed company or listed parent only, with ticker and exact close date.</dd></div>
-            <div><dt>Operating scale</dt><dd>Revenue, customers, users, shipments, deployment, or another defined operating metric with its reporting period.</dd></div>
+            <div><dt>Financials</dt><dd>A sourced entity-level revenue, financing, transaction, IPO, or dated market-capitalization observation. Where no defensible standalone figure is available, the table states “Not publicly disclosed.”</dd></div>
           </dl>
           <p>An intended valuation, fundraising target, press rumor, or parent-company market capitalization is never presented as the funding or valuation of a subsidiary, product, or business unit.</p>
         </section>
@@ -1200,14 +1196,14 @@ footer{border-top:1px solid var(--color-border);background:var(--color-bg);paddi
 <script>
 const startups = [
   {"name": "Moonshot AI (Kimi)", "cn": "月之暗面", "city": "Beijing", "cityClass": "beijing", "entityType": "Private company", "caseRole": "Primary case: Beijing", "sector": "llm", "sectorLabel": "Foundation Model / LLM", "founded": 2023, "ticker": "", "capitalEvent": {"value": "Approximately $2B financing round, May 2026, at a reported approximately $20B valuation. Led by Long-Z Investments, with Tsinghua Capital, China Mobile and CPE Yuanfeng participating. Later $30B to $31.5B valuation reports were fundraising discussions, not completed rounds.", "status": "Reported", "date": "2026-05", "source": "Bloomberg and TechCrunch reporting; capstone data compilation", "url": ""}, "publicMarketValue": null, "operatingScale": null, "auditNote": "", "evidenceVerified": "2026-09-17"},
-  {"name": "Zhipu AI", "cn": "智谱AI", "city": "Beijing", "cityClass": "beijing", "entityType": "Public company", "caseRole": "Primary case: Beijing", "sector": "llm", "sectorLabel": "Foundation Model / LLM", "founded": 2019, "ticker": "2513.HK", "capitalEvent": {"value": "IPO: HK$4.35B gross proceeds, listed 8 January 2026.", "status": "Disclosed", "date": "2026-01-08", "source": "Zhipu HKEX prospectus", "url": ""}, "publicMarketValue": null, "operatingScale": {"value": "FY2025 revenue RMB 724.0M; R&D RMB 3.18B (R&D to revenue 439.2%).", "status": "Disclosed", "date": "FY2025", "source": "Zhipu HKEX prospectus", "url": ""}, "auditNote": "Originated from Tsinghua KEG; formal partnership disclosed in the prospectus.", "evidenceVerified": "2026-09-17"},
+  {"name": "Zhipu AI", "cn": "智谱AI", "city": "Beijing", "cityClass": "beijing", "entityType": "Public company", "caseRole": "Primary case: Beijing", "sector": "llm", "sectorLabel": "Foundation Model / LLM", "founded": 2019, "ticker": "2513.HK", "capitalEvent": {"value": "IPO: HK$4.35B gross proceeds, listed 8 January 2026.", "status": "Disclosed", "date": "2026-01-08", "source": "Zhipu HKEX prospectus", "url": ""}, "publicMarketValue": null, "operatingScale": {"value": "FY2025 revenue RMB 724.0M; R&D RMB 3.18B (R&D to revenue 439.2%).", "status": "Disclosed", "date": "FY2025", "source": "Zhipu 2025 annual report and annual results", "url": "https://www.moomoo.com/news/notice/306966557/knowledge-atlas-2025-annual-report"}, "auditNote": "Originated from Tsinghua KEG; formal partnership disclosed in the prospectus.", "evidenceVerified": "2026-09-17"},
   {"name": "DeepSeek", "cn": "深度求索", "city": "Hangzhou", "cityClass": "hangzhou", "entityType": "Private company", "caseRole": "Contrastive reference: Hangzhou", "sector": "llm", "sectorLabel": "Foundation Model / LLM", "founded": 2023, "ticker": "", "capitalEvent": {"value": "A July 2026 indirect transaction was reported to imply an approximately RMB 350.88B ($51.82B) valuation. This was not a company-confirmed primary financing announcement.", "status": "Reported", "date": "2026-07", "source": "Reuters, via Yahoo Finance", "url": ""}, "publicMarketValue": null, "operatingScale": null, "auditNote": "Originated within and has been funded by High-Flyer.", "evidenceVerified": "2026-09-17"},
   {"name": "Baidu (ERNIE)", "cn": "百度", "city": "Beijing", "cityClass": "beijing", "entityType": "Corporate AI business unit or product", "caseRole": "Primary case: Beijing", "sector": "cloud", "sectorLabel": "Cloud / Platform AI", "founded": 2000, "ticker": "", "capitalEvent": null, "publicMarketValue": null, "operatingScale": null, "auditNote": "ERNIE is a product-level platform within Baidu, Inc. Parent market capitalization is not a value of the ERNIE platform and is not shown here.", "evidenceVerified": "2026-09-17"},
   {"name": "Huawei Cloud", "cn": "华为云", "city": "Shenzhen", "cityClass": "shenzhen", "entityType": "Cloud or compute infrastructure provider", "caseRole": "National or contextual reference", "sector": "cloud", "sectorLabel": "Cloud / Compute Infra", "founded": 2011, "ticker": "", "capitalEvent": null, "publicMarketValue": null, "operatingScale": null, "auditNote": "Parent revenue does not measure Huawei Cloud and is not shown. Municipal Ascend compute-voucher programs apply to eligible firms in named districts, not to every Beijing Pilot Zone company.", "evidenceVerified": "2026-09-17"},
   {"name": "Alibaba Cloud (Qwen)", "cn": "阿里云", "city": "Hangzhou", "cityClass": "hangzhou", "entityType": "Cloud or compute infrastructure provider", "caseRole": "Contrastive reference: Hangzhou", "sector": "cloud", "sectorLabel": "Cloud / LLM Platform", "founded": 2009, "ticker": "", "capitalEvent": null, "publicMarketValue": null, "operatingScale": null, "auditNote": "Alibaba Group, Alibaba Cloud and Qwen are distinct. Parent market capitalization is not a value of this business unit and is not shown.", "evidenceVerified": "2026-09-17"},
-  {"name": "Cambricon", "cn": "寒武纪", "city": "Beijing", "cityClass": "beijing", "entityType": "Public company", "caseRole": "Primary case: Beijing", "sector": "chip", "sectorLabel": "AI Chips", "founded": 2016, "ticker": "688256.SS", "capitalEvent": null, "publicMarketValue": {"value": "CNY 654.0B on 2026-09-10.", "status": "Reported", "date": "2026-09-10", "source": "Reuters company page, 688256.SS", "url": ""}, "operatingScale": null, "auditNote": "Market capitalization briefly exceeded CNY 1T in late June 2026. Any value shown carries an exact close date.", "evidenceVerified": "2026-09-17"},
+  {"name": "Cambricon", "cn": "寒武纪", "city": "Beijing", "cityClass": "beijing", "entityType": "Public company", "caseRole": "Primary case: Beijing", "sector": "chip", "sectorLabel": "AI Chips", "founded": 2016, "ticker": "688256.SS", "capitalEvent": null, "publicMarketValue": {"value": "CNY 695.506B at the 17 September 2026 close.", "status": "Reported", "date": "2026-09-17", "source": "Yahoo Finance, 688256.SS", "url": "https://finance.yahoo.com/quote/688256.SS/"}, "operatingScale": null, "auditNote": "Market capitalization briefly exceeded CNY 1T in late June 2026. Any value shown carries an exact close date.", "evidenceVerified": "2026-09-17"},
   {"name": "Moore Threads", "cn": "摩尔线程", "city": "Beijing", "cityClass": "beijing", "entityType": "Public company", "caseRole": "Primary case: Beijing", "sector": "chip", "sectorLabel": "AI Chips / GPGPUs", "founded": 2020, "ticker": "688795.SS", "capitalEvent": null, "publicMarketValue": null, "operatingScale": null, "auditNote": "IPO proceeds, listing date and first-day return are held pending an exchange or Reuters source that supports each figure separately.", "evidenceVerified": "2026-09-17"},
-  {"name": "Unitree Robotics", "cn": "宇树科技", "city": "Hangzhou", "cityClass": "hangzhou", "entityType": "Private company", "caseRole": "Contrastive reference: Hangzhou", "sector": "robot", "sectorLabel": "Robotics / Embodied AI", "founded": 2016, "ticker": "", "capitalEvent": {"value": "Approved for a Shanghai listing intended to raise RMB 4.2B ($619.4M), 3 July 2026. Listing completion requires verification before being described as a completed IPO.", "status": "Reported", "date": "2026-07-03", "source": "Reuters", "url": ""}, "publicMarketValue": null, "operatingScale": null, "auditNote": "", "evidenceVerified": "2026-09-17"},
+  {"name": "Unitree Robotics", "cn": "宇树科技", "city": "Hangzhou", "cityClass": "hangzhou", "entityType": "Public company", "caseRole": "Contrastive reference: Hangzhou", "sector": "robot", "sectorLabel": "Robotics / Embodied AI", "founded": 2016, "ticker": "688836.SS", "capitalEvent": {"value": "STAR Market IPO: RMB 6.1B gross proceeds; listed 19 August 2026.", "status": "Reported", "date": "2026-08-19", "source": "Reuters", "url": "https://www.reuters.com/world/asia-pacific/chinese-humanoid-robot-maker-unitree-list-shanghai-august-19-2026-08-17/"}, "publicMarketValue": null, "operatingScale": null, "auditNote": "The completed RMB 6.1B IPO supersedes the July 2026 proposed RMB 4.2B raise.", "evidenceVerified": "2026-09-17"},
   {"name": "MiniMax", "cn": "MiniMax", "city": "Shanghai", "cityClass": "shanghai", "entityType": "Public company", "caseRole": "Comparative ecosystem reference: Shanghai", "sector": "llm", "sectorLabel": "Multimodal LLM", "founded": 2021, "ticker": "", "capitalEvent": null, "publicMarketValue": null, "operatingScale": {"value": "FY2025 revenue $79.0M; R&D $252.8M.", "status": "Disclosed", "date": "FY2025", "source": "MiniMax HKEX prospectus and full-year results", "url": ""}, "auditNote": "IPO proceeds, listing date and valuation are held pending prospectus-confirmed terms.", "evidenceVerified": "2026-09-17"},
   {"name": "Manus AI", "cn": "Manus", "city": "Beijing", "cityClass": "beijing", "entityType": "Private company", "caseRole": "National or contextual reference", "sector": "app", "sectorLabel": "AI Agents / Applications", "founded": 2024, "ticker": "", "capitalEvent": null, "publicMarketValue": null, "operatingScale": null, "auditNote": "Ownership, funding and headquarters are held pending a named external source. No firm-level pilot-zone program participation is documented.", "evidenceVerified": "2026-09-17"},
   {"name": "Stepfun (阶跃星辰)", "cn": "阶跃星辰", "city": "Shanghai", "cityClass": "shanghai", "entityType": "Private company", "caseRole": "Comparative ecosystem reference: Shanghai", "sector": "llm", "sectorLabel": "Foundation Model / LLM", "founded": 2023, "ticker": "", "capitalEvent": null, "publicMarketValue": null, "operatingScale": null, "auditNote": "Funding not publicly disclosed in this dataset. No named evidence of state and private co-investment.", "evidenceVerified": "2026-09-17"},
@@ -1237,16 +1233,16 @@ const startups = [
   {"name": "CAS Star (中科星图)", "cn": "中科星图", "city": "Beijing", "cityClass": "beijing", "entityType": "Public company", "caseRole": "Primary case: Beijing", "sector": "infra", "sectorLabel": "Geospatial AI / Remote Sensing", "founded": 2006, "ticker": "", "capitalEvent": null, "publicMarketValue": null, "operatingScale": null, "auditNote": "CAS spinout status is retained only where an official CAS or company history documents it. Platform and dual-use descriptions are held pending an authoritative source.", "evidenceVerified": "2026-09-17"},
   {"name": "MEGVII (Face++)", "cn": "旷视科技", "city": "Beijing", "cityClass": "beijing", "entityType": "Private company", "caseRole": "Primary case: Beijing", "sector": "app", "sectorLabel": "Computer Vision / AI", "founded": 2011, "ticker": "", "capitalEvent": null, "publicMarketValue": null, "operatingScale": null, "auditNote": "Valuation is held pending a source and date. National platform designation and procurement are shown only as named facts, not as a PPP.", "evidenceVerified": "2026-09-17"},
   {"name": "Tencent Yuanbao", "cn": "腾讯元宝", "city": "Shenzhen", "cityClass": "shenzhen", "entityType": "Corporate AI business unit or product", "caseRole": "Comparative ecosystem reference: Shenzhen", "sector": "app", "sectorLabel": "AI Consumer App", "founded": 2024, "ticker": "", "capitalEvent": null, "publicMarketValue": null, "operatingScale": null, "auditNote": "Parent market capitalization is not a value of this product and is not shown. WeChat's user base is not a Yuanbao user metric and is not shown.", "evidenceVerified": "2026-09-17"},
-  {"name": "Lightyear Beyond (光年之外)", "cn": "光年之外", "city": "Beijing", "cityClass": "beijing", "entityType": "Private company", "caseRole": "Primary case: Beijing", "sector": "app", "sectorLabel": "AI Agents / Applications", "founded": 2023, "ticker": "", "capitalEvent": {"value": "Acquired by Meituan for US$281M.", "status": "Reported", "date": "2023-06", "source": "South China Morning Post", "url": ""}, "publicMarketValue": null, "operatingScale": null, "auditNote": "Corrects a prior US$234M figure that conflicted with the cited SCMP report. This is a historical acquisition, not current financing.", "evidenceVerified": "2026-09-17"},
+  {"name": "Lightyear Beyond (光年之外)", "cn": "光年之外", "city": "Beijing", "cityClass": "beijing", "entityType": "Private company", "caseRole": "Primary case: Beijing", "sector": "app", "sectorLabel": "AI Agents / Applications", "founded": 2023, "ticker": "", "capitalEvent": {"value": "Acquisition consideration: US$233.6736M cash + RMB 366.924M assumed liabilities + RMB 1 cash.", "status": "Disclosed", "date": "2023-06-29", "source": "Meituan HKEX announcement", "url": "http://media-meituan.todayir.com/20230629174801854210790272_en.pdf"}, "publicMarketValue": null, "operatingScale": null, "auditNote": "Primary transaction terms are shown in their disclosed currencies rather than as an exchange-rate-dependent converted total. This is a historical acquisition, not current financing.", "evidenceVerified": "2026-09-17"},
   {"name": "Ubiquant / IQuest Labs", "cn": "九坤投资 / IQuest", "city": "Beijing", "cityClass": "beijing", "entityType": "Financial institution or capital provider", "caseRole": "Primary case: Beijing", "sector": "llm", "sectorLabel": "Quant fund / AI research initiative", "founded": 2012, "ticker": "", "capitalEvent": null, "publicMarketValue": null, "operatingScale": null, "auditNote": "Reclassified from foundation models. Reported AUM is held pending a dated source. Benchmark performance claims are removed pending a published methodology.", "evidenceVerified": "2026-09-17"}
 ];
 
 const cityData=[
-  {name:"Beijing",count:19,bar:100,class:"beijing",firms:"Moonshot AI, Zhipu AI, Baidu, Cambricon, Moore Threads, Manus, Zhongguancun Kejin, Spirit AI, BAAI, Baichuan AI, 01.AI, SoundAI, Horizon Robotics, Kuaishou AI, Vidu, Lingyi Wanwu, CAS Star, MEGVII, Comate, Lightyear Beyond",zone:"First AI Pilot Zone (Feb 2019)"},
-  {name:"Hangzhou",count:8,bar:42,class:"hangzhou",firms:"DeepSeek, Alibaba Cloud/Qwen, Unitree Robotics, Manycore Tech, Zhijiang Lab, Tongyi/DAMO, Six Dragons ecosystem",zone:"AI Pilot Zone · Municipal fund ¥50.2B"},
-  {name:"Shanghai",count:6,bar:32,class:"shanghai",firms:"MiniMax, Stepfun, MetaX, Sensetime, Agibot, Fourier Intelligence",zone:"AI Pilot Zone (May 2019) · Foundation Model Incubator"},
-  {name:"Shenzhen/GBA",count:5,bar:26,class:"shenzhen",firms:"Huawei Cloud, DJI, Tencent Cloud AI, Tencent Yuanbao + GBA ecosystem",zone:"Shenzhen AI Pilot Zone · Hardware-AI convergence"},
-  {name:"Other Cities",count:2,bar:11,class:"",firms:"iFlytek (Hefei), Black Sesame Tech (Wuhan), Midea/KUKA (Guangzhou)",zone:"Provincial clusters · Automotive + manufacturing corridors"}
+  {name:"Beijing",count:21,bar:100,class:"beijing",firms:"Moonshot AI, Zhipu AI, Baidu, Cambricon, Moore Threads, Manus, Zhongguancun Kejin, Spirit AI, BAAI, Xiaomi Robotics, Baichuan AI, 01.AI, SoundAI, Horizon Robotics, Kuaishou AI, Vidu, Lingyi Wanwu, CAS Star, MEGVII, Lightyear Beyond, Ubiquant/IQuest",zone:"First AI Pilot Zone (Feb 2019)"},
+  {name:"Hangzhou",count:6,bar:29,class:"hangzhou",firms:"DeepSeek, Alibaba Cloud/Qwen, Unitree Robotics, Manycore Digital, Zhijiang Lab, Tongyi/DAMO",zone:"AI Pilot Zone · Municipal fund ¥50.2B"},
+  {name:"Shanghai",count:6,bar:29,class:"shanghai",firms:"MiniMax, Stepfun, MetaX, SenseTime, Agibot, Fourier Intelligence",zone:"AI Pilot Zone (May 2019) · Foundation Model Incubator"},
+  {name:"Shenzhen/GBA",count:4,bar:19,class:"shenzhen",firms:"Huawei Cloud, DJI, Tencent Cloud AI, Tencent Yuanbao",zone:"Shenzhen AI Pilot Zone · Hardware-AI convergence"},
+  {name:"Other Cities",count:3,bar:14,class:"",firms:"iFlytek (Hefei), Black Sesame Tech (Wuhan), Midea/KUKA (Guangzhou)",zone:"Provincial clusters · Automotive + manufacturing corridors"}
 ];
 
 const insights=[
@@ -1405,17 +1401,17 @@ function drawChinaMap(){
 
   // --- City bubbles ---
   const cities=[
-    {name:"Beijing",   cn:"北京", x:549,y:158, count:19, firms:"Moonshot AI, Zhipu AI, Baidu, Cambricon, Moore Threads + 14 more"},
-    {name:"Hangzhou",  cn:"杭州", x:596,y:312, count:8,  firms:"DeepSeek, Alibaba/Qwen, Unitree Robotics + 5 more"},
+    {name:"Beijing",   cn:"北京", x:549,y:158, count:21, firms:"Moonshot AI, Zhipu AI, Baidu, Cambricon, Moore Threads + 16 more"},
+    {name:"Hangzhou",  cn:"杭州", x:596,y:312, count:6,  firms:"DeepSeek, Alibaba/Qwen, Unitree Robotics + 3 more"},
     {name:"Shanghai",  cn:"上海", x:622,y:292, count:6,  firms:"MiniMax, Stepfun, MetaX, Sensetime + 2 more"},
-    {name:"Shenzhen",  cn:"深圳", x:522,y:393, count:5,  firms:"Huawei Cloud, DJI, Tencent Cloud + 2 more"},
+    {name:"Shenzhen",  cn:"深圳", x:522,y:393, count:4,  firms:"Huawei Cloud, DJI, Tencent Cloud AI, Tencent Yuanbao"},
     {name:"Wuhan",     cn:"武汉", x:508,y:290, count:1,  firms:"Black Sesame Tech"},
     {name:"Hefei",     cn:"合肥", x:555,y:278, count:1,  firms:"iFlytek"},
     {name:"Guangzhou", cn:"广州", x:505,y:388, count:1,  firms:"Midea / KUKA"}
   ];
 
   const MAX_R=42, MIN_R=9;
-  const maxCount=19;
+  const maxCount=21;
 
   // Store for hit-testing
   canvas._cities=cities.map(c=>({
@@ -1711,55 +1707,56 @@ function renderRelGroups(){
 const analyticalData={
   lens:"Talent Pipelines",
   keyStats:[
-    {num:"51%",label:"Top global AI researchers from China",note:"Up from 29% (2019). MacroPolo Tracker 2.0; The Economist, March 2026"},
+    {num:"51%",label:"NeurIPS 2025 researchers with Chinese undergraduate origins",note:"Random sample of 600 accepted papers and almost 4,000 authors; up from 29% in 2019 using MacroPolo’s method. The Economist, March 2026"},
     {num:"4,986",label:"AI/ML patents filed by Tsinghua (2005-2024)",note:"More than MIT, Stanford, Princeton and Harvard combined. Bloomberg/LexisNexis"},
-    {num:"66%",label:"Beijing VC flowing to AI startups (2023-24)",note:"#1 globally. Startup Genome data"},
-    {num:"$4.4B",label:"Beijing AI investment in 2025",note:"4x Shanghai's $1.1B. AI World / aiworld.eu"}
+    {num:"66.2%",label:"Share of Beijing startup funding directed to AI-native firms",note:"Ecosystem funding concentration, 2023–2024; not Beijing’s share of global AI investment. Startup Genome"},
+    {num:"US$4.4B",label:"Beijing AI investment captured by AI World in 2025",note:"Third-party city estimate, compared with US$1.1B for Shanghai; not an official municipal spending total. AI World"}
   ],
   cities:[
-    {name:"Beijing",score:"97",scoreLabel:"Pipeline Strength",bar:100,top:true,
-      verdict:"Dominates on every pipeline dimension: institutional density, state-research integration, and cross-sector talent recycling.",
+    {name:"Beijing",top:true,
+      verdict:"The selected Beijing entities show high institutional density across universities, public research bodies, firms, platforms, and policy institutions. This is a qualitative pattern, not a standardized city score.",
       signals:[
-        "Tsinghua University filed 4,986 AI/ML patents (2005-2024), more than MIT, Stanford, Princeton, and Harvard combined (Bloomberg/LexisNexis)",
-        "BAAI (est. 2018, Beijing Municipal Government) formally links Peking University, Tsinghua, Baidu, Xiaomi, and ByteDance into one research-to-industry pipeline",
-        "Direct spinouts in the top-40 dataset: Zhipu AI (Tsinghua KEG), Vidu (Tsinghua), SoundAI (Tsinghua X-LANCE), Horizon Robotics (Baidu alum), CAS Star (CAS)",
-        "Moonshot AI founding team includes Tsinghua and CMU alumni, reflecting cross-border talent circulation within the pilot zone"
+        "Tsinghua University recorded 4,986 AI and machine-learning patents from 2005 through 2024, according to LexisNexis data reported by Bloomberg and Fortune",
+        "BAAI was established in 2018 with documented links to Beijing municipal authorities, universities, and technology companies",
+        "Zhipu has documented Tsinghua KEG origins; Vidu and SoundAI are treated as founder or research affiliations until direct institutional evidence confirms formal spinout status",
+        "Moonshot AI founder education is recorded as an alumni pathway, not as evidence of a formal university spinout"
       ]},
-    {name:"Hangzhou",score:"82",scoreLabel:"Pipeline Strength",bar:84,top:false,
-      verdict:"Strong ZJU-anchored pipeline, augmented by Alibaba's industrial spillovers and the government-backed Zhijiang Lab.",
+    {name:"Hangzhou",top:false,
+      verdict:"The selected Hangzhou entities illustrate university, platform-company, laboratory, and manufacturing linkages. The evidence does not establish a comparable numerical pipeline-strength index.",
       signals:[
-        "DeepSeek founders (including Liang Wenfeng) are Zhejiang University alumni; ZJU's CS and engineering departments are the primary talent source",
-        "Zhijiang Lab (2017): ZJU + Alibaba + Zhejiang Provincial Government three-way partnership, ¥30B state funding. Acts as research-to-startup accelerator (Nature, 2019)",
-        "ZJU launched China's first AI undergraduate program in 2018 and hosts the country's sole national AI textbook base (est. 2024)",
-        "Unitree Robotics and the broader Six Dragons cohort are all linked to ZJU's engineering-manufacturing nexus"
+        "DeepSeek founder Liang Wenfeng is a Zhejiang University alumnus; this is coded as founder education rather than a formal university spinout",
+        "Zhijiang Lab’s government, Zhejiang University, and Alibaba linkages are retained where documented; the reported RMB 30B figure is withheld pending a source defining its period and meaning",
+        "Unitree Robotics and Manycore Digital are shown as founder or talent-pathway cases only where biographical evidence is available",
+        "The broader Six Dragons label is contextual and is not counted as an entity or treated as proof of a common institutional pipeline"
       ]},
-    {name:"Shanghai",score:"68",scoreLabel:"Pipeline Strength",bar:70,top:false,
-      verdict:"Talent pipeline is cross-institutional rather than anchored by a single flagship university, with strength in CAS-linked and overseas-returnee talent.",
+    {name:"Shanghai",top:false,
+      verdict:"The selected Shanghai cases show cross-institutional and industry-linked talent pathways. The available evidence supports description, not a city-level causal or performance ranking.",
       signals:[
-        "MiniMax founder Yan Junjie: PhD from CAS Institute of Automation, postdoc at Tsinghua, then SenseTime before founding MiniMax (MiniMax IPO prospectus)",
-        "Stepfun and MetaX draw on a mix of overseas returnees and domestic CAS/Fudan-linked researchers",
-        "Shanghai Foundation Model Incubator (Zhangjiang Hi-Tech Park) provides structured commercialisation pathways, but lacks a single dominant university feeder",
-        "AI research output: Shanghai ranked #2 nationally in 2025, behind Beijing (aiworld.eu)"
+        "MiniMax founder Yan Junjie’s CAS Institute of Automation, Tsinghua, and SenseTime pathway is supported by company disclosure",
+        "Stepfun and MetaX affiliations are included only where named biographical or institutional sources support them",
+        "The Shanghai Foundation Model Incubator is relevant institutional context; firm-level participation must be documented separately",
+        "Research-output rankings are macro context and do not measure commercialization or Pilot Zone effects"
       ]},
-    {name:"Shenzhen / GBA",score:"55",scoreLabel:"Pipeline Strength",bar:57,top:false,
-      verdict:"Talent pipeline is hardware-anchored: strong in engineering and manufacturing talent, weaker in foundational AI research output.",
+    {name:"Shenzhen / GBA",top:false,
+      verdict:"The selected Shenzhen cases emphasize corporate and hardware-centered talent pools. This characterization is qualitative and does not measure pipeline quality against other cities.",
       signals:[
-        "Huawei Cloud and Tencent are large internal talent pools, but function as absorbers rather than originators of frontier AI research talent",
-        "DJI's dominance in drones reflects deep hardware/systems engineering capability drawn from the GBA manufacturing belt",
-        "No Shenzhen university ranks among China's top-5 AI research output cities (aiworld.eu, 2025 data)",
-        "Shenzhen's AI pilot zone leans on platform-anchored orchestration (Tencent, Huawei) rather than university-spinout pathways"
+        "Huawei, Tencent, and DJI provide major corporate engineering and product-development environments",
+        "Hardware and systems capabilities are analytically relevant to the region’s AI ecosystem",
+        "Corporate presence does not by itself demonstrate municipal policy causation",
+        "Pilot Zone alignment is distinguished from documented firm-level receipt of a policy instrument"
       ]},
-    {name:"Hefei / Other",score:"42",scoreLabel:"Pipeline Strength",bar:43,top:false,
-      verdict:"Strong in narrow verticals (voice AI, automotive chips) due to USTC's research depth, but limited ecosystem breadth.",
+    {name:"Hefei / Other",top:false,
+      verdict:"The three selected entities outside the four principal hubs illustrate specialized regional capabilities. The sample is too narrow to support a general city ranking.",
       signals:[
-        "iFlytek's deep USTC ties make Hefei a national leader in voice/NLP AI, one of China's few non-tier-1 AI champions",
-        "Wuhan's Black Sesame Tech is automotive-chip focused, aligned with Wuhan's vehicle manufacturing cluster",
-        "Nanjing and Xi'an appear in China's top-5 AI research cities (2025) but have not yet produced equivalent commercialisation outcomes"
+        "iFlytek’s USTC relationship is relevant to Hefei’s voice and language-technology specialization",
+        "Black Sesame Tech is included as a Wuhan automotive-chip case",
+        "Midea/KUKA China is included as a Guangzhou manufacturing and robotics case",
+        "These examples are scope-condition references, not a representative measure of other-city ecosystem strength"
       ]}
   ],
   pipelines:[
-    {org:"Tsinghua University",type:"Research University",icon:"graduation-cap",companies:["Zhipu AI","Vidu","SoundAI","Moonshot AI (alumni)"],note:"Filed more AI/ML patents (2005-2024) than MIT, Stanford, Princeton, and Harvard combined. Tang Jie (Zhipu AI Chairman) is a sitting Tsinghua professor.",source:"Bloomberg / LexisNexis",sourceUrl:"https://fortune.com/2025/11/19/us-china-ai-race-higher-education-tsinghua-university-outpacing-ivy-league-mit-harvard-stanford/"},
-    {org:"Zhejiang University",type:"Research University",icon:"graduation-cap",companies:["DeepSeek (founders)","Unitree Robotics","Manycore Tech"],note:"Liang Wenfeng (DeepSeek) and two co-founders are ZJU alumni. ZJU hosts China's first AI undergraduate program (2018) and the national AI textbook base (2024).",source:"Bloomberg / Yahoo Finance / ZJU official",sourceUrl:"https://finance.yahoo.com/news/meet-liang-wenfeng-hedge-fund-211725330.html"},
+    {org:"Tsinghua University",type:"Research University",icon:"graduation-cap",companies:["Zhipu AI (KEG origin)","Vidu (affiliation under review)","SoundAI (affiliation under review)","Moonshot AI (alumni pathway)"],note:"Filed more AI/ML patents (2005-2024) than MIT, Stanford, Princeton, and Harvard combined. Tang Jie (Zhipu AI Chairman) is a sitting Tsinghua professor.",source:"Bloomberg / LexisNexis",sourceUrl:"https://fortune.com/2025/11/19/us-china-ai-race-higher-education-tsinghua-university-outpacing-ivy-league-mit-harvard-stanford/"},
+    {org:"Zhejiang University",type:"Research University",icon:"graduation-cap",companies:["DeepSeek (founder education)","Unitree Robotics (founder pathway)","Manycore Digital (founder pathway)"],note:"Liang Wenfeng’s Zhejiang University education is documented. Other company links are coded as founder or talent pathways unless a formal university spinout or partnership is directly sourced.",source:"Bloomberg / Yahoo Finance / ZJU official",sourceUrl:"https://finance.yahoo.com/news/meet-liang-wenfeng-hedge-fund-211725330.html"},
     {org:"CAS (Chinese Academy of Sciences)",type:"State Research Institution",icon:"microscope",companies:["MiniMax (founder PhD)","CAS Star (spinout)"],note:"CAS Institute of Automation produced MiniMax founder Yan Junjie (PhD 2015). CAS Star is a formal CAS institutional spinout.",source:"MiniMax IPO filing",sourceUrl:"https://ir.minimax.io/corporate-information/management"},
     {org:"BAAI (Beijing Academy of AI)",type:"State-Backed Research Hub",icon:"building-2",companies:["Baidu","Xiaomi","ByteDance","PKU/Tsinghua links"],note:"Established 2018 by Beijing Municipal Government and MOST, with institutional backing from Peking University, Tsinghua, Baidu, Xiaomi, and ByteDance. Serves as a talent coordination node for the Beijing ecosystem.",source:"SCMP / HKIC press release",sourceUrl:"https://www.scmp.com/tech/tech-trends/article/3323177/hong-kong-wealth-fund-beijing-ai-academy-team-hunt-global-ai-talent"},
     {org:"Zhijiang Lab",type:"Provincial Research Lab",icon:"flask-conical",companies:["Alibaba DAMO / Qwen","ZJU ecosystem"],note:"Three-way ZJU + Alibaba + Zhejiang Provincial Government partnership. ¥30B in state funding. Produces research that feeds directly into Alibaba's Qwen model development.",source:"Nature",sourceUrl:"https://www.nature.com/articles/d42473-019-00182-9"},
@@ -1790,15 +1787,14 @@ function renderAnalytical(){
       <div class="al-city-header">
         <div class="al-city-name">${c.name}</div>
         <div class="al-city-score">
-          <div class="al-city-score-num">${c.score}</div>
-          <div class="al-city-score-label">${c.scoreLabel}</div>
+          <div class="al-city-score-label">Qualitative evidence profile</div>
         </div>
       </div>
       <div class="al-city-verdict">${c.verdict}</div>
       <div class="al-city-signals">
         ${c.signals.map(s=>`<div class="al-signal"><div class="al-signal-dot"></div><div class="al-signal-text">${s}</div></div>`).join("")}
       </div>
-      <div class="al-bar-wrap"><div class="al-bar-fill" style="width:0%" data-width="${c.bar}%"></div></div>
+
     </div>
   `).join("");
 
@@ -1823,18 +1819,14 @@ function renderAnalytical(){
         <h2 class="al-title" style="margin-bottom:0;">China's AI Talent Pipeline</h2>
         <button class="share-btn" id="shareTalentBtn" aria-label="Copy link to Talent tab"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="3" r="1.5"/><circle cx="4" cy="8" r="1.5"/><circle cx="12" cy="13" r="1.5"/><line x1="5.5" y1="7" x2="10.5" y2="4"/><line x1="5.5" y1="9" x2="10.5" y2="12"/></svg> Share</button>
       </div>
-      <p class="al-subtitle">University spinouts, founder biographies, and macro talent data converge on a consistent picture of where China's AI advantage is being built.</p>
+      <p class="al-subtitle">Documented institutional origins, founder biographies, and macro talent data illustrate selected pathways in China’s AI ecosystem. These profiles are descriptive and do not constitute city rankings or causal estimates.</p>
     </div>
     <div class="al-stat-row">${statsHtml}</div>
     <div class="al-section-title">Key Institutional Pipelines</div>
     <div class="al-pipeline-grid" id="al-pipeline-container">${pipelinesHtml}</div>
-    <div class="al-section-title">Pipeline Strength by City</div>
+    <div class="al-section-title">City Evidence Profiles</div>
     <div class="al-cities">${citiesHtml}</div>
   `;
-
-  setTimeout(()=>{
-    root.querySelectorAll(".al-bar-fill").forEach(el=>{el.style.width=el.dataset.width;});
-  },120);
 
   lucide.createIcons();
 }
@@ -2067,14 +2059,29 @@ function renderTable(filter="all"){
       <td>${renderCaseRole(s.caseRole)}</td>
       <td><span class="badge badge--${s.sector}">${s.sectorLabel}</span></td>
       <td style="font-variant-numeric:tabular-nums;color:var(--color-text-muted)">${s.founded}</td>
-      <td>${renderEvidence(s.capitalEvent)}</td>
-      <td>${renderEvidence(s.publicMarketValue)}</td>
-      <td>${renderEvidence(s.operatingScale)}</td>
+      <td>${renderFinancial(liveData.companies[s.name]?.financials)}</td>
       <td class="audit-note">${s.auditNote?escapeHtml(s.auditNote):""}</td>
       <td>${renderSignalCell(s.name)}</td>
       <td class="reviewed">${s.evidenceVerified}</td>
     </tr>`);
   });
+}
+
+// Render one concise financial observation with its audit metadata.
+function renderFinancial(f){
+  if(!f||f.type==="not_disclosed") return `<span class="undisclosed">Not publicly disclosed</span>`;
+  const statusClass=String(f.status||"reported").toLowerCase().replace(/[^a-z0-9]+/g,"-");
+  const source=f.source&&f.source.label
+    ? (f.source.url
+      ? `<a class="ev-source" href="${escapeHtml(f.source.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(f.source.label)}</a>`
+      : escapeHtml(f.source.label))
+    : "";
+  const meta=[f.date,source].filter(Boolean).join(" · ");
+  return `<div class="ev-cell">`+
+    `<span class="ev-status ev-status--${statusClass}">${escapeHtml(f.status||"")}</span>`+
+    `<span class="ev-value">${escapeHtml(f.text)}</span>`+
+    (meta?`<span class="ev-meta">${meta}</span>`:"")+
+    `</div>`;
 }
 
 // A financial field is shown only when the audit supplies a value with a claim

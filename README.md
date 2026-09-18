@@ -71,7 +71,7 @@ Beijing, Hangzhou, and Shanghai account for **33 of the 40 selected entities, or
 | **City Breakdown** | Distribution of the 40 selected entities across Beijing, Hangzhou, Shanghai, Shenzhen, and other cities. |
 | **Research Insights** | Analytical propositions concerning capital coordination, compute governance, institutional integration, and sample composition. |
 | **Relationships** | Documented funding, university, research, platform, and institutional relationships, with source status shown at the entity level. |
-| **Talent** | Illustrative institutional and founder pathways. Any pipeline-strength assessments are interpretive rather than independently measured indices. |
+| **Talent** | Illustrative institutional and founder pathways presented as qualitative evidence profiles, not numerical rankings. |
 | **Methodology & Sources** | Selection criteria, coding rules, evidence thresholds, limitations, and source links. |
 
 ## Selected Findings
@@ -88,7 +88,7 @@ Beijing, Hangzhou, and Shanghai account for **33 of the 40 selected entities, or
 - Tsinghua University recorded **4,986 AI and machine-learning patents between 2005 and 2024**, according to LexisNexis data reported by Bloomberg and Fortune.
 - Startup Genome data reported for 2023–2024 indicate that approximately **66.2% of Beijing ecosystem startup funding went to AI-native companies**. This is a funding-concentration measure, not Beijing’s share of global AI investment.
 - AI World reports approximately **US$4.4 billion in Beijing AI investment during 2025**, compared with approximately US$1.1 billion in Shanghai. This is a third-party estimate rather than an official municipal expenditure total.
-- Talent-origin statistics depend on the cohort and definition used. MacroPolo reports that **38% of top AI researchers in its 2024 sample received undergraduate education in China**. Later analyses of a different NeurIPS cohort report higher figures and should not be presented as directly comparable without explaining the denominator and methodology.
+- Talent-origin statistics depend on the cohort and definition used. **The Economist’s March 2026 analysis of a random sample of 600 accepted NeurIPS 2025 papers, covering almost 4,000 authors, found that 51% of presenting researchers began their careers in China, operationalized through undergraduate origins; this was up from 29% in 2019 using MacroPolo’s method.** MacroPolo’s separate 2024 tracker reports 38% for its own cohort, so the figures should not be treated as directly interchangeable.
 
 ## Financial Data Notes
 
@@ -96,9 +96,10 @@ Financial figures are reported only when a sufficiently specific source and date
 
 - **Zhipu AI:** FY2025 revenue of RMB 724 million and research-and-development expenditure of RMB 3.18 billion, implying R&D expenditure equal to approximately 439.2% of revenue.
 - **MiniMax:** FY2025 revenue of approximately US$79.0 million and R&D expenditure of approximately US$252.8 million, implying R&D expenditure equal to approximately 319.8% of revenue.
-- **Unitree Robotics:** Listed on the Shanghai STAR Market on 19 August 2026 under ticker 688836. The completed offering supersedes earlier descriptions of a proposed RMB 4.2 billion listing.
+- **Unitree Robotics:** Listed on the Shanghai STAR Market on 19 August 2026 under ticker 688836 after raising approximately RMB 6.1 billion. The completed offering supersedes earlier descriptions of a proposed RMB 4.2 billion listing.
 - **DeepSeek:** Any valuation shown is identified as transaction-implied and indirect unless confirmed through a primary financing announcement.
-- **Lightyear Beyond:** The primary transaction disclosure separates cash consideration from assumed liabilities. Converted aggregate values differ according to the exchange rate used.
+- **Lightyear Beyond:** Meituan’s primary transaction disclosure reports US$233.6736 million cash, RMB 366.924 million of assumed liabilities, and RMB 1 cash; no converted aggregate is presented.
+- **Cambricon:** CNY 695.506 billion at the 17 September 2026 close, sourced to the dated 688256.SS market record.
 - **Public-company market values:** Market capitalization figures are point-in-time observations and must include the applicable date.
 
 ## Evidence Standards
