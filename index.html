@@ -5,22 +5,22 @@
   Author: Chinonso Anyanwu
   College: Schwarzman College, Tsinghua University
   Year: 2026
-  Typography: Inter Tight (display) + Inter (body/UI) + JetBrains Mono (labels)
+  Typography: Inter Tight (display) + Inter (body, UI and micro-labels)
 -->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>China's AI Ecosystem: Curated Research Map</title>
+<title>China's Frontier AI Ecosystem: Curated Research Map</title>
 <meta name="description" content="A curated, evidence-linked map of 40 frontier AI companies, public companies, platform providers, research institutions, capital actors, and infrastructure anchors across China. Not a ranking or a causal estimate of policy effects.">
 <meta name="author" content="Chinonso Anyanwu, Schwarzman College, Tsinghua University">
-<meta property="og:title" content="China's AI Ecosystem: Curated Research Map">
+<meta property="og:title" content="China's Frontier AI Ecosystem: Curated Research Map">
 <meta property="og:description" content="An evidence-linked ecosystem map across capital, compute and data infrastructure, institutional linkages, and commercialization. Core evidence verified 17 September 2026.">
 <meta property="og:type" content="website">
-<!-- Inter Tight (display) + Inter (UI/body) + JetBrains Mono (micro-labels, figures) -->
+<!-- Inter Tight (display) + Inter (UI/body, including micro-labels) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;450;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;450;500;600;700&display=swap" rel="stylesheet">
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 <style>
 /*
@@ -29,7 +29,7 @@
         one confident accent, generous air, motion that is felt not seen.
   Palette: White ground + near-black ink (#16191A) + violet accent (#6D28D9),
            with saturated category colours as the bursts
-  Typography: Inter Tight (display) · Inter (UI) · JetBrains Mono (micro-labels)
+  Typography: Inter Tight (display) · Inter (UI and micro-labels)
   Density: Airy — Stripe blog spacing rhythm
 */
 :root, [data-theme="light"] {
@@ -72,7 +72,7 @@
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --font-display: 'Inter Tight', 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
   --font-body:    'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
-  --font-mono:    'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-label:   'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
   --text-xs:   0.8125rem;
   --text-sm:   0.875rem;
   --text-base: 1rem;
@@ -150,10 +150,11 @@ a.skip-link:focus{transform:translateY(0);}
 .container{max-width:var(--container);margin-inline:auto;padding-inline:var(--space-6);}
 .container--narrow{max-width:900px;margin-inline:auto;padding-inline:var(--space-6);}
 
-/* Reusable micro-label: mono, uppercase, wide-tracked — the "data tool" voice */
+/* Reusable micro-label: uppercase and wide-tracked. The label voice comes
+   from the setting, not from a typewriter face. */
 .eyebrow{
-  font-family:var(--font-mono);font-size:11px;font-weight:500;
-  text-transform:uppercase;letter-spacing:0.14em;color:var(--color-text-faint);
+  font-family:var(--font-label);font-size:11px;font-weight:600;
+  text-transform:uppercase;letter-spacing:0.12em;color:var(--color-text-faint);
 }
 
 /* BUTTONS — Stripe pill language */
@@ -189,7 +190,7 @@ header.is-scrolled{background:var(--color-bg);border-bottom-color:var(--color-di
 .logo:hover{color:var(--color-text);}
 .logo-mark{width:32px;height:32px;flex-shrink:0;border-radius:var(--radius-md);}
 .logo-text{display:flex;align-items:center;line-height:1.15;}
-.logo-text strong{font-family:var(--font-display);font-size:1.0625rem;font-weight:600;letter-spacing:-0.025em;}
+.logo-text strong{font-family:var(--font-display);font-size:1.0625rem;font-weight:600;letter-spacing:-0.025em;white-space:nowrap;}
 .header-right{display:flex;align-items:center;gap:var(--space-3);}
 nav{display:flex;align-items:center;gap:var(--space-1);}
 nav a{
@@ -225,11 +226,37 @@ nav a.active::after{
 }
 .hero-kicker{
   display:inline-flex;align-items:center;gap:var(--space-2);
-  font-family:var(--font-mono);font-size:10.5px;font-weight:500;
-  text-transform:uppercase;letter-spacing:0.14em;color:var(--color-primary);
+  font-family:var(--font-label);font-size:10.5px;font-weight:600;
+  text-transform:uppercase;letter-spacing:0.12em;color:var(--color-primary);
   margin-bottom:var(--space-5);
 }
-.hero-kicker::before{content:"";width:22px;height:2px;background:var(--color-primary);border-radius:1px;}
+/* The dot carries a standing glow plus an expanding ring, and drifts a little
+   against the fixed label so it reads as alive rather than as a bullet. */
+.hero-kicker::before{
+  content:"";width:9px;height:9px;border-radius:var(--radius-full);
+  background:var(--color-primary);flex-shrink:0;
+  animation:kickerBeam 2.2s ease-out infinite,
+            kickerFloat 3.6s ease-in-out infinite;
+}
+@keyframes kickerBeam{
+  0%{
+    box-shadow:0 0 9px 1px color-mix(in oklab,var(--color-primary) 60%,transparent),
+               0 0 0 0 color-mix(in oklab,var(--color-primary) 55%,transparent);
+  }
+  70%{
+    box-shadow:0 0 18px 5px color-mix(in oklab,var(--color-primary) 34%,transparent),
+               0 0 0 13px color-mix(in oklab,var(--color-primary) 0%,transparent);
+  }
+  100%{
+    box-shadow:0 0 9px 1px color-mix(in oklab,var(--color-primary) 60%,transparent),
+               0 0 0 0 color-mix(in oklab,var(--color-primary) 0%,transparent);
+  }
+}
+@keyframes kickerFloat{
+  0%,100%{transform:translateY(0);}
+  50%    {transform:translateY(-3px);}
+}
+@media(prefers-reduced-motion:reduce){.hero-kicker::before{animation:none;}}
 .hero h1{
   font-family:var(--font-display);font-weight:600;
   font-size:clamp(2.5rem,1.6rem + 3.4vw,4.25rem);
@@ -250,7 +277,16 @@ nav a.active::after{
   display:flex;flex-wrap:wrap;gap:var(--space-6);margin-top:var(--space-10);
   padding-top:var(--space-5);border-top:1px solid var(--color-border);
 }
-.hero-metric{display:flex;align-items:baseline;gap:var(--space-2);}
+.hero-metric{
+  display:flex;align-items:baseline;gap:var(--space-2);
+  opacity:0;animation:metricIn .55s var(--ease-out) forwards;
+}
+.hero-metric:nth-child(1){animation-delay:.35s;}
+.hero-metric:nth-child(2){animation-delay:.45s;}
+.hero-metric:nth-child(3){animation-delay:.55s;}
+.hero-metric:nth-child(4){animation-delay:.65s;}
+@keyframes metricIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+@media(prefers-reduced-motion:reduce){.hero-metric{opacity:1;animation:none;}}
 .hero-metric b{
   font-family:var(--font-display);font-size:1.5rem;font-weight:600;letter-spacing:-0.04em;
   color:var(--color-text);font-variant-numeric:tabular-nums;
@@ -279,7 +315,7 @@ nav a.active::after{
   margin-bottom:var(--space-6);
 }
 .hero-figcap b{font-size:var(--text-sm);font-weight:600;color:var(--color-text);letter-spacing:-0.012em;}
-.hero-figcap span{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:0.12em;color:var(--color-text-faint);}
+.hero-figcap span{font-family:var(--font-label);font-size:10px;text-transform:uppercase;letter-spacing:0.12em;color:var(--color-text-faint);}
 .hero-dots{display:grid;grid-template-columns:repeat(10,1fr);gap:7px;margin-bottom:var(--space-6);max-width:330px;}
 .hero-dot{
   aspect-ratio:1;border-radius:var(--radius-full);background:var(--c-ot);
@@ -332,7 +368,7 @@ main > .container{padding-bottom:var(--space-16);}
 
 /* FILTER BAR */
 .filter-bar{display:flex;flex-wrap:wrap;gap:var(--space-3);align-items:center;margin-bottom:var(--space-6);}
-.filter-bar label{font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:0.12em;font-weight:500;color:var(--color-text-faint);}
+.filter-bar label{font-family:var(--font-label);font-size:10.5px;text-transform:uppercase;letter-spacing:0.12em;font-weight:600;color:var(--color-text-faint);}
 .filter-chips{display:flex;flex-wrap:wrap;gap:var(--space-2);}
 .chip{
   padding:5px var(--space-4);border-radius:var(--radius-full);
@@ -367,7 +403,7 @@ table{font-size:var(--text-sm);}
 .table-wrap th:nth-child(12){width:120px;}
 thead th{
   background:var(--color-bg);padding:var(--space-4);
-  text-align:left;font-family:var(--font-mono);font-size:10.5px;font-weight:500;
+  text-align:left;font-family:var(--font-label);font-size:10.5px;font-weight:600;
   text-transform:uppercase;letter-spacing:0.1em;color:var(--color-text-faint);
   white-space:nowrap;border-bottom:1px solid var(--color-border);
 }
@@ -385,7 +421,7 @@ tbody tr:hover{background:var(--color-surface-offset);}
 tbody td{padding:var(--space-4);vertical-align:top;line-height:1.5;}
 .table-hint{
   display:flex;align-items:center;gap:var(--space-2);margin-top:var(--space-3);
-  font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;
+  font-family:var(--font-label);font-size:10.5px;text-transform:uppercase;
   letter-spacing:0.12em;color:var(--color-text-faint);
 }
 .company-cell{display:flex;flex-direction:column;gap:2px;}
@@ -416,7 +452,7 @@ tbody td{padding:var(--space-4);vertical-align:top;line-height:1.5;}
 .signal-cell{display:flex;flex-direction:column;gap:2px;max-width:240px;}
 .signal-cell a{font-size:var(--text-xs);color:var(--color-text);font-weight:500;line-height:1.45;}
 .signal-cell a:hover{color:var(--color-primary);}
-.signal-meta{display:flex;gap:var(--space-2);align-items:center;font-family:var(--font-mono);font-size:10px;color:var(--color-text-faint);margin-top:3px;}
+.signal-meta{display:flex;gap:var(--space-2);align-items:center;font-family:var(--font-label);font-size:10px;color:var(--color-text-faint);margin-top:3px;}
 .signal-empty{font-size:var(--text-xs);color:var(--color-text-faint);}
 .live-updated-note{
   display:inline-flex;align-items:center;gap:var(--space-2);
@@ -455,11 +491,11 @@ tbody td{padding:var(--space-4);vertical-align:top;line-height:1.5;}
 .map-subtitle{font-size:var(--text-xs);color:var(--color-text-muted);}
 #chinaMapCanvas{width:100%;height:auto;border-radius:var(--radius-lg);}
 .map-legend{display:flex;align-items:center;gap:var(--space-4);margin-top:var(--space-5);flex-wrap:wrap;padding-top:var(--space-4);border-top:1px solid var(--color-divider);}
-.legend-label{font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:0.12em;color:var(--color-text-faint);font-weight:500;}
+.legend-label{font-family:var(--font-label);font-size:10.5px;text-transform:uppercase;letter-spacing:0.12em;color:var(--color-text-faint);font-weight:600;}
 .legend-bubbles{display:flex;align-items:center;gap:var(--space-5);}
 .legend-item{display:flex;align-items:center;gap:var(--space-2);}
 .legend-circle{border-radius:50%;background:var(--color-primary);opacity:0.65;flex-shrink:0;}
-.legend-item span{font-family:var(--font-mono);font-size:11px;color:var(--color-text-muted);}
+.legend-item span{font-family:var(--font-label);font-size:11px;color:var(--color-text-muted);}
 .map-tooltip{
   position:absolute;background:var(--color-surface);border:1px solid var(--color-border);
   border-radius:var(--radius-lg);padding:var(--space-3) var(--space-4);
@@ -468,7 +504,7 @@ tbody td{padding:var(--space-4);vertical-align:top;line-height:1.5;}
   min-width:180px;max-width:250px;
 }
 .map-tooltip strong{display:block;font-size:var(--text-sm);margin-bottom:2px;color:var(--color-text);letter-spacing:-0.01em;}
-.map-tooltip .tt-count{font-family:var(--font-mono);color:var(--color-primary);font-weight:600;font-size:var(--text-sm);}
+.map-tooltip .tt-count{font-family:var(--font-label);color:var(--color-primary);font-weight:600;font-size:var(--text-sm);}
 .map-tooltip .tt-firms{color:var(--color-text-muted);margin-top:var(--space-2);line-height:1.5;}
 
 /* City cards sidebar */
@@ -478,7 +514,7 @@ tbody td{padding:var(--space-4);vertical-align:top;line-height:1.5;}
 .city-card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--space-3);}
 .city-card-name{font-family:var(--font-display);font-size:1.0625rem;font-weight:600;letter-spacing:-0.022em;color:var(--color-text);}
 .city-card-count{
-  font-family:var(--font-mono);font-size:11px;color:var(--color-primary);
+  font-family:var(--font-label);font-size:11px;color:var(--color-primary);
   background:color-mix(in oklab,var(--color-primary) 10%,var(--color-bg));
   padding:3px 9px;border-radius:var(--radius-full);font-weight:600;
 }
@@ -531,8 +567,8 @@ tbody td{padding:var(--space-4);vertical-align:top;line-height:1.5;}
   content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--gradient-accent);
 }
 .takeaways-eyebrow{
-  font-family:var(--font-mono);font-size:10.5px;color:var(--color-primary);
-  text-transform:uppercase;letter-spacing:0.14em;font-weight:500;margin-bottom:var(--space-4);
+  font-family:var(--font-label);font-size:10.5px;color:var(--color-primary);
+  text-transform:uppercase;letter-spacing:0.12em;font-weight:600;margin-bottom:var(--space-4);
 }
 .takeaways-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:var(--space-3);}
 .takeaway-item{
@@ -553,13 +589,13 @@ tbody td{padding:var(--space-4);vertical-align:top;line-height:1.5;}
 .rel-tab-desc{font-size:var(--text-base);color:var(--color-text-muted);max-width:72ch;line-height:1.65;}
 .rel-tab-note{margin-top:var(--space-3);font-size:var(--text-xs);color:var(--color-text-faint);}
 .rel-filters{display:flex;flex-wrap:wrap;gap:var(--space-2);margin-bottom:var(--space-8);align-items:center;}
-.rel-filter-label{font-family:var(--font-mono);font-size:10.5px;font-weight:500;text-transform:uppercase;letter-spacing:0.12em;color:var(--color-text-faint);margin-right:var(--space-2);}
+.rel-filter-label{font-family:var(--font-label);font-size:10.5px;font-weight:600;text-transform:uppercase;letter-spacing:0.12em;color:var(--color-text-faint);margin-right:var(--space-2);}
 .rel-group{margin-bottom:var(--space-12);}
 .rel-group-header{display:flex;align-items:center;gap:var(--space-3);margin-bottom:var(--space-4);padding-bottom:var(--space-4);border-bottom:1px solid var(--color-divider);}
 .rel-group-icon{width:32px;height:32px;border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .rel-group-icon svg{width:16px;height:16px;}
 .rel-group-title{font-family:var(--font-display);font-size:1.0625rem;font-weight:600;letter-spacing:-0.022em;color:var(--color-text);}
-.rel-group-count{margin-left:auto;font-family:var(--font-mono);font-size:11px;color:var(--color-text-faint);font-weight:500;}
+.rel-group-count{margin-left:auto;font-family:var(--font-label);font-size:11px;color:var(--color-text-faint);font-weight:600;}
 .rel-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:var(--space-4);}
 .rel-card{padding:var(--space-5);display:flex;flex-direction:column;gap:var(--space-3);opacity:0;animation:heroFadeUp 0.5s var(--ease-out) forwards;}
 .rel-card-nodes{display:flex;align-items:center;gap:var(--space-2);flex-wrap:wrap;}
@@ -574,7 +610,7 @@ tbody td{padding:var(--space-4);vertical-align:top;line-height:1.5;}
 .rel-card-source{font-size:var(--text-xs);color:var(--color-text-faint);margin-top:auto;padding-top:var(--space-3);border-top:1px solid var(--color-divider);}
 .rel-card-source a{color:var(--color-text-faint);text-decoration:underline;text-underline-offset:2px;text-decoration-color:var(--color-surface-dynamic);}
 .rel-card-source a:hover{color:var(--color-primary);text-decoration-color:currentColor;}
-.rel-type-badge{display:inline-block;padding:3px var(--space-2);border-radius:var(--radius-sm);font-family:var(--font-mono);font-size:9.5px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;}
+.rel-type-badge{display:inline-block;padding:3px var(--space-2);border-radius:var(--radius-sm);font-family:var(--font-label);font-size:9.5px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;}
 .rel-type-badge--funding{background:color-mix(in oklab,var(--color-blue) 10%,var(--color-bg));color:var(--color-blue);}
 .rel-type-badge--university{background:color-mix(in oklab,var(--color-gold) 12%,var(--color-bg));color:var(--color-gold);}
 .rel-type-badge--lab{background:color-mix(in oklab,var(--color-orange) 10%,var(--color-bg));color:var(--color-orange);}
@@ -591,7 +627,7 @@ tbody td{padding:var(--space-4);vertical-align:top;line-height:1.5;}
 .al-stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:var(--space-4);margin-bottom:var(--space-12);}
 .al-stat-card{padding:var(--space-5);opacity:0;animation:heroFadeUp 0.5s var(--ease-out) forwards;}
 .al-stat-num{font-family:var(--font-display);font-size:clamp(1.75rem,1.5rem + 1vw,2.25rem);font-weight:600;color:var(--color-text);letter-spacing:-0.04em;line-height:1;margin-bottom:var(--space-3);font-variant-numeric:tabular-nums;}
-.al-stat-label{font-family:var(--font-mono);font-size:10.5px;color:var(--color-text-faint);text-transform:uppercase;letter-spacing:0.12em;font-weight:500;}
+.al-stat-label{font-family:var(--font-label);font-size:10.5px;color:var(--color-text-faint);text-transform:uppercase;letter-spacing:0.12em;font-weight:600;}
 .al-stat-note{font-size:var(--text-xs);color:var(--color-text-muted);margin-top:var(--space-2);line-height:1.5;}
 .al-section-title{font-family:var(--font-display);font-size:1.0625rem;font-weight:600;letter-spacing:-0.022em;color:var(--color-text);margin-bottom:var(--space-5);display:flex;align-items:center;gap:var(--space-3);}
 .al-section-title::before{content:"";display:block;width:3px;height:1.05em;background:var(--gradient-accent);border-radius:2px;}
@@ -601,7 +637,7 @@ tbody td{padding:var(--space-4);vertical-align:top;line-height:1.5;}
 .al-pipeline-icon{width:34px;height:34px;border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;flex-shrink:0;background:color-mix(in oklab,var(--color-gold) 12%,var(--color-bg));color:var(--color-gold);}
 .al-pipeline-icon svg{width:16px;height:16px;}
 .al-pipeline-org{font-size:var(--text-sm);font-weight:600;color:var(--color-text);letter-spacing:-0.012em;}
-.al-pipeline-type{font-family:var(--font-mono);font-size:10px;color:var(--color-text-faint);text-transform:uppercase;letter-spacing:0.1em;}
+.al-pipeline-type{font-family:var(--font-label);font-size:10px;color:var(--color-text-faint);text-transform:uppercase;letter-spacing:0.1em;}
 .al-pipeline-companies{display:flex;flex-wrap:wrap;gap:var(--space-1);margin-bottom:var(--space-3);}
 .al-pipeline-co{font-size:11.5px;padding:3px var(--space-3);border-radius:var(--radius-full);background:color-mix(in oklab,var(--color-primary) 9%,var(--color-bg));color:var(--color-primary);font-weight:500;}
 .al-pipeline-note{font-size:var(--text-xs);color:var(--color-text-muted);line-height:1.6;}
@@ -615,7 +651,7 @@ tbody td{padding:var(--space-4);vertical-align:top;line-height:1.5;}
 .al-city-name{font-family:var(--font-display);font-size:var(--text-lg);font-weight:600;letter-spacing:-0.028em;color:var(--color-text);}
 .al-city-score{display:flex;flex-direction:column;align-items:flex-end;}
 .al-city-score-num{font-family:var(--font-display);font-size:1.75rem;font-weight:600;color:var(--color-text);line-height:1;letter-spacing:-0.04em;font-variant-numeric:tabular-nums;}
-.al-city-score-label{font-family:var(--font-mono);font-size:9.5px;text-transform:uppercase;letter-spacing:0.12em;color:var(--color-text-faint);margin-top:4px;}
+.al-city-score-label{font-family:var(--font-label);font-size:9.5px;text-transform:uppercase;letter-spacing:0.12em;color:var(--color-text-faint);margin-top:4px;}
 .al-city-verdict{font-size:var(--text-sm);font-weight:600;color:var(--color-text);margin-bottom:var(--space-4);line-height:1.45;letter-spacing:-0.012em;}
 .al-city-signals{display:flex;flex-direction:column;gap:var(--space-2);margin-bottom:var(--space-3);}
 .al-signal{display:flex;align-items:flex-start;gap:var(--space-2);}
@@ -631,13 +667,13 @@ footer{border-top:1px solid var(--color-border);background:var(--color-bg);paddi
 .footer-brand{display:flex;flex-direction:column;gap:var(--space-4);}
 .footer-brand .logo-mark{width:32px;height:32px;}
 .footer-blurb{font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.65;max-width:42ch;}
-.footer-col h4{font-family:var(--font-mono);font-size:10.5px;font-weight:500;text-transform:uppercase;letter-spacing:0.12em;color:var(--color-text-faint);margin-bottom:var(--space-4);}
+.footer-col h4{font-family:var(--font-label);font-size:10.5px;font-weight:600;text-transform:uppercase;letter-spacing:0.12em;color:var(--color-text-faint);margin-bottom:var(--space-4);}
 .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:var(--space-3);}
 .footer-col a,.footer-col span{font-size:var(--text-sm);color:var(--color-text-muted);}
 .footer-col a:hover{color:var(--color-primary);}
 .footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:var(--space-3);padding-top:var(--space-6);border-top:1px solid var(--color-border);}
 .footer-note{font-size:var(--text-xs);color:var(--color-text-faint);}
-.footer-tag{font-family:var(--font-mono);font-size:10.5px;color:var(--color-text-faint);letter-spacing:0.06em;text-transform:uppercase;}
+.footer-tag{font-family:var(--font-label);font-size:10.5px;color:var(--color-text-faint);letter-spacing:0.06em;text-transform:uppercase;}
 
 /* ===== EVIDENCE LAYER (17 Sep 2026 audit) ===== */
 .protocol{
@@ -646,13 +682,6 @@ footer{border-top:1px solid var(--color-border);background:var(--color-bg);paddi
 }
 .protocol p{font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.6;}
 .protocol p b{color:var(--color-text);}
-.protocol-meta{
-  list-style:none;display:flex;flex-wrap:wrap;gap:var(--space-2) var(--space-5);
-  margin-top:var(--space-4);padding-top:var(--space-4);border-top:1px solid var(--color-divider);
-  font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;
-  letter-spacing:0.1em;color:var(--color-text-faint);
-}
-.protocol-meta b{color:var(--color-text);font-weight:600;text-transform:none;letter-spacing:0;}
 .notice[hidden]{display:none;}
 .notice{
   display:flex;align-items:center;gap:var(--space-4);flex-wrap:wrap;
@@ -677,20 +706,20 @@ footer{border-top:1px solid var(--color-border);background:var(--color-bg);paddi
 
 .ev-cell{display:flex;flex-direction:column;gap:4px;max-width:300px;}
 .ev-status{
-  align-self:flex-start;font-family:var(--font-mono);font-size:9.5px;font-weight:500;
+  align-self:flex-start;font-family:var(--font-label);font-size:9.5px;font-weight:600;
   text-transform:uppercase;letter-spacing:0.1em;padding:2px var(--space-2);border-radius:var(--radius-sm);
 }
 .ev-status--disclosed{background:color-mix(in oklab,var(--color-success) 13%,var(--color-bg));color:var(--color-success);}
 .ev-status--reported{background:color-mix(in oklab,var(--color-blue) 12%,var(--color-bg));color:var(--color-blue);}
 .ev-status--estimated,.ev-status--inferred{background:color-mix(in oklab,var(--color-gold) 14%,var(--color-bg));color:var(--color-gold);}
 .ev-value{font-size:var(--text-xs);color:var(--color-text);line-height:1.5;}
-.ev-meta{font-family:var(--font-mono);font-size:10px;color:var(--color-text-faint);line-height:1.45;}
+.ev-meta{font-family:var(--font-label);font-size:10px;color:var(--color-text-faint);line-height:1.45;}
 .undisclosed{font-size:var(--text-xs);color:var(--color-text-faint);font-style:normal;}
 .audit-note{font-size:11.5px;color:var(--color-text-muted);line-height:1.5;max-width:300px;}
-.reviewed{font-family:var(--font-mono);font-size:10.5px;color:var(--color-text-faint);white-space:nowrap;}
+.reviewed{font-family:var(--font-label);font-size:10.5px;color:var(--color-text-faint);white-space:nowrap;}
 .field-disclaimer{font-size:var(--text-xs);color:var(--color-text-muted);margin-bottom:var(--space-4);}
 .unverified-tag{
-  font-family:var(--font-mono);font-size:9.5px;font-weight:500;text-transform:uppercase;
+  font-family:var(--font-label);font-size:9.5px;font-weight:600;text-transform:uppercase;
   letter-spacing:0.1em;padding:2px var(--space-2);border-radius:var(--radius-sm);
   background:color-mix(in oklab,var(--color-gold) 14%,var(--color-bg));color:var(--color-gold);margin-right:6px;
 }
@@ -731,12 +760,12 @@ footer{border-top:1px solid var(--color-border);background:var(--color-bg);paddi
 .cl-head{display:flex;align-items:baseline;gap:var(--space-3);flex-wrap:wrap;}
 .cl-head b{font-size:var(--text-sm);color:var(--color-text);}
 .cl-reason{
-  font-family:var(--font-mono);font-size:9.5px;text-transform:uppercase;letter-spacing:0.1em;
+  font-family:var(--font-label);font-size:9.5px;text-transform:uppercase;letter-spacing:0.1em;
   padding:2px var(--space-2);border-radius:var(--radius-sm);
   background:color-mix(in oklab,var(--color-primary) 10%,var(--color-bg));color:var(--color-primary);
 }
-.cl-head time{margin-left:auto;font-family:var(--font-mono);font-size:10px;color:var(--color-text-faint);}
-.cl-field{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:0.1em;color:var(--color-text-faint);margin:4px 0 6px;}
+.cl-head time{margin-left:auto;font-family:var(--font-label);font-size:10px;color:var(--color-text-faint);}
+.cl-field{font-family:var(--font-label);font-size:10px;text-transform:uppercase;letter-spacing:0.1em;color:var(--color-text-faint);margin:4px 0 6px;}
 .meth-changelog p{font-size:var(--text-xs);color:var(--color-text-muted);line-height:1.6;}
 .footer-disclaimer{
   font-size:var(--text-xs);color:var(--color-text-muted);line-height:1.65;
@@ -768,6 +797,9 @@ footer{border-top:1px solid var(--color-border);background:var(--color-bg);paddi
 }
 @media(max-width:640px){
   :root{--header-h:60px;}
+  /* The longer wordmark needs to step down to clear the toggle and menu button */
+  .logo-text strong{font-size:0.875rem;letter-spacing:-0.02em;}
+  .logo-mark{width:28px;height:28px;}
   .container,.tab-dock-inner{padding-inline:var(--space-4);}
   header{padding-inline:var(--space-4);}
   .hero::after{background-size:52px 52px;}
@@ -783,7 +815,7 @@ footer{border-top:1px solid var(--color-border);background:var(--color-bg);paddi
 
 <header id="siteHeader">
   <div class="header-inner">
-    <a href="#" class="logo" aria-label="China's AI Ecosystem, home">
+    <a href="#" class="logo" aria-label="China's Frontier AI Ecosystem, home">
       <svg class="logo-mark" viewBox="0 0 36 36" fill="none" aria-hidden="true">
         <defs>
           <linearGradient id="logoGrad" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
@@ -798,7 +830,7 @@ footer{border-top:1px solid var(--color-border);background:var(--color-bg);paddi
         <circle cx="25.5" cy="10.5" r="1.7" fill="#fff" opacity="0.45"/>
       </svg>
       <div class="logo-text">
-        <strong>China's AI Ecosystem</strong>
+        <strong>China's Frontier AI Ecosystem</strong>
       </div>
     </a>
     <nav id="primaryNav" aria-label="Primary navigation">
@@ -826,8 +858,8 @@ footer{border-top:1px solid var(--color-border);background:var(--color-bg);paddi
   <section class="hero" aria-labelledby="hero-title">
     <div class="container hero-grid">
       <div class="hero-copy">
-        <p class="hero-kicker">40 curated ecosystem entities · Core evidence verified 17 September 2026</p>
-        <h1 id="hero-title">China's <em>AI Ecosystem</em></h1>
+        <p class="hero-kicker">40 curated ecosystem entities</p>
+        <h1 id="hero-title">China's Frontier <em>AI Ecosystem</em></h1>
         <p class="hero-deck">China's AI ecosystem mapped across capital, compute and data infrastructure, institutional linkages, and commercialization. The analytical lens draws on <strong>developmental orchestration</strong> and is anchored in Beijing's AI Pilot Zone, with comparative ecosystem references across China.</p>
         <div class="hero-actions">
           <a href="#tab-ecosystem" class="btn btn--primary" data-nav-tab="ecosystem">Explore the ecosystem
@@ -836,17 +868,17 @@ footer{border-top:1px solid var(--color-border);background:var(--color-bg);paddi
           <a href="#tab-insights" class="btn btn--ghost" data-nav-tab="insights">Read the findings</a>
         </div>
         <div class="hero-metrics">
-          <div class="hero-metric"><b>40</b><span>startups</span></div>
-          <div class="hero-metric"><b>5</b><span>city clusters</span></div>
-          <div class="hero-metric"><b>6</b><span>sectors</span></div>
-          <div class="hero-metric"><b>3</b><span>orchestration domains</span></div>
+          <div class="hero-metric"><b data-count="40">40</b><span>startups</span></div>
+          <div class="hero-metric"><b data-count="5">5</b><span>city clusters</span></div>
+          <div class="hero-metric"><b data-count="6">6</b><span>sectors</span></div>
+          <div class="hero-metric"><b data-count="3">3</b><span>orchestration domains</span></div>
         </div>
       </div>
 
       <figure class="hero-figure" aria-hidden="true">
         <figcaption class="hero-figcap">
-          <b>Where the top 40 are based</b>
-          <span>1 dot = 1 company</span>
+          <b>Where the 40 entities are based</b>
+          <span>1 dot = 1 entity</span>
         </figcaption>
         <div class="hero-dots">
           <span class="hero-dot bj" style="animation-delay:140ms"></span>
@@ -868,8 +900,8 @@ footer{border-top:1px solid var(--color-border);background:var(--color-bg);paddi
           <span class="hero-dot bj" style="animation-delay:396ms"></span>
           <span class="hero-dot bj" style="animation-delay:412ms"></span>
           <span class="hero-dot bj" style="animation-delay:428ms"></span>
-          <span class="hero-dot hz" style="animation-delay:444ms"></span>
-          <span class="hero-dot hz" style="animation-delay:460ms"></span>
+          <span class="hero-dot bj" style="animation-delay:444ms"></span>
+          <span class="hero-dot bj" style="animation-delay:460ms"></span>
           <span class="hero-dot hz" style="animation-delay:476ms"></span>
           <span class="hero-dot hz" style="animation-delay:492ms"></span>
           <span class="hero-dot hz" style="animation-delay:508ms"></span>
@@ -886,16 +918,16 @@ footer{border-top:1px solid var(--color-border);background:var(--color-bg);paddi
           <span class="hero-dot sz" style="animation-delay:684ms"></span>
           <span class="hero-dot sz" style="animation-delay:700ms"></span>
           <span class="hero-dot sz" style="animation-delay:716ms"></span>
-          <span class="hero-dot sz" style="animation-delay:732ms"></span>
+          <span class="hero-dot ot" style="animation-delay:732ms"></span>
           <span class="hero-dot ot" style="animation-delay:748ms"></span>
           <span class="hero-dot ot" style="animation-delay:764ms"></span>
         </div>
         <ul class="hero-key">
-          <li><i style="background:var(--c-bj)"></i>Beijing <b>19</b></li>
-          <li><i style="background:var(--c-hz)"></i>Hangzhou <b>8</b></li>
+          <li><i style="background:var(--c-bj)"></i>Beijing <b>21</b></li>
+          <li><i style="background:var(--c-hz)"></i>Hangzhou <b>6</b></li>
           <li><i style="background:var(--c-sh)"></i>Shanghai <b>6</b></li>
-          <li><i style="background:var(--c-sz)"></i>Shenzhen <b>5</b></li>
-          <li><i style="background:var(--c-ot)"></i>Other <b>2</b></li>
+          <li><i style="background:var(--c-sz)"></i>Shenzhen <b>4</b></li>
+          <li><i style="background:var(--c-ot)"></i>Other <b>3</b></li>
         </ul>
       </figure>
     </div>
@@ -926,11 +958,6 @@ footer{border-top:1px solid var(--color-border);background:var(--color-bg);paddi
       </div>
       <div class="protocol">
         <p><b>Evidence protocol.</b> Core table fields are manually verified against dated public sources and frozen as of 17 September 2026. The optional news-signal feed is refreshed separately for context and does not independently verify financial, ownership, policy-linkage, or relationship claims.</p>
-        <ul class="protocol-meta">
-          <li>Research evidence verified: <b>2026-09-17</b></li>
-          <li id="signalRetrieved">News signal last retrieved: <b>not loaded</b></li>
-          <li>Entities: <b>40</b></li>
-        </ul>
       </div>
       <div class="notice notice--error" id="signalError" hidden>
         <span>The news-signal feed could not be loaded. The research dataset is rendered from the page itself and is unaffected.</span>
@@ -1088,10 +1115,6 @@ footer{border-top:1px solid var(--color-border);background:var(--color-bg);paddi
           <p>Research evidence is frozen as of 17 September 2026 for this release. Dynamic news signals are maintained separately and are not evidence for the table's core factual classifications.</p>
         </section>
 
-        <section class="meth-block">
-          <h3>Change log</h3>
-          <ul class="meth-changelog" id="changeLog"></ul>
-        </section>
 
         <section class="meth-block meth-block--disclaimer">
           <h3>Independence and attribution</h3>
@@ -1148,7 +1171,7 @@ footer{border-top:1px solid var(--color-border);background:var(--color-bg);paddi
       information is displayed without explicit authorization.
     </p>
     <div class="footer-bottom">
-      <span class="footer-note">China's AI Ecosystem · Chinonso Anyanwu · Schwarzman College, Tsinghua University · 2026</span>
+      <span class="footer-note">China's Frontier AI Ecosystem · Chinonso Anyanwu · Schwarzman College, Tsinghua University · 2026</span>
       <span class="footer-tag">Beijing AI Pilot Zone fieldwork</span>
     </div>
   </div>
@@ -1839,7 +1862,6 @@ function activateTab(tabName){
     if(tabName==="insights")renderInsights();
     if(tabName==="relationships")renderRelationships();
     if(tabName==="analytical")renderAnalytical();
-    if(tabName==="methodology")renderChangeLog();
   }
 }
 
@@ -1920,6 +1942,39 @@ document.querySelectorAll("[data-nav-tab]").forEach(link=>{
   });}
 })();
 
+// ── Hero metrics: count each figure up as the row appears ─────────────────────
+(function(){
+  const nums=document.querySelectorAll(".hero-metric b[data-count]");
+  if(!nums.length)return;
+  const still=matchMedia("(prefers-reduced-motion:reduce)").matches;
+  function run(el){
+    const target=parseInt(el.dataset.count,10);
+    if(still||!Number.isFinite(target)){el.textContent=target;return;}
+    // Small targets need fewer steps, otherwise 3 counts up in one frame.
+    const dur=700+Math.min(target,60)*8;
+    const start=performance.now();
+    function tick(now){
+      const t=Math.min((now-start)/dur,1);
+      const eased=1-Math.pow(1-t,3);
+      el.textContent=Math.round(target*eased);
+      if(t<1)requestAnimationFrame(tick); else el.textContent=target;
+    }
+    el.textContent="0";
+    requestAnimationFrame(tick);
+  }
+  if(!("IntersectionObserver" in window)){nums.forEach(run);return;}
+  const io=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(!e.isIntersecting||e.target.dataset.counted)return;
+      e.target.dataset.counted="1";
+      // Let the row's entrance animation land first.
+      setTimeout(()=>run(e.target),350);
+      io.unobserve(e.target);
+    });
+  },{threshold:.6});
+  nums.forEach(n=>io.observe(n));
+})();
+
 // ── Header scroll state + mobile navigation ───────────────────────────────────
 (function(){
   const header=document.getElementById("siteHeader");
@@ -1975,36 +2030,6 @@ function renderSignalCell(name){
 }
 
 
-// Change log for this release. Each entry records what changed and why, so a
-// correction is auditable rather than silent.
-const changeLog=[
-  {date:"2026-09-17",item:"Dataset title",field:"Framing",change:"Replaced the Top 40 startups label with a curated 40-entity ecosystem table. The sample includes public companies, business units, research institutions and a capital provider, so a startup ranking was never an accurate description.",reason:"Taxonomy update"},
-  {date:"2026-09-17",item:"All 40 entities",field:"Entity type, case role",change:"Added an explicit entity type and case role to every row.",reason:"Taxonomy update"},
-  {date:"2026-09-17",item:"All 40 entities",field:"Funding / Scale",change:"Removed the combined field, which merged cumulative funding, intended valuation, market capitalization, IPO proceeds, parent revenue and operating scale. Replaced with capital event, public-market value and operating scale, each requiring a claim status, date and source.",reason:"Correction"},
-  {date:"2026-09-17",item:"Moonshot AI (Kimi)",field:"Capital event",change:"Replaced the $3.9B raised and $30B valuation sought figure with the reported May 2026 round of approximately $2B at approximately $20B, noting later valuation reports as discussions rather than completed rounds.",reason:"Correction"},
-  {date:"2026-09-17",item:"DeepSeek",field:"Capital event",change:"Removed the $7B raised and $74B valuation sought figure. Replaced with the July 2026 Reuters-reported indirect transaction implying approximately RMB 350.88B, labelled as not company-confirmed.",reason:"Correction"},
-  {date:"2026-09-17",item:"Zhipu AI",field:"Capital event, operating scale",change:"Split the IPO event from the market value. Recorded HK$4.35B gross proceeds on 8 January 2026 and FY2025 revenue and R&D from the prospectus. Market capitalization held pending an exact close date.",reason:"Source upgrade"},
-  {date:"2026-09-17",item:"Cambricon",field:"Public-market value",change:"Replaced the generic July 2026 figure with CNY 654.0B on 10 September 2026 against ticker 688256.SS.",reason:"Correction"},
-  {date:"2026-09-17",item:"MetaX",field:"Identity",change:"Resolved an identity error. The row combined MetaX/Muxi (沐曦, 688802.SS) with Biren Technology (壁仞科技, 6082.HK), which are distinct firms. Renamed to MetaX Integrated Circuits and held financing facts pending verification.",reason:"Correction"},
-  {date:"2026-09-17",item:"Unitree Robotics",field:"Capital event",change:"Changed a completed IPO claim to the 3 July 2026 approval for a listing intended to raise RMB 4.2B, pending confirmation of listing.",reason:"Correction"},
-  {date:"2026-09-17",item:"Lightyear Beyond",field:"Capital event",change:"Resolved a conflict between a displayed US$234M and the cited SCMP figure. Now records the SCMP value of US$281M.",reason:"Correction"},
-  {date:"2026-09-17",item:"Ubiquant / IQuest Labs",field:"Entity type, segment",change:"Reclassified from foundation models to a quant fund and AI research initiative. Removed an unsubstantiated benchmark claim.",reason:"Taxonomy update"},
-  {date:"2026-09-17",item:"Parent-company figures",field:"Financial fields",change:"Removed parent market capitalization and parent revenue from Baidu ERNIE, Huawei Cloud, Alibaba Cloud Qwen, Tencent Cloud AI, Tencent Yuanbao, Kuaishou Kling and Xiaomi Robotics rows, none of which measure the named unit or product.",reason:"Correction"},
-  {date:"2026-09-17",item:"Relationship edges",field:"Sources",change:"Removed three edges sourced only to the project website: Alibaba Cloud to Vidu, Tsinghua to Vidu and Tsinghua to SoundAI. Removed Wikipedia as a cited source on two further edges.",reason:"Source upgrade"},
-  {date:"2026-09-17",item:"Relationship edges",field:"Relationship type",change:"Recoded every remaining edge against the relationship taxonomy. Founder education is no longer represented as a spinout or technology transfer for DeepSeek, MiniMax, 01.AI or iFlytek.",reason:"Correction"},
-  {date:"2026-09-17",item:"Research insights",field:"Claims",change:"Replaced causal and unbenchmarked claims, including Beijing dominates, universities are the primary formation mechanism, 28 of 40 received state capital, and the pilot-zone validation reading of the 82.5% figure.",reason:"Correction"},
-  {date:"2026-09-17",item:"City chart",field:"Composition",change:"Relabelled as sample composition, reporting 33 of 40 entities (82.5%) with the purposive-sample limitation stated.",reason:"Correction"}
-];
-function renderChangeLog(){
-  const el=document.getElementById("changeLog");
-  if(!el||el.dataset.rendered)return;
-  el.innerHTML=changeLog.map(c=>`<li>
-    <div class="cl-head"><b>${escapeHtml(c.item)}</b><span class="cl-reason">${escapeHtml(c.reason)}</span><time>${c.date}</time></div>
-    <div class="cl-field">${escapeHtml(c.field)}</div>
-    <p>${escapeHtml(c.change)}</p></li>`).join("");
-  el.dataset.rendered="1";
-}
-
 function renderTable(filter="all"){
   const tbody=document.getElementById("tableBody");
   tbody.innerHTML="";
@@ -2050,22 +2075,17 @@ function renderCaseRole(role){
 
 async function loadLiveData(){
   const errEl=document.getElementById("signalError");
-  const retrievedEl=document.getElementById("signalRetrieved");
   try{
     const res=await fetch("data/live-updates.json",{cache:"no-store"});
     if(!res.ok) throw new Error("HTTP "+res.status);
     liveData=await res.json();
     if(errEl) errEl.hidden=true;
-    if(retrievedEl&&liveData.generatedAt){
-      retrievedEl.innerHTML="News signal last retrieved: <b>"+new Date(liveData.generatedAt).toISOString().slice(0,10)+"</b>";
-    }
     const activeChip=document.querySelector(".chip.active");
     renderTable(activeChip?activeChip.dataset.filter:"all");
   }catch(err){
     // The research dataset is inline and already rendered, so a feed failure
     // degrades one column instead of leaving the page on a loading state.
     console.warn("News signal unavailable:",err.message);
-    if(retrievedEl) retrievedEl.innerHTML="News signal last retrieved: <b>unavailable</b>";
     if(errEl) errEl.hidden=false;
   }
 }
