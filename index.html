@@ -11,10 +11,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>China's AI Ecosystem: Curated Research Map</title>
+<title>China's Frontier AI Ecosystem: Curated Research Map</title>
 <meta name="description" content="A curated, evidence-linked map of 40 frontier AI companies, public companies, platform providers, research institutions, capital actors, and infrastructure anchors across China. Not a ranking or a causal estimate of policy effects.">
 <meta name="author" content="Chinonso Anyanwu, Schwarzman College, Tsinghua University">
-<meta property="og:title" content="China's AI Ecosystem: Curated Research Map">
+<meta property="og:title" content="China's Frontier AI Ecosystem: Curated Research Map">
 <meta property="og:description" content="An evidence-linked ecosystem map across capital, compute and data infrastructure, institutional linkages, and commercialization. Core evidence verified 17 September 2026.">
 <meta property="og:type" content="website">
 <!-- Inter Tight (display) + Inter (UI/body, including micro-labels) -->
@@ -190,7 +190,7 @@ header.is-scrolled{background:var(--color-bg);border-bottom-color:var(--color-di
 .logo:hover{color:var(--color-text);}
 .logo-mark{width:32px;height:32px;flex-shrink:0;border-radius:var(--radius-md);}
 .logo-text{display:flex;align-items:center;line-height:1.15;}
-.logo-text strong{font-family:var(--font-display);font-size:1.0625rem;font-weight:600;letter-spacing:-0.025em;}
+.logo-text strong{font-family:var(--font-display);font-size:1.0625rem;font-weight:600;letter-spacing:-0.025em;white-space:nowrap;}
 .header-right{display:flex;align-items:center;gap:var(--space-3);}
 nav{display:flex;align-items:center;gap:var(--space-1);}
 nav a{
@@ -797,6 +797,9 @@ footer{border-top:1px solid var(--color-border);background:var(--color-bg);paddi
 }
 @media(max-width:640px){
   :root{--header-h:60px;}
+  /* The longer wordmark needs to step down to clear the toggle and menu button */
+  .logo-text strong{font-size:0.875rem;letter-spacing:-0.02em;}
+  .logo-mark{width:28px;height:28px;}
   .container,.tab-dock-inner{padding-inline:var(--space-4);}
   header{padding-inline:var(--space-4);}
   .hero::after{background-size:52px 52px;}
@@ -812,7 +815,7 @@ footer{border-top:1px solid var(--color-border);background:var(--color-bg);paddi
 
 <header id="siteHeader">
   <div class="header-inner">
-    <a href="#" class="logo" aria-label="China's AI Ecosystem, home">
+    <a href="#" class="logo" aria-label="China's Frontier AI Ecosystem, home">
       <svg class="logo-mark" viewBox="0 0 36 36" fill="none" aria-hidden="true">
         <defs>
           <linearGradient id="logoGrad" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
@@ -827,7 +830,7 @@ footer{border-top:1px solid var(--color-border);background:var(--color-bg);paddi
         <circle cx="25.5" cy="10.5" r="1.7" fill="#fff" opacity="0.45"/>
       </svg>
       <div class="logo-text">
-        <strong>China's AI Ecosystem</strong>
+        <strong>China's Frontier AI Ecosystem</strong>
       </div>
     </a>
     <nav id="primaryNav" aria-label="Primary navigation">
@@ -856,7 +859,7 @@ footer{border-top:1px solid var(--color-border);background:var(--color-bg);paddi
     <div class="container hero-grid">
       <div class="hero-copy">
         <p class="hero-kicker">40 curated ecosystem entities</p>
-        <h1 id="hero-title">China's <em>AI Ecosystem</em></h1>
+        <h1 id="hero-title">China's Frontier <em>AI Ecosystem</em></h1>
         <p class="hero-deck">China's AI ecosystem mapped across capital, compute and data infrastructure, institutional linkages, and commercialization. The analytical lens draws on <strong>developmental orchestration</strong> and is anchored in Beijing's AI Pilot Zone, with comparative ecosystem references across China.</p>
         <div class="hero-actions">
           <a href="#tab-ecosystem" class="btn btn--primary" data-nav-tab="ecosystem">Explore the ecosystem
@@ -1168,7 +1171,7 @@ footer{border-top:1px solid var(--color-border);background:var(--color-bg);paddi
       information is displayed without explicit authorization.
     </p>
     <div class="footer-bottom">
-      <span class="footer-note">China's AI Ecosystem · Chinonso Anyanwu · Schwarzman College, Tsinghua University · 2026</span>
+      <span class="footer-note">China's Frontier AI Ecosystem · Chinonso Anyanwu · Schwarzman College, Tsinghua University · 2026</span>
       <span class="footer-tag">Beijing AI Pilot Zone fieldwork</span>
     </div>
   </div>
