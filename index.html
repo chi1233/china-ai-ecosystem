@@ -229,7 +229,17 @@ nav a.active::after{
   text-transform:uppercase;letter-spacing:0.14em;color:var(--color-primary);
   margin-bottom:var(--space-5);
 }
-.hero-kicker::before{content:"";width:22px;height:2px;background:var(--color-primary);border-radius:1px;}
+.hero-kicker::before{
+  content:"";width:8px;height:8px;border-radius:var(--radius-full);
+  background:var(--color-primary);flex-shrink:0;
+  animation:kickerPulse 2.4s ease-out infinite;
+}
+@keyframes kickerPulse{
+  0%  {box-shadow:0 0 0 0 color-mix(in oklab,var(--color-primary) 50%,transparent);}
+  70% {box-shadow:0 0 0 9px color-mix(in oklab,var(--color-primary) 0%,transparent);}
+  100%{box-shadow:0 0 0 0 color-mix(in oklab,var(--color-primary) 0%,transparent);}
+}
+@media(prefers-reduced-motion:reduce){.hero-kicker::before{animation:none;}}
 .hero h1{
   font-family:var(--font-display);font-weight:600;
   font-size:clamp(2.5rem,1.6rem + 3.4vw,4.25rem);
@@ -646,13 +656,6 @@ footer{border-top:1px solid var(--color-border);background:var(--color-bg);paddi
 }
 .protocol p{font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.6;}
 .protocol p b{color:var(--color-text);}
-.protocol-meta{
-  list-style:none;display:flex;flex-wrap:wrap;gap:var(--space-2) var(--space-5);
-  margin-top:var(--space-4);padding-top:var(--space-4);border-top:1px solid var(--color-divider);
-  font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;
-  letter-spacing:0.1em;color:var(--color-text-faint);
-}
-.protocol-meta b{color:var(--color-text);font-weight:600;text-transform:none;letter-spacing:0;}
 .notice[hidden]{display:none;}
 .notice{
   display:flex;align-items:center;gap:var(--space-4);flex-wrap:wrap;
@@ -826,7 +829,7 @@ footer{border-top:1px solid var(--color-border);background:var(--color-bg);paddi
   <section class="hero" aria-labelledby="hero-title">
     <div class="container hero-grid">
       <div class="hero-copy">
-        <p class="hero-kicker">40 curated ecosystem entities · Core evidence verified 17 September 2026</p>
+        <p class="hero-kicker">40 curated ecosystem entities</p>
         <h1 id="hero-title">China's <em>AI Ecosystem</em></h1>
         <p class="hero-deck">China's AI ecosystem mapped across capital, compute and data infrastructure, institutional linkages, and commercialization. The analytical lens draws on <strong>developmental orchestration</strong> and is anchored in Beijing's AI Pilot Zone, with comparative ecosystem references across China.</p>
         <div class="hero-actions">
@@ -926,11 +929,6 @@ footer{border-top:1px solid var(--color-border);background:var(--color-bg);paddi
       </div>
       <div class="protocol">
         <p><b>Evidence protocol.</b> Core table fields are manually verified against dated public sources and frozen as of 17 September 2026. The optional news-signal feed is refreshed separately for context and does not independently verify financial, ownership, policy-linkage, or relationship claims.</p>
-        <ul class="protocol-meta">
-          <li>Research evidence verified: <b>2026-09-17</b></li>
-          <li id="signalRetrieved">News signal last retrieved: <b>not loaded</b></li>
-          <li>Entities: <b>40</b></li>
-        </ul>
       </div>
       <div class="notice notice--error" id="signalError" hidden>
         <span>The news-signal feed could not be loaded. The research dataset is rendered from the page itself and is unaffected.</span>
@@ -1088,10 +1086,6 @@ footer{border-top:1px solid var(--color-border);background:var(--color-bg);paddi
           <p>Research evidence is frozen as of 17 September 2026 for this release. Dynamic news signals are maintained separately and are not evidence for the table's core factual classifications.</p>
         </section>
 
-        <section class="meth-block">
-          <h3>Change log</h3>
-          <ul class="meth-changelog" id="changeLog"></ul>
-        </section>
 
         <section class="meth-block meth-block--disclaimer">
           <h3>Independence and attribution</h3>
@@ -1839,7 +1833,6 @@ function activateTab(tabName){
     if(tabName==="insights")renderInsights();
     if(tabName==="relationships")renderRelationships();
     if(tabName==="analytical")renderAnalytical();
-    if(tabName==="methodology")renderChangeLog();
   }
 }
 
@@ -1975,36 +1968,6 @@ function renderSignalCell(name){
 }
 
 
-// Change log for this release. Each entry records what changed and why, so a
-// correction is auditable rather than silent.
-const changeLog=[
-  {date:"2026-09-17",item:"Dataset title",field:"Framing",change:"Replaced the Top 40 startups label with a curated 40-entity ecosystem table. The sample includes public companies, business units, research institutions and a capital provider, so a startup ranking was never an accurate description.",reason:"Taxonomy update"},
-  {date:"2026-09-17",item:"All 40 entities",field:"Entity type, case role",change:"Added an explicit entity type and case role to every row.",reason:"Taxonomy update"},
-  {date:"2026-09-17",item:"All 40 entities",field:"Funding / Scale",change:"Removed the combined field, which merged cumulative funding, intended valuation, market capitalization, IPO proceeds, parent revenue and operating scale. Replaced with capital event, public-market value and operating scale, each requiring a claim status, date and source.",reason:"Correction"},
-  {date:"2026-09-17",item:"Moonshot AI (Kimi)",field:"Capital event",change:"Replaced the $3.9B raised and $30B valuation sought figure with the reported May 2026 round of approximately $2B at approximately $20B, noting later valuation reports as discussions rather than completed rounds.",reason:"Correction"},
-  {date:"2026-09-17",item:"DeepSeek",field:"Capital event",change:"Removed the $7B raised and $74B valuation sought figure. Replaced with the July 2026 Reuters-reported indirect transaction implying approximately RMB 350.88B, labelled as not company-confirmed.",reason:"Correction"},
-  {date:"2026-09-17",item:"Zhipu AI",field:"Capital event, operating scale",change:"Split the IPO event from the market value. Recorded HK$4.35B gross proceeds on 8 January 2026 and FY2025 revenue and R&D from the prospectus. Market capitalization held pending an exact close date.",reason:"Source upgrade"},
-  {date:"2026-09-17",item:"Cambricon",field:"Public-market value",change:"Replaced the generic July 2026 figure with CNY 654.0B on 10 September 2026 against ticker 688256.SS.",reason:"Correction"},
-  {date:"2026-09-17",item:"MetaX",field:"Identity",change:"Resolved an identity error. The row combined MetaX/Muxi (沐曦, 688802.SS) with Biren Technology (壁仞科技, 6082.HK), which are distinct firms. Renamed to MetaX Integrated Circuits and held financing facts pending verification.",reason:"Correction"},
-  {date:"2026-09-17",item:"Unitree Robotics",field:"Capital event",change:"Changed a completed IPO claim to the 3 July 2026 approval for a listing intended to raise RMB 4.2B, pending confirmation of listing.",reason:"Correction"},
-  {date:"2026-09-17",item:"Lightyear Beyond",field:"Capital event",change:"Resolved a conflict between a displayed US$234M and the cited SCMP figure. Now records the SCMP value of US$281M.",reason:"Correction"},
-  {date:"2026-09-17",item:"Ubiquant / IQuest Labs",field:"Entity type, segment",change:"Reclassified from foundation models to a quant fund and AI research initiative. Removed an unsubstantiated benchmark claim.",reason:"Taxonomy update"},
-  {date:"2026-09-17",item:"Parent-company figures",field:"Financial fields",change:"Removed parent market capitalization and parent revenue from Baidu ERNIE, Huawei Cloud, Alibaba Cloud Qwen, Tencent Cloud AI, Tencent Yuanbao, Kuaishou Kling and Xiaomi Robotics rows, none of which measure the named unit or product.",reason:"Correction"},
-  {date:"2026-09-17",item:"Relationship edges",field:"Sources",change:"Removed three edges sourced only to the project website: Alibaba Cloud to Vidu, Tsinghua to Vidu and Tsinghua to SoundAI. Removed Wikipedia as a cited source on two further edges.",reason:"Source upgrade"},
-  {date:"2026-09-17",item:"Relationship edges",field:"Relationship type",change:"Recoded every remaining edge against the relationship taxonomy. Founder education is no longer represented as a spinout or technology transfer for DeepSeek, MiniMax, 01.AI or iFlytek.",reason:"Correction"},
-  {date:"2026-09-17",item:"Research insights",field:"Claims",change:"Replaced causal and unbenchmarked claims, including Beijing dominates, universities are the primary formation mechanism, 28 of 40 received state capital, and the pilot-zone validation reading of the 82.5% figure.",reason:"Correction"},
-  {date:"2026-09-17",item:"City chart",field:"Composition",change:"Relabelled as sample composition, reporting 33 of 40 entities (82.5%) with the purposive-sample limitation stated.",reason:"Correction"}
-];
-function renderChangeLog(){
-  const el=document.getElementById("changeLog");
-  if(!el||el.dataset.rendered)return;
-  el.innerHTML=changeLog.map(c=>`<li>
-    <div class="cl-head"><b>${escapeHtml(c.item)}</b><span class="cl-reason">${escapeHtml(c.reason)}</span><time>${c.date}</time></div>
-    <div class="cl-field">${escapeHtml(c.field)}</div>
-    <p>${escapeHtml(c.change)}</p></li>`).join("");
-  el.dataset.rendered="1";
-}
-
 function renderTable(filter="all"){
   const tbody=document.getElementById("tableBody");
   tbody.innerHTML="";
@@ -2050,22 +2013,17 @@ function renderCaseRole(role){
 
 async function loadLiveData(){
   const errEl=document.getElementById("signalError");
-  const retrievedEl=document.getElementById("signalRetrieved");
   try{
     const res=await fetch("data/live-updates.json",{cache:"no-store"});
     if(!res.ok) throw new Error("HTTP "+res.status);
     liveData=await res.json();
     if(errEl) errEl.hidden=true;
-    if(retrievedEl&&liveData.generatedAt){
-      retrievedEl.innerHTML="News signal last retrieved: <b>"+new Date(liveData.generatedAt).toISOString().slice(0,10)+"</b>";
-    }
     const activeChip=document.querySelector(".chip.active");
     renderTable(activeChip?activeChip.dataset.filter:"all");
   }catch(err){
     // The research dataset is inline and already rendered, so a feed failure
     // degrades one column instead of leaving the page on a loading state.
     console.warn("News signal unavailable:",err.message);
-    if(retrievedEl) retrievedEl.innerHTML="News signal last retrieved: <b>unavailable</b>";
     if(errEl) errEl.hidden=false;
   }
 }
