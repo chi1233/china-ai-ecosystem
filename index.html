@@ -230,15 +230,31 @@ nav a.active::after{
   text-transform:uppercase;letter-spacing:0.12em;color:var(--color-primary);
   margin-bottom:var(--space-5);
 }
+/* The dot carries a standing glow plus an expanding ring, and drifts a little
+   against the fixed label so it reads as alive rather than as a bullet. */
 .hero-kicker::before{
-  content:"";width:8px;height:8px;border-radius:var(--radius-full);
+  content:"";width:9px;height:9px;border-radius:var(--radius-full);
   background:var(--color-primary);flex-shrink:0;
-  animation:kickerPulse 2.4s ease-out infinite;
+  animation:kickerBeam 2.2s ease-out infinite,
+            kickerFloat 3.6s ease-in-out infinite;
 }
-@keyframes kickerPulse{
-  0%  {box-shadow:0 0 0 0 color-mix(in oklab,var(--color-primary) 50%,transparent);}
-  70% {box-shadow:0 0 0 9px color-mix(in oklab,var(--color-primary) 0%,transparent);}
-  100%{box-shadow:0 0 0 0 color-mix(in oklab,var(--color-primary) 0%,transparent);}
+@keyframes kickerBeam{
+  0%{
+    box-shadow:0 0 9px 1px color-mix(in oklab,var(--color-primary) 60%,transparent),
+               0 0 0 0 color-mix(in oklab,var(--color-primary) 55%,transparent);
+  }
+  70%{
+    box-shadow:0 0 18px 5px color-mix(in oklab,var(--color-primary) 34%,transparent),
+               0 0 0 13px color-mix(in oklab,var(--color-primary) 0%,transparent);
+  }
+  100%{
+    box-shadow:0 0 9px 1px color-mix(in oklab,var(--color-primary) 60%,transparent),
+               0 0 0 0 color-mix(in oklab,var(--color-primary) 0%,transparent);
+  }
+}
+@keyframes kickerFloat{
+  0%,100%{transform:translateY(0);}
+  50%    {transform:translateY(-3px);}
 }
 @media(prefers-reduced-motion:reduce){.hero-kicker::before{animation:none;}}
 .hero h1{
