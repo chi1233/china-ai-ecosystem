@@ -812,11 +812,29 @@ footer{border-top:1px solid var(--color-border);background:var(--color-bg);paddi
           Share
         </button>
       </div>
-      <p class="live-updated-note" id="liveUpdatedNote"><span class="dot"></span> Loading latest signals…</p>
+      <div class="dataset-status">
+        <p class="dataset-status-line">
+          <strong>Research dataset frozen: 17 September 2026.</strong>
+          Company-level financial, ownership, policy, and relationship fields are manually verified against sources listed in the methodology and source register. A separate news feed may be refreshed periodically, but it is not used as evidence for the analytical classifications.
+        </p>
+        <ul class="dataset-meta">
+          <li>Research evidence last verified: <b>2026-09-17</b></li>
+          <li id="signalRetrieved">News signal last retrieved: <b>not loaded</b></li>
+          <li>Dataset version: <b>v2.0</b></li>
+          <li>Coverage: <b>40 records</b></li>
+        </ul>
+      </div>
+      <p class="field-disclaimer">
+        <b>News signal.</b> Headline-level context only. It does not verify the capital, valuation, linkage, or mechanism fields in this table.
+      </p>
+      <div class="notice notice--error" id="signalError" hidden>
+        <span>The news feed could not be loaded. The research dataset above is unaffected and is rendered from the page itself.</span>
+        <button type="button" class="btn btn--ghost btn--sm" id="signalRetry">Retry</button>
+      </div>
       <div class="filter-bar">
         <label id="filter-label">Filter by sector:</label>
         <div class="filter-chips" role="group" aria-labelledby="filter-label">
-          <button class="chip active" data-filter="all">All (40)</button>
+          <button class="chip active" data-filter="all">All 40 records</button>
           <button class="chip" data-filter="llm">Foundation Models</button>
           <button class="chip" data-filter="cloud">Cloud / Compute</button>
           <button class="chip" data-filter="chip">AI Chips</button>
@@ -829,16 +847,19 @@ footer{border-top:1px solid var(--color-border);background:var(--color-bg);paddi
         <table aria-label="China AI Startup Ecosystem: Top 40">
           <thead>
             <tr>
-              <th scope="col" class="th-sort" data-sort="rank" aria-sort="ascending"># <span class="sort-icon">↕</span></th>
-              <th scope="col" class="th-sort" data-sort="name">Company <span class="sort-icon">↕</span></th>
-              <th scope="col" class="th-sort" data-sort="city">City <span class="sort-icon">↕</span></th>
-              <th scope="col" class="th-sort" data-sort="sector">Sector <span class="sort-icon">↕</span></th>
+              <th scope="col" class="th-sort" data-sort="name" aria-sort="ascending">Organization <span class="sort-icon">↕</span></th>
+              <th scope="col" class="th-sort" data-sort="entityType">Entity type <span class="sort-icon">↕</span></th>
+              <th scope="col" class="th-sort" data-sort="city">Primary city <span class="sort-icon">↕</span></th>
+              <th scope="col" class="th-sort" data-sort="caseRole">Case role <span class="sort-icon">↕</span></th>
+              <th scope="col" class="th-sort" data-sort="sector">Primary AI segment <span class="sort-icon">↕</span></th>
               <th scope="col" class="th-sort" data-sort="founded">Founded <span class="sort-icon">↕</span></th>
-              <th scope="col">Funding / Scale</th>
-              <th scope="col">Policy Alignment</th>
-              <th scope="col" class="th-sort" data-sort="relevance">Relevance <span class="sort-icon">↕</span></th>
-              <th scope="col">Thesis Role</th>
-              <th scope="col">Latest Signal</th>
+              <th scope="col">Capital event</th>
+              <th scope="col">Public-market value</th>
+              <th scope="col">Scale indicator</th>
+              <th scope="col">Documented public-institution linkage</th>
+              <th scope="col">Hypothesized mechanism</th>
+              <th scope="col">News signal</th>
+              <th scope="col">Research evidence last verified</th>
             </tr>
           </thead>
           <tbody id="tableBody"></tbody>
@@ -944,55 +965,54 @@ footer{border-top:1px solid var(--color-border);background:var(--color-bg);paddi
 
 <script>
 const startups = [
-  {rank:1,name:"Moonshot AI (Kimi)",cn:"月之暗面",city:"Beijing",cityClass:"beijing",sector:"llm",sectorLabel:"Foundation Model / LLM",founded:2023,funding:"$3.9B raised in 6 months; $30B valuation sought (Jul 2026)",fundingLevel:"high",policyAlignment:"AI Pilot Zone; Zhongguancun; BNGI-backed",relevance:5,role:"Primary case: TU/CMU alumni pipeline; university-industry institutional integration"},
-  {rank:2,name:"Zhipu AI",cn:"智谱AI",city:"Beijing",cityClass:"beijing",sector:"llm",sectorLabel:"Foundation Model / LLM",founded:2019,funding:"HK IPO Jan 2026; $100B+ market cap (Jul 2026)",fundingLevel:"high",policyAlignment:"Tsinghua KEG spinout; joint labs; guidance fund",relevance:5,role:"Primary case: canonical university-industry transfer; institutional integration domain"},
-  {rank:3,name:"DeepSeek",cn:"深度求索",city:"Hangzhou",cityClass:"hangzhou",sector:"llm",sectorLabel:"Foundation Model / LLM",founded:2023,funding:"$7B raised; $74B valuation sought (Jul 2026)",fundingLevel:"high",policyAlignment:"Hangzhou AI pilot; Zhejiang Univ. ecosystem",relevance:5,role:"Hangzhou case: non-state-capital model; tests scope conditions of orchestration framework"},
-  {rank:4,name:"Baidu (ERNIE)",cn:"百度",city:"Beijing",cityClass:"beijing",sector:"cloud",sectorLabel:"Cloud / Platform AI",founded:2000,funding:"Public (~$37.9B mkt cap, Jul 2026)",fundingLevel:"high",policyAlignment:"National AI open innovation platform; compute partner",relevance:5,role:"State-designated national AI platform; compute & data governance domain"},
-  {rank:5,name:"Huawei Cloud",cn:"华为云",city:"Shenzhen",cityClass:"shenzhen",sector:"cloud",sectorLabel:"Cloud / Compute Infra",founded:2011,funding:"Part of Huawei (~$100B revenue)",fundingLevel:"high",policyAlignment:"National compute backbone; Ascend chip; EDWC",relevance:4,role:"Infrastructure domain: subsidized compute within Beijing pilot zone"},
-  {rank:6,name:"Alibaba Cloud (Qwen)",cn:"阿里云",city:"Hangzhou",cityClass:"hangzhou",sector:"cloud",sectorLabel:"Cloud / LLM Platform",founded:2009,funding:"Part of Alibaba (~$282B mkt cap, Jul 2026)",fundingLevel:"high",policyAlignment:"Hangzhou anchor; Qwen open-source LLM; EDWC",relevance:4,role:"Hangzhou platform-anchored orchestration; Qwen underpins downstream startups"},
-  {rank:7,name:"Cambricon",cn:"寒武纪",city:"Beijing",cityClass:"beijing",sector:"chip",sectorLabel:"AI Chips",founded:2016,funding:"Public (STAR Market); ~$130B market cap (Jul 2026)",fundingLevel:"high",policyAlignment:"National AI chip champion; Zhongguancun; state guidance fund",relevance:4,role:"Compute sovereignty: domestic AI chip supply chain for pilot zones"},
-  {rank:8,name:"Moore Threads",cn:"摩尔线程",city:"Beijing",cityClass:"beijing",sector:"chip",sectorLabel:"AI Chips / GPGPUs",founded:2020,funding:"$1.1B STAR Market IPO; ~$8B valuation, stock +400% on debut",fundingLevel:"high",policyAlignment:"Zhongguancun; state-backed investors; AI Pilot Zone compute",relevance:3,role:"Domestic GPGPU alternative to Nvidia under export controls"},
-  {rank:9,name:"Unitree Robotics",cn:"宇树科技",city:"Hangzhou",cityClass:"hangzhou",sector:"robot",sectorLabel:"Robotics / Embodied AI",founded:2016,funding:"$618M STAR Market IPO approved; $6.2B valuation (Jul 2026)",fundingLevel:"high",policyAlignment:"Hangzhou government support; Zhejiang manufacturing",relevance:3,role:"Hangzhou case: manufacturing-AI convergence; PPP in robotics"},
-  {rank:10,name:"MiniMax",cn:"MiniMax",city:"Shanghai",cityClass:"shanghai",sector:"llm",sectorLabel:"Multimodal LLM",founded:2021,funding:"$619M HK IPO; $6.5B valuation (Jan 2026)",fundingLevel:"high",policyAlignment:"Shanghai AI pilot; Zhangjiang Hi-Tech Park",relevance:4,role:"Shanghai ecosystem: multimodal AI; PPP via foundation model incubator"},
-  {rank:11,name:"Manus AI",cn:"Manus",city:"Beijing",cityClass:"beijing",sector:"app",sectorLabel:"AI Agents / Applications",founded:2024,funding:"Undisclosed; Tencent backed",fundingLevel:"mid",policyAlignment:"AI Pilot Zone; agent-oriented AI; digital economy",relevance:3,role:"Application layer: commercialisation of foundation models into AI agents"},
-  {rank:12,name:"Stepfun (阶跃星辰)",cn:"阶跃星辰",city:"Shanghai",cityClass:"shanghai",sector:"llm",sectorLabel:"Foundation Model / LLM",founded:2023,funding:"~$200M+",fundingLevel:"mid",policyAlignment:"Shanghai AI pilot; state/private co-invest",relevance:3,role:"AGI-focused LLM; ecosystem diversity example in capstone"},
-  {rank:13,name:"Zhongguancun Kejin",cn:"中关村科金",city:"Beijing",cityClass:"beijing",sector:"app",sectorLabel:"Enterprise AI Applications",founded:2015,funding:"Hurun AI Top 50; enterprise-grade",fundingLevel:"mid",policyAlignment:"ZGC Science Park; DeZhu LLM; state enterprise ties",relevance:4,role:"Institutional integration: commercialising AI across finance & public services"},
-  {rank:14,name:"MetaX (壁仞科技)",cn:"壁仞科技",city:"Shanghai",cityClass:"shanghai",sector:"chip",sectorLabel:"AI Chips",founded:2020,funding:"$596M STAR Market IPO; ~$5.3B valuation, stock +700% on debut",fundingLevel:"high",policyAlignment:"Shanghai STAR Market; state guidance fund; compute sovereignty",relevance:3,role:"Domestic AI chip IPO; Shanghai as financial hub for AI hardware"},
-  {rank:15,name:"Spirit AI (具身智能)",cn:"精灵智能",city:"Beijing",cityClass:"beijing",sector:"robot",sectorLabel:"Robotics / Embodied AI",founded:2022,funding:"~$625M raised (Feb-May 2026); ¥20B ($2.78B) valuation",fundingLevel:"high",policyAlignment:"Beijing embodied AI pilot; HongShan/YF Capital",relevance:3,role:"Embodied AI: ¥73.5B investment wave; capital coordination domain"},
-  {rank:16,name:"BAAI",cn:"北京智源人工智能研究院",city:"Beijing",cityClass:"beijing",sector:"infra",sectorLabel:"Research Institution / Infra",founded:2018,funding:"State-funded (Beijing Municipal Gov.)",fundingLevel:"mid",policyAlignment:"State research arm; AI governance & safety standards",relevance:5,role:"Institutional integration domain: state research bridging university-industry"},
-  {rank:17,name:"Sensetime",cn:"商汤科技",city:"Shanghai",cityClass:"shanghai",sector:"app",sectorLabel:"Computer Vision / AI",founded:2014,funding:"Public (HK); ~$6.9B mkt cap (Jul 2026)",fundingLevel:"high",policyAlignment:"National AI open innovation platform; state procurement",relevance:3,role:"Smart city AI: national platform designation; state-as-customer PPP model"},
-  
-  {rank:18,name:"Xiaomi Robotics",cn:"小米机器人",city:"Beijing",cityClass:"beijing",sector:"robot",sectorLabel:"Robotics / Embodied AI",founded:2021,funding:"Part of Xiaomi (~$75.9B mkt cap, Jul 2026); ¥200B R&D pledge 2026 to 2030",fundingLevel:"high",policyAlignment:"Lei Jun at Two Sessions 2026; 15th Five-Year Plan named pillar; Beijing + Shenzhen dual footprint",relevance:4,role:"Manufacturing-AI convergence: Xiaomi-Robotics-0 (4.7B open-source physical intelligence model) on EV factory floor; Lei Jun NPC advocacy; tests consumer hardware giant as embodied AI orchestration anchor"},
-  {rank:19,name:"DJI",cn:"大疆创新",city:"Shenzhen",cityClass:"shenzhen",sector:"robot",sectorLabel:"Robotics / Drones",founded:2006,funding:"~$20-22B valuation (secondary sale, 2026)",fundingLevel:"high",policyAlignment:"Shenzhen hardware ecosystem; low-altitude economy policy",relevance:2,role:"Manufacturing-AI convergence: Shenzhen's hardware-anchored orchestration path"},
-  {rank:20,name:"iFlytek",cn:"科大讯飞",city:"Hefei (Anhui)",cityClass:"",sector:"app",sectorLabel:"AI Voice / NLP Platform",founded:1999,funding:"Public (A-share); ~¥110B mkt cap (~$15B, 2026)",fundingLevel:"high",policyAlignment:"National AI platform (smart voice); USTC ties",relevance:3,role:"National platform: canonical PPP in AI voice/NLP outside tier-1 cities"},
-  {rank:21,name:"Manycore Digital (曼恒)",cn:"曼恒数字",city:"Hangzhou",cityClass:"hangzhou",sector:"app",sectorLabel:"AI Apps / XR",founded:2008,funding:"First of Six Dragons to IPO",fundingLevel:"mid",policyAlignment:"Hangzhou AI fund; Six Dragons; ZJU ecosystem",relevance:3,role:"First 'Six Little Dragons' IPO; municipal orchestration producing commercialisation"},
-  {rank:22,name:"Baichuan AI",cn:"百川智能",city:"Beijing",cityClass:"beijing",sector:"llm",sectorLabel:"Foundation Model / LLM",founded:2023,funding:"$1.04B raised; $18.5B valuation (2026 Global Unicorn List)",fundingLevel:"high",policyAlignment:"AI Pilot Zone; Zhongguancun; Alibaba, Tencent, Beijing AI Fund",relevance:4,role:"Leading LLM; pivoting to AI medical tech; IPO target 2027"},
-  {rank:23,name:"01.AI (Yi Series)",cn:"零一万物",city:"Beijing",cityClass:"beijing",sector:"llm",sectorLabel:"Foundation Model / LLM",founded:2023,funding:"$300M raised; $1B valuation",fundingLevel:"high",policyAlignment:"AI Pilot Zone; open-source Yi model",relevance:3,role:"Open-source LLM; cross-border talent circulation as institutional integration"},
-  {rank:24,name:"Tencent Cloud AI",cn:"腾讯云AI",city:"Shenzhen",cityClass:"shenzhen",sector:"cloud",sectorLabel:"Cloud / Platform AI",founded:2010,funding:"Part of Tencent (~$551B mkt cap, Jul 2026)",fundingLevel:"high",policyAlignment:"National platform; Hunyuan LLM; WeChat ecosystem",relevance:3,role:"Platform-anchored orchestration: Shenzhen alternative to state-capital model"},
-  {rank:25,name:"Zhijiang Lab",cn:"之江实验室",city:"Hangzhou",cityClass:"hangzhou",sector:"infra",sectorLabel:"Research Institution / Infra",founded:2017,funding:"State-funded (Zhejiang Province)",fundingLevel:"mid",policyAlignment:"Zhejiang provincial gov.; ZJU partnership",relevance:4,role:"Hangzhou institutional integration: bridges ZJU and industry"},
-  {rank:26,name:"Tongyi / Alibaba DAMO",cn:"通义千问/达摩院",city:"Hangzhou",cityClass:"hangzhou",sector:"llm",sectorLabel:"Foundation Model / LLM",founded:2021,funding:"Part of Alibaba DAMO Academy",fundingLevel:"high",policyAlignment:"Hangzhou anchor; open-source Qwen; national AI platform",relevance:4,role:"Hangzhou orchestration anchor: Qwen deployed across municipal public services"},
-  {rank:27,name:"SoundAI (声智科技)",cn:"声智科技",city:"Beijing",cityClass:"beijing",sector:"app",sectorLabel:"AI Voice / Edge AI",founded:2016,funding:"¥500M+; Tsinghua spinout",fundingLevel:"mid",policyAlignment:"Tsinghua X-LANCE lab; edge AI; IoT + smart devices",relevance:3,role:"Institutional integration: Tsinghua spinout in voice and edge AI"},
-  {rank:28,name:"Agibot (智元机器人)",cn:"智元机器人",city:"Shanghai",cityClass:"shanghai",sector:"robot",sectorLabel:"Robotics / Embodied AI",founded:2023,funding:"IPO targeting HK$40-50B (~$5-6B) valuation, H2 2026",fundingLevel:"high",policyAlignment:"Shanghai AI pilot; humanoid robot sector; guidance fund",relevance:3,role:"Shanghai embodied AI: 5,000 units shipped Mar 2026; capital coordination domain"},
-  {rank:29,name:"Horizon Robotics",cn:"地平线机器人",city:"Beijing",cityClass:"beijing",sector:"chip",sectorLabel:"AI Chips / Autonomous Driving",founded:2015,funding:"Public (HK); ~$8.05B market cap (Jul 2026)",fundingLevel:"high",policyAlignment:"Beijing AI chip champion; Baidu alum; smart car policy",relevance:3,role:"HK IPO: capital coordination domain; state smart vehicle industrial policy"},
-  {rank:30,name:"Black Sesame Tech",cn:"黑芝麻智能",city:"Wuhan",cityClass:"",sector:"chip",sectorLabel:"AI Chips / Automotive",founded:2016,funding:"Public (HK Stock Exchange 2024)",fundingLevel:"high",policyAlignment:"National smart vehicle chip; Wuhan automotive cluster",relevance:2,role:"Orchestration beyond tier-1 zones; state smart vehicle supply chain"},
-  {rank:31,name:"Kuaishou AI (Kling)",cn:"快手AI/可灵",city:"Beijing",cityClass:"beijing",sector:"app",sectorLabel:"AI Video / Multimodal",founded:2021,funding:"Part of Kuaishou (~$10B mkt cap)",fundingLevel:"high",policyAlignment:"Beijing AI ecosystem; Kling video model; content policy",relevance:3,role:"Video AI: content-AI convergence under digital economy policy"},
-  {rank:32,name:"Vidu (生数科技)",cn:"生数科技",city:"Beijing",cityClass:"beijing",sector:"app",sectorLabel:"AI Video Generation",founded:2023,funding:"$487M total raised; incl. $293M Alibaba-led round (Apr 2026)",fundingLevel:"high",policyAlignment:"Tsinghua spinout; Zhongguancun Science City; Beijing AI Fund",relevance:3,role:"Generative video AI: Tsinghua spinout; 10× revenue growth 2025"},
-  {rank:33,name:"Lingyi Wanwu / AI Health",cn:"灵医万物",city:"Beijing",cityClass:"beijing",sector:"app",sectorLabel:"AI Healthcare",founded:2023,funding:"~$50M Series A",fundingLevel:"mid",policyAlignment:"AI + healthcare priority; Pilot Zone; NHSA data partnership",relevance:3,role:"Healthcare AI: data governance domain, hospital data under NHSA framework"},
-  {rank:34,name:"Fourier Intelligence",cn:"傅利叶智能",city:"Shanghai",cityClass:"shanghai",sector:"robot",sectorLabel:"Robotics / Humanoid",founded:2015,funding:"~$100M+; Series B",fundingLevel:"mid",policyAlignment:"Shanghai humanoid robot policy; Lingang Special Zone",relevance:2,role:"Shanghai robotics: PPP via rehabilitation data partnerships"},
-  {rank:35,name:"Midea / KUKA China",cn:"美的AI/库卡",city:"Guangzhou",cityClass:"",sector:"robot",sectorLabel:"Industrial Robotics / AI",founded:2017,funding:"KUKA acquisition ~$5B (Midea Group)",fundingLevel:"high",policyAlignment:"GBA manufacturing policy; KUKA localization; MiC 2025",relevance:2,role:"Manufacturing-AI PPP: Midea/KUKA localisation into China's AI supply chain"},
-  {rank:36,name:"CAS Star (中科星图)",cn:"中科星图",city:"Beijing",cityClass:"beijing",sector:"infra",sectorLabel:"Geospatial AI / Remote Sensing",founded:2006,funding:"Public (A-share STAR Market)",fundingLevel:"mid",policyAlignment:"CAS spinout; national geospatial data platform; dual-use AI",relevance:3,role:"Institutional integration: CAS spinout; state data asset monetisation via PPP"},
-  {rank:37,name:"MEGVII (Face++)",cn:"旷视科技",city:"Beijing",cityClass:"beijing",sector:"app",sectorLabel:"Computer Vision / AI",founded:2011,funding:"Pre-IPO; ~$4B valuation",fundingLevel:"high",policyAlignment:"AI Pilot Zone; smart city platform; CITIC PE",relevance:3,role:"Computer vision pioneer: national platform designation; state-as-buyer PPP"},
-  {rank:38,name:"Tencent Yuanbao",cn:"腾讯元宝",city:"Shenzhen",cityClass:"shenzhen",sector:"app",sectorLabel:"AI Consumer App",founded:2024,funding:"Tencent product (~$551B parent mkt cap, Jul 2026)",fundingLevel:"high",policyAlignment:"Hunyuan LLM consumer; WeChat integration",relevance:2,role:"Consumer AI diffusion: Yuanbao distributes Hunyuan via WeChat to 1.3B users"},
-  {rank:39,name:"Lightyear Beyond (光年之外)",cn:"光年之外",city:"Beijing",cityClass:"beijing",sector:"app",sectorLabel:"AI Agents / Applications",founded:2023,funding:"Acquired by Meituan ~$234M",fundingLevel:"high",policyAlignment:"Beijing AI ecosystem; Meituan strategic acquisition",relevance:2,role:"M&A: platform consolidation of AI agent startups; diffusion into consumer services"},
-  {rank:40,name:"Ubiquant / IQuest Labs",cn:"九坤投资 / IQuest",city:"Beijing",cityClass:"beijing",sector:"llm",sectorLabel:"Foundation Model / LLM",founded:2012,funding:"Self-funded ($12B AUM quant fund)",fundingLevel:"high",policyAlignment:"Minimal state-capital ties; Beijing AI ecosystem; Zhongguancun",relevance:2,role:"Scope condition: quant-fund-to-LLM pathway (cf. DeepSeek); IQuest open-source code LLMs benchmark vs GPT-5.1; tests non-state-capital route to frontier AI"}
+  {name:"Moonshot AI (Kimi)",cn:"月之暗面",city:"Beijing",cityClass:"beijing",entityType:"Private company",caseRole:"primary",sector:"llm",sectorLabel:"Foundation Model / LLM",founded:2023,capitalEvent:null,publicMarketValue:null,scaleIndicator:null,linkage:[],mechanism:{capital:"insufficient",compute:"insufficient",institutional:"insufficient"},analyticalNote:"Primary case: TU/CMU alumni pipeline; university-industry institutional integration",lastVerified:"2026-09-17",sources:[]},
+  {name:"Zhipu AI",cn:"智谱AI",city:"Beijing",cityClass:"beijing",entityType:"Public company",caseRole:"primary",sector:"llm",sectorLabel:"Foundation Model / LLM",founded:2019,capitalEvent:null,publicMarketValue:null,scaleIndicator:null,linkage:[],mechanism:{capital:"insufficient",compute:"insufficient",institutional:"insufficient"},analyticalNote:"Primary case: canonical university-industry transfer; institutional integration domain",lastVerified:"2026-09-17",sources:[]},
+  {name:"DeepSeek",cn:"深度求索",city:"Hangzhou",cityClass:"hangzhou",entityType:"Private company",caseRole:"contrastive",sector:"llm",sectorLabel:"Foundation Model / LLM",founded:2023,capitalEvent:null,publicMarketValue:null,scaleIndicator:null,linkage:[],mechanism:{capital:"insufficient",compute:"insufficient",institutional:"insufficient"},analyticalNote:"Hangzhou case: non-state-capital model; tests scope conditions of orchestration framework",lastVerified:"2026-09-17",sources:[]},
+  {name:"Baidu (ERNIE)",cn:"百度",city:"Beijing",cityClass:"beijing",entityType:"Public company",caseRole:"primary",sector:"cloud",sectorLabel:"Cloud / Platform AI",founded:2000,capitalEvent:null,publicMarketValue:null,scaleIndicator:null,linkage:[],mechanism:{capital:"insufficient",compute:"insufficient",institutional:"insufficient"},analyticalNote:"State-designated national AI platform; compute & data governance domain",lastVerified:"2026-09-17",sources:[]},
+  {name:"Huawei Cloud",cn:"华为云",city:"Shenzhen",cityClass:"shenzhen",entityType:"Corporate business unit/product",caseRole:"contextual",sector:"cloud",sectorLabel:"Cloud / Compute Infra",founded:2011,capitalEvent:null,publicMarketValue:null,scaleIndicator:null,linkage:[],mechanism:{capital:"insufficient",compute:"insufficient",institutional:"insufficient"},analyticalNote:"Infrastructure domain: subsidized compute within Beijing pilot zone",lastVerified:"2026-09-17",sources:[]},
+  {name:"Alibaba Cloud (Qwen)",cn:"阿里云",city:"Hangzhou",cityClass:"hangzhou",entityType:"Corporate business unit/product",caseRole:"contrastive",sector:"cloud",sectorLabel:"Cloud / LLM Platform",founded:2009,capitalEvent:null,publicMarketValue:null,scaleIndicator:null,linkage:[],mechanism:{capital:"insufficient",compute:"insufficient",institutional:"insufficient"},analyticalNote:"Hangzhou platform-anchored orchestration; Qwen underpins downstream startups",lastVerified:"2026-09-17",sources:[]},
+  {name:"Cambricon",cn:"寒武纪",city:"Beijing",cityClass:"beijing",entityType:"Public company",caseRole:"primary",sector:"chip",sectorLabel:"AI Chips",founded:2016,capitalEvent:null,publicMarketValue:null,scaleIndicator:null,linkage:[],mechanism:{capital:"insufficient",compute:"insufficient",institutional:"insufficient"},analyticalNote:"Compute sovereignty: domestic AI chip supply chain for pilot zones",lastVerified:"2026-09-17",sources:[]},
+  {name:"Moore Threads",cn:"摩尔线程",city:"Beijing",cityClass:"beijing",entityType:"Private company",caseRole:"primary",sector:"chip",sectorLabel:"AI Chips / GPGPUs",founded:2020,capitalEvent:null,publicMarketValue:null,scaleIndicator:null,linkage:[],mechanism:{capital:"insufficient",compute:"insufficient",institutional:"insufficient"},analyticalNote:"Domestic GPGPU alternative to Nvidia under export controls",lastVerified:"2026-09-17",sources:[]},
+  {name:"Unitree Robotics",cn:"宇树科技",city:"Hangzhou",cityClass:"hangzhou",entityType:"Public company",caseRole:"contrastive",sector:"robot",sectorLabel:"Robotics / Embodied AI",founded:2016,capitalEvent:null,publicMarketValue:null,scaleIndicator:null,linkage:[],mechanism:{capital:"insufficient",compute:"insufficient",institutional:"insufficient"},analyticalNote:"Hangzhou case: manufacturing-AI convergence; PPP in robotics",lastVerified:"2026-09-17",sources:[]},
+  {name:"MiniMax",cn:"MiniMax",city:"Shanghai",cityClass:"shanghai",entityType:"Private company",caseRole:"contextual",sector:"llm",sectorLabel:"Multimodal LLM",founded:2021,capitalEvent:null,publicMarketValue:null,scaleIndicator:null,linkage:[],mechanism:{capital:"insufficient",compute:"insufficient",institutional:"insufficient"},analyticalNote:"Shanghai ecosystem: multimodal AI; PPP via foundation model incubator",lastVerified:"2026-09-17",sources:[]},
+  {name:"Manus AI",cn:"Manus",city:"Beijing",cityClass:"beijing",entityType:"Private company",caseRole:"primary",sector:"app",sectorLabel:"AI Agents / Applications",founded:2024,capitalEvent:null,publicMarketValue:null,scaleIndicator:null,linkage:[],mechanism:{capital:"insufficient",compute:"insufficient",institutional:"insufficient"},analyticalNote:"Application layer: commercialisation of foundation models into AI agents",lastVerified:"2026-09-17",sources:[]},
+  {name:"Stepfun (阶跃星辰)",cn:"阶跃星辰",city:"Shanghai",cityClass:"shanghai",entityType:"Private company",caseRole:"contextual",sector:"llm",sectorLabel:"Foundation Model / LLM",founded:2023,capitalEvent:null,publicMarketValue:null,scaleIndicator:null,linkage:[],mechanism:{capital:"insufficient",compute:"insufficient",institutional:"insufficient"},analyticalNote:"AGI-focused LLM; ecosystem diversity example in capstone",lastVerified:"2026-09-17",sources:[]},
+  {name:"Zhongguancun Kejin",cn:"中关村科金",city:"Beijing",cityClass:"beijing",entityType:"Private company",caseRole:"primary",sector:"app",sectorLabel:"Enterprise AI Applications",founded:2015,capitalEvent:null,publicMarketValue:null,scaleIndicator:null,linkage:[],mechanism:{capital:"insufficient",compute:"insufficient",institutional:"insufficient"},analyticalNote:"Institutional integration: commercialising AI across finance & public services",lastVerified:"2026-09-17",sources:[]},
+  {name:"MetaX (壁仞科技)",cn:"壁仞科技",city:"Shanghai",cityClass:"shanghai",entityType:"Private company",caseRole:"contextual",sector:"chip",sectorLabel:"AI Chips",founded:2020,capitalEvent:null,publicMarketValue:null,scaleIndicator:null,linkage:[],mechanism:{capital:"insufficient",compute:"insufficient",institutional:"insufficient"},analyticalNote:"Domestic AI chip IPO; Shanghai as financial hub for AI hardware",lastVerified:"2026-09-17",sources:[]},
+  {name:"Spirit AI (具身智能)",cn:"精灵智能",city:"Beijing",cityClass:"beijing",entityType:"Private company",caseRole:"primary",sector:"robot",sectorLabel:"Robotics / Embodied AI",founded:2022,capitalEvent:null,publicMarketValue:null,scaleIndicator:null,linkage:[],mechanism:{capital:"insufficient",compute:"insufficient",institutional:"insufficient"},analyticalNote:"Embodied AI: ¥73.5B investment wave; capital coordination domain",lastVerified:"2026-09-17",sources:[]},
+  {name:"BAAI",cn:"北京智源人工智能研究院",city:"Beijing",cityClass:"beijing",entityType:"Research institution",caseRole:"primary",sector:"infra",sectorLabel:"Research Institution / Infra",founded:2018,capitalEvent:null,publicMarketValue:null,scaleIndicator:null,linkage:[],mechanism:{capital:"insufficient",compute:"insufficient",institutional:"insufficient"},analyticalNote:"Institutional integration domain: state research bridging university-industry",lastVerified:"2026-09-17",sources:[]},
+  {name:"Sensetime",cn:"商汤科技",city:"Shanghai",cityClass:"shanghai",entityType:"Public company",caseRole:"contextual",sector:"app",sectorLabel:"Computer Vision / AI",founded:2014,capitalEvent:null,publicMarketValue:null,scaleIndicator:null,linkage:[],mechanism:{capital:"insufficient",compute:"insufficient",institutional:"insufficient"},analyticalNote:"Smart city AI: national platform designation; state-as-customer PPP model",lastVerified:"2026-09-17",sources:[]},
+  {name:"Xiaomi Robotics",cn:"小米机器人",city:"Beijing",cityClass:"beijing",entityType:"Corporate business unit/product",caseRole:"primary",sector:"robot",sectorLabel:"Robotics / Embodied AI",founded:2021,capitalEvent:null,publicMarketValue:null,scaleIndicator:null,linkage:[],mechanism:{capital:"insufficient",compute:"insufficient",institutional:"insufficient"},analyticalNote:"Manufacturing-AI convergence: Xiaomi-Robotics-0 (4.7B open-source physical intelligence model) on EV factory floor; Lei Jun NPC advocacy; tests consumer hardware giant as embodied AI orchestration anchor",lastVerified:"2026-09-17",sources:[]},
+  {name:"DJI",cn:"大疆创新",city:"Shenzhen",cityClass:"shenzhen",entityType:"Private company",caseRole:"contextual",sector:"robot",sectorLabel:"Robotics / Drones",founded:2006,capitalEvent:null,publicMarketValue:null,scaleIndicator:null,linkage:[],mechanism:{capital:"insufficient",compute:"insufficient",institutional:"insufficient"},analyticalNote:"Manufacturing-AI convergence: Shenzhen's hardware-anchored orchestration path",lastVerified:"2026-09-17",sources:[]},
+  {name:"iFlytek",cn:"科大讯飞",city:"Hefei (Anhui)",cityClass:"",entityType:"Public company",caseRole:"contextual",sector:"app",sectorLabel:"AI Voice / NLP Platform",founded:1999,capitalEvent:null,publicMarketValue:null,scaleIndicator:null,linkage:[],mechanism:{capital:"insufficient",compute:"insufficient",institutional:"insufficient"},analyticalNote:"National platform: canonical PPP in AI voice/NLP outside tier-1 cities",lastVerified:"2026-09-17",sources:[]},
+  {name:"Manycore Digital (曼恒)",cn:"曼恒数字",city:"Hangzhou",cityClass:"hangzhou",entityType:"Private company",caseRole:"contrastive",sector:"app",sectorLabel:"AI Apps / XR",founded:2008,capitalEvent:null,publicMarketValue:null,scaleIndicator:null,linkage:[],mechanism:{capital:"insufficient",compute:"insufficient",institutional:"insufficient"},analyticalNote:"First 'Six Little Dragons' IPO; municipal orchestration producing commercialisation",lastVerified:"2026-09-17",sources:[]},
+  {name:"Baichuan AI",cn:"百川智能",city:"Beijing",cityClass:"beijing",entityType:"Private company",caseRole:"primary",sector:"llm",sectorLabel:"Foundation Model / LLM",founded:2023,capitalEvent:null,publicMarketValue:null,scaleIndicator:null,linkage:[],mechanism:{capital:"insufficient",compute:"insufficient",institutional:"insufficient"},analyticalNote:"Leading LLM; pivoting to AI medical tech; IPO target 2027",lastVerified:"2026-09-17",sources:[]},
+  {name:"01.AI (Yi Series)",cn:"零一万物",city:"Beijing",cityClass:"beijing",entityType:"Private company",caseRole:"primary",sector:"llm",sectorLabel:"Foundation Model / LLM",founded:2023,capitalEvent:null,publicMarketValue:null,scaleIndicator:null,linkage:[],mechanism:{capital:"insufficient",compute:"insufficient",institutional:"insufficient"},analyticalNote:"Open-source LLM; cross-border talent circulation as institutional integration",lastVerified:"2026-09-17",sources:[]},
+  {name:"Tencent Cloud AI",cn:"腾讯云AI",city:"Shenzhen",cityClass:"shenzhen",entityType:"Corporate business unit/product",caseRole:"contextual",sector:"cloud",sectorLabel:"Cloud / Platform AI",founded:2010,capitalEvent:null,publicMarketValue:null,scaleIndicator:null,linkage:[],mechanism:{capital:"insufficient",compute:"insufficient",institutional:"insufficient"},analyticalNote:"Platform-anchored orchestration: Shenzhen alternative to state-capital model",lastVerified:"2026-09-17",sources:[]},
+  {name:"Zhijiang Lab",cn:"之江实验室",city:"Hangzhou",cityClass:"hangzhou",entityType:"Research institution",caseRole:"contrastive",sector:"infra",sectorLabel:"Research Institution / Infra",founded:2017,capitalEvent:null,publicMarketValue:null,scaleIndicator:null,linkage:[],mechanism:{capital:"insufficient",compute:"insufficient",institutional:"insufficient"},analyticalNote:"Hangzhou institutional integration: bridges ZJU and industry",lastVerified:"2026-09-17",sources:[]},
+  {name:"Tongyi / Alibaba DAMO",cn:"通义千问/达摩院",city:"Hangzhou",cityClass:"hangzhou",entityType:"Corporate business unit/product",caseRole:"contrastive",sector:"llm",sectorLabel:"Foundation Model / LLM",founded:2021,capitalEvent:null,publicMarketValue:null,scaleIndicator:null,linkage:[],mechanism:{capital:"insufficient",compute:"insufficient",institutional:"insufficient"},analyticalNote:"Hangzhou orchestration anchor: Qwen deployed across municipal public services",lastVerified:"2026-09-17",sources:[]},
+  {name:"SoundAI (声智科技)",cn:"声智科技",city:"Beijing",cityClass:"beijing",entityType:"Private company",caseRole:"primary",sector:"app",sectorLabel:"AI Voice / Edge AI",founded:2016,capitalEvent:null,publicMarketValue:null,scaleIndicator:null,linkage:[],mechanism:{capital:"insufficient",compute:"insufficient",institutional:"insufficient"},analyticalNote:"Institutional integration: Tsinghua spinout in voice and edge AI",lastVerified:"2026-09-17",sources:[]},
+  {name:"Agibot (智元机器人)",cn:"智元机器人",city:"Shanghai",cityClass:"shanghai",entityType:"Private company",caseRole:"contextual",sector:"robot",sectorLabel:"Robotics / Embodied AI",founded:2023,capitalEvent:null,publicMarketValue:null,scaleIndicator:null,linkage:[],mechanism:{capital:"insufficient",compute:"insufficient",institutional:"insufficient"},analyticalNote:"Shanghai embodied AI: 5,000 units shipped Mar 2026; capital coordination domain",lastVerified:"2026-09-17",sources:[]},
+  {name:"Horizon Robotics",cn:"地平线机器人",city:"Beijing",cityClass:"beijing",entityType:"Public company",caseRole:"primary",sector:"chip",sectorLabel:"AI Chips / Autonomous Driving",founded:2015,capitalEvent:null,publicMarketValue:null,scaleIndicator:null,linkage:[],mechanism:{capital:"insufficient",compute:"insufficient",institutional:"insufficient"},analyticalNote:"HK IPO: capital coordination domain; state smart vehicle industrial policy",lastVerified:"2026-09-17",sources:[]},
+  {name:"Black Sesame Tech",cn:"黑芝麻智能",city:"Wuhan",cityClass:"",entityType:"Public company",caseRole:"contextual",sector:"chip",sectorLabel:"AI Chips / Automotive",founded:2016,capitalEvent:null,publicMarketValue:null,scaleIndicator:null,linkage:[],mechanism:{capital:"insufficient",compute:"insufficient",institutional:"insufficient"},analyticalNote:"Orchestration beyond tier-1 zones; state smart vehicle supply chain",lastVerified:"2026-09-17",sources:[]},
+  {name:"Kuaishou AI (Kling)",cn:"快手AI/可灵",city:"Beijing",cityClass:"beijing",entityType:"Corporate business unit/product",caseRole:"primary",sector:"app",sectorLabel:"AI Video / Multimodal",founded:2021,capitalEvent:null,publicMarketValue:null,scaleIndicator:null,linkage:[],mechanism:{capital:"insufficient",compute:"insufficient",institutional:"insufficient"},analyticalNote:"Video AI: content-AI convergence under digital economy policy",lastVerified:"2026-09-17",sources:[]},
+  {name:"Vidu (生数科技)",cn:"生数科技",city:"Beijing",cityClass:"beijing",entityType:"Private company",caseRole:"primary",sector:"app",sectorLabel:"AI Video Generation",founded:2023,capitalEvent:null,publicMarketValue:null,scaleIndicator:null,linkage:[],mechanism:{capital:"insufficient",compute:"insufficient",institutional:"insufficient"},analyticalNote:"Generative video AI: Tsinghua spinout; 10× revenue growth 2025",lastVerified:"2026-09-17",sources:[]},
+  {name:"Lingyi Wanwu / AI Health",cn:"灵医万物",city:"Beijing",cityClass:"beijing",entityType:"Private company",caseRole:"primary",sector:"app",sectorLabel:"AI Healthcare",founded:2023,capitalEvent:null,publicMarketValue:null,scaleIndicator:null,linkage:[],mechanism:{capital:"insufficient",compute:"insufficient",institutional:"insufficient"},analyticalNote:"Healthcare AI: data governance domain, hospital data under NHSA framework",lastVerified:"2026-09-17",sources:[]},
+  {name:"Fourier Intelligence",cn:"傅利叶智能",city:"Shanghai",cityClass:"shanghai",entityType:"Private company",caseRole:"contextual",sector:"robot",sectorLabel:"Robotics / Humanoid",founded:2015,capitalEvent:null,publicMarketValue:null,scaleIndicator:null,linkage:[],mechanism:{capital:"insufficient",compute:"insufficient",institutional:"insufficient"},analyticalNote:"Shanghai robotics: PPP via rehabilitation data partnerships",lastVerified:"2026-09-17",sources:[]},
+  {name:"Midea / KUKA China",cn:"美的AI/库卡",city:"Guangzhou",cityClass:"",entityType:"Industrial group",caseRole:"contextual",sector:"robot",sectorLabel:"Industrial Robotics / AI",founded:2017,capitalEvent:null,publicMarketValue:null,scaleIndicator:null,linkage:[],mechanism:{capital:"insufficient",compute:"insufficient",institutional:"insufficient"},analyticalNote:"Manufacturing-AI PPP: Midea/KUKA localisation into China's AI supply chain",lastVerified:"2026-09-17",sources:[]},
+  {name:"CAS Star (中科星图)",cn:"中科星图",city:"Beijing",cityClass:"beijing",entityType:"Public company",caseRole:"primary",sector:"infra",sectorLabel:"Geospatial AI / Remote Sensing",founded:2006,capitalEvent:null,publicMarketValue:null,scaleIndicator:null,linkage:[],mechanism:{capital:"insufficient",compute:"insufficient",institutional:"insufficient"},analyticalNote:"Institutional integration: CAS spinout; state data asset monetisation via PPP",lastVerified:"2026-09-17",sources:[]},
+  {name:"MEGVII (Face++)",cn:"旷视科技",city:"Beijing",cityClass:"beijing",entityType:"Private company",caseRole:"primary",sector:"app",sectorLabel:"Computer Vision / AI",founded:2011,capitalEvent:null,publicMarketValue:null,scaleIndicator:null,linkage:[],mechanism:{capital:"insufficient",compute:"insufficient",institutional:"insufficient"},analyticalNote:"Computer vision pioneer: national platform designation; state-as-buyer PPP",lastVerified:"2026-09-17",sources:[]},
+  {name:"Tencent Yuanbao",cn:"腾讯元宝",city:"Shenzhen",cityClass:"shenzhen",entityType:"Corporate business unit/product",caseRole:"contextual",sector:"app",sectorLabel:"AI Consumer App",founded:2024,capitalEvent:null,publicMarketValue:null,scaleIndicator:null,linkage:[],mechanism:{capital:"insufficient",compute:"insufficient",institutional:"insufficient"},analyticalNote:"Consumer AI diffusion: Yuanbao distributes Hunyuan via WeChat to 1.3B users",lastVerified:"2026-09-17",sources:[]},
+  {name:"Lightyear Beyond (光年之外)",cn:"光年之外",city:"Beijing",cityClass:"beijing",entityType:"Private company",caseRole:"primary",sector:"app",sectorLabel:"AI Agents / Applications",founded:2023,capitalEvent:null,publicMarketValue:null,scaleIndicator:null,linkage:[],mechanism:{capital:"insufficient",compute:"insufficient",institutional:"insufficient"},analyticalNote:"M&A: platform consolidation of AI agent startups; diffusion into consumer services",lastVerified:"2026-09-17",sources:[]},
+  {name:"Ubiquant / IQuest Labs",cn:"九坤投资 / IQuest",city:"Beijing",cityClass:"beijing",entityType:"Investor/financial institution",caseRole:"primary",sector:"llm",sectorLabel:"Foundation Model / LLM",founded:2012,capitalEvent:null,publicMarketValue:null,scaleIndicator:null,linkage:[],mechanism:{capital:"insufficient",compute:"insufficient",institutional:"insufficient"},analyticalNote:"Scope condition: quant-fund-to-LLM pathway (cf. DeepSeek); IQuest open-source code LLMs benchmark vs GPT-5.1; tests non-state-capital route to frontier AI",lastVerified:"2026-09-17",sources:[]},
 ];
 
 const cityData=[
-  {name:"Beijing",count:19,bar:100,class:"beijing",firms:"Moonshot AI, Zhipu AI, Baidu, Cambricon, Moore Threads, Manus, Zhongguancun Kejin, Spirit AI, BAAI, Baichuan AI, 01.AI, SoundAI, Horizon Robotics, Kuaishou AI, Vidu, Lingyi Wanwu, CAS Star, MEGVII, Comate, Lightyear Beyond",zone:"First AI Pilot Zone (Feb 2019)"},
-  {name:"Hangzhou",count:8,bar:42,class:"hangzhou",firms:"DeepSeek, Alibaba Cloud/Qwen, Unitree Robotics, Manycore Tech, Zhijiang Lab, Tongyi/DAMO, Six Dragons ecosystem",zone:"AI Pilot Zone · Municipal fund ¥50.2B"},
-  {name:"Shanghai",count:6,bar:32,class:"shanghai",firms:"MiniMax, Stepfun, MetaX, Sensetime, Agibot, Fourier Intelligence",zone:"AI Pilot Zone (May 2019) · Foundation Model Incubator"},
-  {name:"Shenzhen/GBA",count:5,bar:26,class:"shenzhen",firms:"Huawei Cloud, DJI, Tencent Cloud AI, Tencent Yuanbao + GBA ecosystem",zone:"Shenzhen AI Pilot Zone · Hardware-AI convergence"},
-  {name:"Other Cities",count:2,bar:11,class:"",firms:"iFlytek (Hefei), Black Sesame Tech (Wuhan), Midea/KUKA (Guangzhou)",zone:"Provincial clusters · Automotive + manufacturing corridors"}
+  {name:"Beijing",count:21,bar:100,class:"beijing",role:"Primary case",firms:"Moonshot AI, Zhipu AI, Baidu, Cambricon, Moore Threads, Manus AI, Zhongguancun Kejin, Spirit AI, BAAI, Xiaomi Robotics, Baichuan AI, 01.AI, SoundAI, Horizon Robotics, Kuaishou AI, Vidu, Lingyi Wanwu, CAS Star, MEGVII, Lightyear Beyond, Ubiquant / IQuest Labs",zone:"Coded as headquarters or primary ecosystem affiliation"},
+  {name:"Hangzhou",count:6,bar:29,class:"hangzhou",role:"Contrastive reference",firms:"DeepSeek, Alibaba Cloud (Qwen), Unitree Robotics, Manycore Digital, Zhijiang Lab, Tongyi / Alibaba DAMO",zone:"Coded as headquarters or primary ecosystem affiliation"},
+  {name:"Shanghai",count:6,bar:29,class:"shanghai",role:"Contextual only",firms:"MiniMax, Stepfun, MetaX, Sensetime, Agibot, Fourier Intelligence",zone:"Coded as headquarters or primary ecosystem affiliation"},
+  {name:"Shenzhen",count:4,bar:19,class:"shenzhen",role:"Contextual only",firms:"Huawei Cloud, DJI, Tencent Cloud AI, Tencent Yuanbao",zone:"Coded as headquarters or primary ecosystem affiliation"},
+  {name:"Other cities",count:3,bar:14,class:"",role:"Contextual only",firms:"iFlytek (Hefei), Black Sesame Tech (Wuhan), Midea / KUKA China (Guangzhou)",zone:"Coded as headquarters or primary ecosystem affiliation"}
 ];
 
 const insights=[
@@ -1278,10 +1298,11 @@ function drawChinaMap(){
 
 
 const keyTakeaways=[
-  "Beijing dominates through institutional density: Tsinghua spinouts, BAAI, state guidance funds, and the AI Pilot Zone converge in a single bounded policy environment.",
-  "Universities are the primary formation mechanism: direct spinouts (Zhipu AI, Vidu, SoundAI) and founder pipelines (DeepSeek/ZJU, MiniMax/CAS) account for the majority of top-10 companies.",
-  "China operates two distinct orchestration models: Beijing's state-academic integration vs. Hangzhou's platform-anchored coordination under Alibaba. DeepSeek tests whether private capital can replicate state-directed outcomes.",
-  "Compute sovereignty is a binding constraint: US export controls on Nvidia GPUs have made Cambricon, Moore Threads, and Huawei Ascend strategic infrastructure assets, not merely commercial products."
+  "<b>Beijing is the primary case.</b> The sample includes a high concentration of Beijing-linked organizations, consistent with the capstone's focus on Beijing's dense research, policy, and financing environment. It does not estimate Beijing's causal advantage over other cities.",
+  "<b>Institutional linkages are observable, not universal.</b> Publicly documented ties connect selected firms to universities, research labs, investors, platform companies, and municipal institutions. The strength and consequences of those ties vary by firm and are not inferred from proximity alone.",
+  "<b>Capital, compute, data governance, and institutional integration are analytical domains.</b> A row's classification identifies a hypothesized mechanism to investigate. It is not evidence that an instrument caused that firm's performance.",
+  "<b>Hangzhou is a contrastive reference, not a matched comparison.</b> Its platform and university links help identify potential scope conditions for the Beijing account, but the site does not establish that Hangzhou constitutes a distinct causal model.",
+  "<b>Capability formation is not economy-wide diffusion.</b> Evidence of investment, infrastructure provision, or frontier-firm formation should not be presented as evidence of aggregate productivity gains, broad adoption, or realized comparative advantage."
 ];
 
 function renderInsights(){
@@ -1731,7 +1752,7 @@ document.querySelectorAll("[data-nav-tab]").forEach(link=>{
 })();
 
 // ── Column sort ────────────────────────────────────────────────────────────────
-let sortKey='rank', sortDir=1;
+let sortKey='name', sortDir=1;
 let liveData={generatedAt:null,companies:{}};
 
 function escapeHtml(str=""){
@@ -1759,9 +1780,6 @@ function renderSignalCell(name){
   </div>`;
 }
 
-function renderFundingCell(s){
-  return`<span class="funding-chip ${s.fundingLevel}">${escapeHtml(s.funding)}</span>`;
-}
 
 function renderTable(filter="all"){
   const tbody=document.getElementById("tableBody");
@@ -1773,38 +1791,87 @@ function renderTable(filter="all"){
     return (av-bv)*sortDir;
   });
   data.forEach(s=>{
-    const dots=Array.from({length:5},(_,i)=>`<span class="rel-dot ${i<s.relevance?'on':'off'}"></span>`).join("");
     tbody.insertAdjacentHTML("beforeend",`<tr>
-      <td style="color:var(--color-text-faint);font-variant-numeric:tabular-nums;font-weight:600">${s.rank}</td>
       <td><div class="company-cell"><span class="company-name">${s.name}</span><span class="company-cn">${s.cn}</span></div></td>
+      <td><span class="etype">${s.entityType}</span></td>
       <td><span class="city-tag city-tag--${s.cityClass}">${s.city}</span></td>
+      <td>${renderCaseRole(s)}</td>
       <td><span class="badge badge--${s.sector}">${s.sectorLabel}</span></td>
       <td style="font-variant-numeric:tabular-nums;color:var(--color-text-muted)">${s.founded}</td>
-      <td>${renderFundingCell(s)}</td>
-      <td style="font-size:var(--text-xs);color:var(--color-text-muted);max-width:220px">${s.policyAlignment}</td>
-      <td><div class="rel-dots" aria-label="${s.relevance} out of 5">${dots}</div></td>
-      <td style="font-size:var(--text-xs);color:var(--color-text-muted);max-width:260px;line-height:1.5">${s.role}</td>
+      <td>${renderField(s.capitalEvent)}</td>
+      <td>${renderField(s.publicMarketValue)}</td>
+      <td>${renderField(s.scaleIndicator)}</td>
+      <td>${renderLinkage(s)}</td>
+      <td>${renderMechanism(s)}</td>
       <td>${renderSignalCell(s.name)}</td>
+      <td class="reviewed">${s.lastVerified}</td>
     </tr>`);
   });
 }
 
+// A field is shown only when it carries a dated, sourced value. Until then the
+// brief's missing-data convention applies: the value may exist but is not public.
+function renderField(v){
+  if(!v) return `<span class="undisclosed">Not publicly disclosed</span>`;
+  return `<div class="field-cell"><span class="field-val">${escapeHtml(v.value)}</span>`+
+    `<span class="field-meta">${escapeHtml(v.date)} · <a href="${escapeHtml(v.sourceUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(v.source)}</a></span></div>`;
+}
+
+const CASE_ROLE={
+  primary:{label:"Primary case",cls:"primary"},
+  contrastive:{label:"Contrastive reference",cls:"contrastive"},
+  contextual:{label:"Contextual only",cls:"contextual"}
+};
+function renderCaseRole(s){
+  const r=CASE_ROLE[s.caseRole]||CASE_ROLE.contextual;
+  return `<span class="case-role case-role--${r.cls}">${r.label}</span>`;
+}
+
+// P1.9: at most two verified tags, each carrying its own evidence record.
+// An empty list means no firm-level linkage has been verified, which is not the
+// same as no linkage existing.
+function renderLinkage(s){
+  if(!s.linkage||!s.linkage.length) return `<span class="undisclosed">No verified firm-level linkage recorded</span>`;
+  return `<div class="linkage-cell">`+s.linkage.slice(0,2).map(t=>
+    `<span class="linkage-tag" title="${escapeHtml(t.evidence||"")}">${escapeHtml(t.tag)}</span>`).join("")+`</div>`;
+}
+
+// P1.10: domains are hypothesized mechanisms to investigate, never a finding.
+const MECHANISMS=[["capital","Capital coordination"],["compute","Data and compute governance"],["institutional","Institutional integration"]];
+function renderMechanism(s){
+  return `<div class="mech-cell">`+MECHANISMS.map(([k,label])=>{
+    const st=(s.mechanism&&s.mechanism[k])||"insufficient";
+    const ok=st!=="insufficient";
+    return `<span class="mech ${ok?"mech--evidenced":"mech--insufficient"}">${label}: ${ok?escapeHtml(st):"Evidence insufficient"}</span>`;
+  }).join("")+`</div>`;
+}
+
 async function loadLiveData(){
+  const errEl=document.getElementById("signalError");
+  const retrievedEl=document.getElementById("signalRetrieved");
   try{
     const res=await fetch("data/live-updates.json",{cache:"no-store"});
-    if(!res.ok)return;
+    if(!res.ok) throw new Error("HTTP "+res.status);
     liveData=await res.json();
-    const noteEl=document.getElementById("liveUpdatedNote");
-    if(noteEl&&liveData.generatedAt){
+    if(errEl) errEl.hidden=true;
+    if(retrievedEl&&liveData.generatedAt){
       const d=new Date(liveData.generatedAt);
-      noteEl.innerHTML=`<span class="dot"></span> Latest Signal column refreshed ${relativeTime(liveData.generatedAt)} (${d.toLocaleDateString(undefined,{year:"numeric",month:"short",day:"numeric"})}) via free Google News RSS. Funding/Scale figures are independently researched.`;
+      retrievedEl.innerHTML="News signal last retrieved: <b>"+d.toISOString().slice(0,10)+"</b>";
     }
     const activeChip=document.querySelector(".chip.active");
     renderTable(activeChip?activeChip.dataset.filter:"all");
   }catch(err){
-    console.warn("Live data unavailable:",err.message);
+    // The research dataset is inline and already rendered, so a feed failure
+    // degrades one column rather than leaving the page on a loading state.
+    console.warn("News signal unavailable:",err.message);
+    if(retrievedEl) retrievedEl.innerHTML="News signal last retrieved: <b>unavailable</b>";
+    if(errEl) errEl.hidden=false;
   }
 }
+
+document.addEventListener("click",(e)=>{
+  if(e.target.closest("#signalRetry")) loadLiveData();
+});
 
 document.querySelectorAll(".th-sort").forEach(th=>{
   th.addEventListener("click",()=>{
