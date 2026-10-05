@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-09-28T13:03:30.854Z",
+  "generatedAt": "2026-10-05T13:45:49.900Z",
   "companies": {
     "Moonshot AI (Kimi)": {
-      "headline": "Moonshot AI’s Kimi K3 Hits Bedrock: 1.56TB Release [2026] - tech-insider.org",
-      "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTFBhTV94OGM2TTdlbFhIMFl4cUhCX0xscjNXRjlXYkxYMkxRUWxRTVZ4ZTZmb1VtZWV0bEo4ZkdlTjQ5QW9rNk9kOHFsaF9uMUhNam9DQ0wtMTNpazg5dlFlRkdIaE1yQ2lVcXZKZVpqVGRDeTFYdjIzMUQ3cXRpQQ?oc=5",
-      "date": "Sun, 27 Sep 2026 09:48:23 GMT",
+      "headline": "Chinese AI model investigated after researcher says it provided instructions for bioweapons, assassinations - Yahoo",
+      "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxQYVVpcm4yczczYUt3UGRaMU5MQmtTRWhMajQyZHI3THYxeUM4R3ozVGlCLUVrUC1LNTY2alZGa2E4TDZ0M0JqOTlmWDBkTVVzaUlXaV83M25ieUtTS1drVmx4aG1wUEx4VmJsLUJGYzYwU1VScmRBV0JsRHlfYTJxOFlicUtlSnc1WVBpVHBkNUJuejhBMFBVUnhHNVNVUQ?oc=5",
+      "date": "Fri, 02 Oct 2026 01:31:00 GMT",
       "detectedFigure": null
     },
     "Zhipu AI": {
-      "headline": "Z.AI Plans $5.0 Billion Fundraising to Fuel AI Expansion - WSJ",
-      "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOaXlIUE13SkdlVEJJRjVrN0RPWmllSXJhaS1iSUFIZ0phX2g4MFhYRXRodjRrUWdfVzJrVUFVMjEwZVM1N2pDb253eFV0ZjBTc1lyUTVoUnREQW9OZm1TODNSVGFWSjZpWVlDRHFuUGxmajh3ZjBsSWMtN2plWFN3MVRIMloxNVZaNHZCMTRDa3dJTlFUWlcw?oc=5",
-      "date": "Sun, 13 Sep 2026 07:00:00 GMT",
-      "detectedFigure": "$5.0 Billion"
+      "headline": "Why is Z.AI (Zhipu) stock rallying today? - Investing.com",
+      "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOTWFQb0hpOHZqdUNIejdfUDBBZ0lPNGZaeHdLMDB4QnFmanJ3bWtJVDMzME16MFNlR3IyWUVYM3BtdTRmSy1HNlVzRmF6U0txX0lTNVAzYlNYSjJHUTFpd2U0SjZoOXJ6OHdOUlhaLVBibER6M0lVa2FRNUppT0h5YjVpTlBVSHpVLWJCVHNIQ0ktNFgtOFdpeHJKZ0REWGZz?oc=5",
+      "date": "Mon, 05 Oct 2026 08:44:19 GMT",
+      "detectedFigure": null
     },
     "DeepSeek": {
-      "headline": "Chinese tech stocks trail US AI peers even as Huawei and DeepSeek gain ground - startupfortune.com",
-      "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQckQ5dm1RZ1k1TDVuWE15SGxKQ3luajl2NzY0QzVyMWxIakhfOU4xcnRtRFIxME93RHVGeEpuMGRvYlh4a2tjeTh4clNpWVY1eFlKZmxJNHN4Wnc1OHRaMlVUZlpPYUtUSFNMbmdBZ2F5U3dXaHkwRkpfNVVHb2Jta1kxajV6aTBYajRYXzBsSlBDbGd4bmhJazVCNWFIM0p3VHozWm1XUDQ?oc=5",
-      "date": "Mon, 28 Sep 2026 01:15:28 GMT",
+      "headline": "US Lead in AI Over China Narrows After DeepSeek Gains, BI Says - Bloomberg.com",
+      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQR2V3czFPc2lFaTExcF9XUEY0TXE0R0dqaEs1VmxCQ3kwcjBkT0kxUG1LbEYxQWhXREFNQXYtZ2MzVDFUaS1YTzFTTS1yUU9DQS01U1IyaVp2dmJoR0ctcU9hcjFnRUo3LTdLMUY4UGJMSnVSTXVnZFVCV0Exc3RwNDlxQnVQQkNQbVZZcmg5bGIxeUhpSDZoV3lyR1VKVDZWbHd1VjNpM2dNMFUzS1lrMEZ3?oc=5",
+      "date": "Sun, 04 Oct 2026 21:03:00 GMT",
       "detectedFigure": null
     },
     "Baidu (ERNIE)": {
@@ -26,51 +26,51 @@
       "detectedFigure": null
     },
     "Huawei Cloud": {
-      "headline": "Huawei Cloud Rolls Out Enterprise AI Products Across the Board, Building an Open Agentic Cloud - The Register",
-      "link": "https://news.google.com/rss/articles/CBMi-gFBVV95cUxNS2tWTVVpV0ZHSXJfbUJXUGdLWkFFN1hfTmhDRERGTTNuci16ZmlCSVFyX2ZqdGliWVZfX1FOUklpalZnS2U1Z0dqYWpLTXFjR3AzYmY0VC0yMEpvTXJvZGxiWnljVXhNZjVTek5ZdjJZdVE5dEx0Q192bzEyemF6clVvTkx4SVFMTFVjRzRXTjNwUldlZ1lRNXhjNjk2elg2cU1GY1VXWmFVOGtoRi1IZlY0ZmthX1N2WXUwdlU4Q3NhNE1SbHRpcmNmMXYzOUMtWU9RNmxBUGNMVnRIXzFWcnJqTGU2bFk3b3huQTdkdzkyY0dVa0NzT0hB?oc=5",
-      "date": "Fri, 25 Sep 2026 08:00:00 GMT",
+      "headline": "Huawei Cloud Announces Agentic AI Products, Shaping the Foundation for the Intelligent Era - Huawei",
+      "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1qYzE3TjRlS2RYX3VXeG12STFNVmQtdTBkaGttNlQ2RkdFN0RvNHRFMFNZSlFlWVMwVzkxVjh3eG13VTBWbWRObmQtVVMzUXZOZjdPWjZ6eF9zMVFiTVVaVUhjQ2tRekQ0NDB5VlNsaDQ3cTdKVURaYQ?oc=5",
+      "date": "Mon, 08 Jun 2026 07:00:00 GMT",
       "detectedFigure": null
     },
     "Alibaba Cloud (Qwen)": {
-      "headline": "Alibaba's open-weight Qwen-Image-2.1 claims to beat closed models in image generation with just 7 billion parameters - The Decoder",
-      "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxPcW83SUN6S3dlZ19qVVgwZ3h0bmpwemJRRmZ0RFhsT3hkbEhUQ3JWOVFWSWpSU0NEYTNHTlp1RWZyVE00dFJSUjJ3UFMxTjhZWUU3RWRZOV9iSjZVUUVxc1ROd25UWkJqZmFOSDdwWlFLQ2gxV0UxeWNxbU8xRFY2NUZtYXc3NnVBU1NYcWJTcUVxdW8wYjk2aVMyc1k1QnQwUllPc0xTTkxQczdHeGNCSlNtOTRsSHR6VW81RWZXVXFaa3BrajRZdGp2ejR6VExKcTduRmRaTQ?oc=5",
-      "date": "Sun, 20 Sep 2026 16:14:06 GMT",
+      "headline": "Some topics are off limits inside popular Chinese-made free AI, researchers find - CBS News",
+      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOWlF2SkpRT1ItZmVvMEJVT3phUFlSM0t5YXBfVGxRV3ZDZjcwNWJma1VmQXNCTGYtR0JiUF9WSzZWRTRQcFpnOGZpODM4SVM0OXVlREZSbzY0ZUVCaVBPR2hmT29JdHFsVlpOdnlDZ3B6UVE3WERVZFdCVUF4MFNySGhDWHZ2Y2gy?oc=5",
+      "date": "Fri, 02 Oct 2026 17:08:54 GMT",
       "detectedFigure": null
     },
     "Cambricon": {
       "headline": "Why Retail Investors Are Watching Cambricon Stock And AI Infrastructure Leaders - Yahoo Finance",
       "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNLUpib1BXUE9GcXB4QXQwRUJyVUdCaDZiVm1Pc2J0cW9od0t6bEFzbnROYmtyR1MycHpiLVhtYUxxTVhHc2w4SVdWTU1UTXVpSW5IZVdQM0I1S2tOSWMtLTctX0xxYkNDZkNlZjlkVnBTXzJjVGdvUUt5TXVYODBZUWJSVTlablBBc0hXTllNdnV0a2lqTXlwRmI1YW92dHF0Vm45OC1B?oc=5",
-      "date": "Tue, 22 Sep 2026 14:15:53 GMT",
+      "date": "Tue, 22 Sep 2026 07:00:00 GMT",
       "detectedFigure": null
     },
     "Moore Threads": {
-      "headline": "China’s Nvidia challenger crashed 20% in a reality check for an AI darling - Business Insider",
-      "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPckZHdUhVT2dnUG1pdEVyTF9ob1NGS25PQU9YcGVGV0xWZnljWmJiNC1IeU5QcmVsbUM2aDF1QXBRX2JYOG1xQ0hMeV9RaDNCdnhlbklTT1NhX05uUGpfVWVkb3dOX042VTh1cjNlaWlCZENJQ0VZREFXejY0Y25CY3ZCOFZNZHlfT19HQzIwSVhYVm9NLWpuZjUzRDBybmRNT0E?oc=5",
-      "date": "Mon, 07 Sep 2026 07:00:00 GMT",
+      "headline": "Who Makes GPUs Besides Nvidia and AMD? (2026) - shattered.io",
+      "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1TQVdfak1JcWk1UnJlUndSZ0xUY3h3VWxoajFPaTFHTDV1dmZwREloZkxUelhuSUl0OW5TZDVQU1F0N2FtVHluaVp5cUZfamF5NkxyTEh1TUM5R1ZsbGNVTjZwVmRMUnVVMkJZYnJFbk8yZ0lFLU5yMklrNzRKQQ?oc=5",
+      "date": "Thu, 01 Oct 2026 16:30:38 GMT",
       "detectedFigure": null
     },
     "Unitree Robotics": {
-      "headline": "Unitree unveils a robot it says can run faster than Usain Bolt ahead of its IPO - Business Insider",
-      "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNTV9FTm5Lb2ZqN3ZhWjR6ZGFLbUd6ekU2WVZXUWU3alZWR25pM0dVcS0xT0hnUWZrS0hyV3p6aWN2b2RyaGlpc1NSUmhSd2VqeFA3WkwtN05rdTJOSjI5ekp5Sk91SlZJSzNadW03ck5KM2kxSDB4ZUN4U2lyZ0xSVlZFYjczU3BjeG8xSW9KWTBmX1oyZi1LNw?oc=5",
-      "date": "Tue, 18 Aug 2026 07:00:00 GMT",
+      "headline": "FCC's ban on Chinese humanoid robots may starve the US firms it aims to help - Startup Fortune",
+      "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQMkpNek5obzhzNHJMU2VPV0tuMW9UVEhpWDFDYXY3YUlFTV9jMkp6OEZJa2ZLS2ZwWDROLUxNdV82WVZHSUJKd1JsT3AydnR5WHlBdm42eEZxX0s0QUlTalJuQUJSWVlKRl92SDN1bzRUNjZpOWtSbW9hVmpTTmsxWXpybl9UazU4QUNwMFozRVRRY05yOEIxLWxZUjJFZzNCVWEzZ2ZB?oc=5",
+      "date": "Sun, 04 Oct 2026 15:58:52 GMT",
       "detectedFigure": null
     },
     "MiniMax": {
-      "headline": "MiniMax quietly ships a coding-only model as China's AI models flood the market - startupfortune.com",
-      "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQQjFqRktCcDVXd1ExYXZGWTdaUEttdVNpcS02Znd2MzVYOFhvMHNyMm5udF8tOWFWZTZtQmxvT2tLY05USU92T3BRcnpMY1FCX1pqM1Zzd1lyUGl2VWswMm9sWURlclp1X1VVWWlzVl9fNWJQSGhERWJyTmR0ZDd0ZFUxYldweXJDV2JsUmJZWThUNVJZVnh0azJtY0dQQU1QOFNLZmdiZ21GZw?oc=5",
-      "date": "Sun, 27 Sep 2026 09:25:12 GMT",
+      "headline": "China's MiniMax sees revenue nearly quadruple in first half as AI demand surges - Reuters",
+      "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOR2ZKSWhaaE9UOUJROWthQ2stakFYT0RNNkNmUzRWUDcwVktJdXVJMUtlZ0p6NEgzcWk1Uk4xU25TeS0wbFcwY2FQb1JaZXRJLTJDcXppVnBfekRhckpGYU5ZVUZub09TNE4zdE5iajEzWU11NjFER09aeU9DWE1EYklRRDFFQnFYZlhlaWpsWkpoWFo5YWFJa2x3RGktVDRDRWVHZXRoVFAzdDZGbS01ZUIwcFMtXzZtWS1rbw?oc=5",
+      "date": "Wed, 26 Aug 2026 07:00:00 GMT",
       "detectedFigure": null
     },
     "Manus AI": {
-      "headline": "AI Startup Manus Seeks to Raise $500 Million and Weighs Hong Kong IPO - WSJ",
-      "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNbGY3bS1rclZYVlZ3SHBHRnlMUEZnZVhPWDFRSFROVWI2OTlRaC1lMDd4ZVliel9ENXBHTWRjT0J0ejlrajNHbnFvUEYyOVFuU3I0ZU1sTVgyUWU0b29zTXZ5dE1WSmtUM1h5U1JtcjdFRDA1Y3BKa0FENDI2S2RGSzVsWVhZcERXRDJiM1VKSXNjUWRwTzJoOGxqMWVzenUta0J3Zmh6M0Q3Zw?oc=5",
-      "date": "Sat, 19 Sep 2026 07:00:00 GMT",
-      "detectedFigure": "$500 Million"
+      "headline": "This popular AI agent could be hacked by a single email — with potentially disastrous consequences - TechRadar",
+      "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQX3cyWFRhRV9UUzJDVnB2bGV3OU9YaE1vS0V1djBfQ284V3V0cERPNVozNkFCR0xhdkNjeE1pU2ktZEhnN3FDaGo1dklVU1B5d29RVnIwS3gteTZQNTFyYkI1MkVGbnNmNnJta194aWVTRkxqXy1mYzFJajliMWFXV2ZHY25iLWhfdkoxdkczQ2U0enlPV1lBT0IyS19zT3BKaE15MkxsV1doNFlPT1hHcGVGRlpkVjQzY0dEZV93N1ZZd05zU0t6dVBiRm9jU2Iy?oc=5",
+      "date": "Fri, 02 Oct 2026 17:05:00 GMT",
+      "detectedFigure": null
     },
     "Stepfun (阶跃星辰)": {
-      "headline": "Chinese AI Startup StepFun Set to File for Hong Kong IPO - WSJ",
-      "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPd3gzSk5ab2RyaVRjajN4bG1BVldyZXBLZHdneUgxOGRtdzRYS0Fud3lTZlhhakV4cU9XUTNYYlROcllERzhSZHB2aC1VbGxLNEZ3a1phTEg1RVVnVlJId21xbzlNbWNDVHVlekFXSzc0a0NWZGNHVG5kcmxHNUpqR3hhUmNLZUhPUzdsNkloMzh4R3ZQcjdoaw?oc=5",
-      "date": "Mon, 08 Jun 2026 07:00:00 GMT",
+      "headline": "Chinese AI startup StepFun to unwind offshore structure to pave way for IPO, sources say - Reuters",
+      "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPdldCcU9ZUl9aZmplZ29ZRnU4NXJFWm9wVWZwcEpVNnJUNVZkOFNwNk5pTmU2UU5Sb2p3ZWFtdC1HT3ZDRENfbjVaa0ZrVVZkY3ZWWjdCNmFuT3dvR05aZ0thN0tDZW8zWm1Ca3A3LWVNbTRPemxHVzZxYzhpTDNjNHItS3hBanppME1FbF9XQUpCVkxSdTR2RUFOUmo1UUtKd000cXpVUUxoOUltTG9uNDFiSG9GcnhmRFFiQWtXWHZMR2s?oc=5",
+      "date": "Sun, 12 Apr 2026 07:00:00 GMT",
       "detectedFigure": null
     },
     "Zhongguancun Kejin": {
@@ -80,15 +80,15 @@
       "detectedFigure": null
     },
     "MetaX (壁仞科技)": {
-      "headline": "MetaX soars 700% in debut as China AI chips push lures investors - Yahoo Finance",
-      "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPSjNPYkZPcmVORVJxS0VoZGlNQ1k2YlRYRTdvUjN0WmpoTHMxbTAzQlJsWmVqUzdPWlNyQWUzZjRSc3VrdHc4WUktU21Vdmw2Sk5paklHMTJZY0x6OVJ4dmRfZWVNRDZFeERDdldoSk9CeGNvTVJDTnludXZVbGlyWlRydm14dw?oc=5",
-      "date": "Tue, 16 Dec 2025 08:00:00 GMT",
+      "headline": "China AI chip firm Biren to launch Hong Kong IPO in coming weeks, sources say - Reuters",
+      "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPakZDTklCeDRYTW45SGJfbGV6M1RtaEhHYV9pOGJLMTFhZ1NxcFBNYkV5X3NPaEpGWVRScnNWU3N5Mld2d0ZvNTJaY2xnY2lULW9uZ09tM29HZGpDZGp1YW9hbnRKdm5QVEdxTWtnNHZXdEstNWVPQ243STA4OWJFWWIyalowdnExNjFTcGRlY2JoVF8yZExtbWFNV2VVOU81cFBRakxtMWl3eFJSeXUwdS10YWVJd1ZyZGc?oc=5",
+      "date": "Mon, 15 Dec 2025 08:00:00 GMT",
       "detectedFigure": null
     },
     "Spirit AI (具身智能)": {
-      "headline": "Chinese 'robot brain' startup sees ChatGPT-style breakthrough as soon as next year - Reuters",
-      "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQaUV3UzJ5MVVnR0c2b0hlQ0s4OGZEWS01alZ1TldLbmR1ZFMtZFE1S0V6WFVTOEFnSXVfMlNmSWpYRl9LVDhha2dydmkyaGlUckpYVUxEdWgzWUNjMkx3ZmxQdGRFQ2ZDdHNUZzFkNWNQZU82RHRiSjYwUmlscjdVQmhxbktkdU94SEJub1hYUDBqNUtIY1M4bjl0a2lUV3U5Q09jbmpTRVNVQlAtNUlGY2RPMTFDdExuSzlWYU5vbkJZdGhwbmtV?oc=5",
-      "date": "Mon, 21 Sep 2026 07:00:00 GMT",
+      "headline": "Embodied AI Fuels Record Robotics Funding In China As IPO Momentum Builds - Crunchbase News",
+      "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPekZhSHpjR0xjVXR6cThjTkN3Z1FJVDFBUy1UbGRYQm1SZjFoMWJDQWRtRTBUU1RkOFgwb2NqbnVpU1pQVkVndlpHa3VPR1BpQWpROWU0NGxxM1ZkMkJPRnQwUUQzNkFVQ3BWX0ZOVnBINHJOSVJxTEVKb0RacEJDVFRRaUNKc0ZTOUwtTVFhUzhOVm5sNGdabGFnQ2U?oc=5",
+      "date": "Wed, 20 May 2026 07:00:00 GMT",
       "detectedFigure": null
     },
     "BAAI": {
@@ -98,27 +98,27 @@
       "detectedFigure": null
     },
     "Sensetime": {
-      "headline": "3 AI Productivity Stocks Retail Investors Are Watching Right Now - simplywall.st",
-      "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxPTzJmRkF0YjNjTWt4T3VmS18wTHdKWW5fc0RFdTFoVWVoX0RFQWpvRW5MSjI4ZEdocmpXU1dtSkVrT1BpYXljUWx6cEdDNFg4SUFZUGpGWFZaQXBlbkVIOUV0WWNjb0tndDRDUWVSUDNTWGtEZ25BcmhPbUpSRXdYa1NCajlPNjAzblZLb01kMVZ0Y1VWUGt1Sm90V2pHRzhKMC1nZnduZ2YtNG9IV3hSSm1WOElYTFBKeVpvdGhMZzZTNHB1S2FKbVRJRjJqVjJKMUlVUU1zWdIB1wFBVV95cUxPTzJmRkF0YjNjTWt4T3VmS18wTHdKWW5fc0RFdTFoVWVoX0RFQWpvRW5MSjI4ZEdocmpXU1dtSkVrT1BpYXljUWx6cEdDNFg4SUFZUGpGWFZaQXBlbkVIOUV0WWNjb0tndDRDUWVSUDNTWGtEZ25BcmhPbUpSRXdYa1NCajlPNjAzblZLb01kMVZ0Y1VWUGt1Sm90V2pHRzhKMC1nZnduZ2YtNG9IV3hSSm1WOElYTFBKeVpvdGhMZzZTNHB1S2FKbVRJRjJqVjJKMUlVUU1zWQ?oc=5",
-      "date": "Sat, 26 Sep 2026 09:28:11 GMT",
+      "headline": "How generative AI helps SenseTime turn a profit even as Chinese peers struggle - South China Morning Post",
+      "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPbmZpUUdxSzUtUGVra3VYNGx6ZGNwYWc5MmIwUHZGWEc2RElMTHRfTEpjZ2FCdVRsRi1zZkZOVlRRMGxTdi0wMjBBQlF0cTlndkVhbjdGbEZ1cWFrQy1Qc0pScF9rd181Ym1JOEJ6c09tbHdLU1pDQm5vOG5obGFLRXpiRF92emJfQWJ4WlZTTG90czBuQmRzZUdFaTQ1YUF4bWoxcnM3YTRsVW5RTUlGRHpucWlqMHlDQjlQd05vSk5VNHViQ3fSAcYBQVVfeXFMUFFJQ1FnNVZRZ19ObTRSNE9ZN204OXZDS2xmdmlCR3lQWUE4NGpwUEtvSjVuTkc3WThtNW8xVFY3TmNyU0ZSaGktcF9PME5jSUdGc2lRdE1FbE9aMGJEbnoyYU9BNkJYaDlsRHFrX1VVdG5rQ2R0elVlUFByVFM5b1cwTXNPTmtuc3JNdWozTDVDeDMzenZvcVRBSDc5d05BTHo4TXJQazBRNUpPeFJRZUtodjlsSGlaY0hUcmpsX1IwMnA4UjV3?oc=5",
+      "date": "Mon, 07 Sep 2026 07:00:00 GMT",
       "detectedFigure": null
     },
     "Xiaomi Robotics": {
-      "headline": "Xiaomi may soon launch AI robots, CEO shares video showing humanoids working in factory - The Indian Panorama",
-      "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQZkEwSGEtbzh6dHdxZlV0VTA1dXlBZFU1bk5nRERENG5pWHFVRnZVY0h2WjNVQXVBRjlMck5MSXRKbnpnX1RKVFpvZ0ozcU5IenN0TUFUdFJtM1p6QkdnTUlRYkFtUUFtb3pCdjlDYkdweTZQY3ZPTjk0dzRnODMyeWhpcmxCbGVzNjdCcnZtOHcwb0hENTlzdENZNjVoendvQXBmaEM4bHZOZGQ4cDN6UkQyUkx4RFpGUHNDXzRVaw?oc=5",
-      "date": "Fri, 17 Jul 2026 13:16:12 GMT",
+      "headline": "Xiaomi's L3 autonomous driving lead exits for physical AI, joining auto executive exodus - CnEVPost",
+      "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5paGtCdFl4cE13UjYyQlF6U1Fyc3BkYlZPQ0c5MUotU3hrRFJLS1h0ZVlKS1ZuNDBsN0dvdzZYcXpkNlpiNFpkMlZTaUs1ZHRfYVZURzF6dk5pU0V1UVg3VzVIMEltRzkyQ1B6Uk1icUl4TGQ4QmNjSg?oc=5",
+      "date": "Mon, 07 Sep 2026 07:00:00 GMT",
       "detectedFigure": null
     },
     "DJI": {
-      "headline": "The best early Prime Day drone deals: We found live deals on DJI, Skyrover, Ruko, and more - Mashable",
-      "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPSGZwcVU5aWdtNXFDT1ZTQWxWZWNWQm9MdmV3WmtxZGdDdnhFekc4WUR6MUJwS2s0UVVMdGs2b1IxWmMyRXF1aFo5dUtMY1F2dUhwekRyWmtHbHNaM2Ezb2VyeTA2NGItUDFSVG15TGJLZllBNW5fVlI2UjBBYWwwOW5faHM?oc=5",
-      "date": "Mon, 28 Sep 2026 12:53:48 GMT",
+      "headline": "DJI Neo 3 Leak Puts the Osmo Action 6 Square Sensor in a 193 g Drone - dronexl.co",
+      "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBCREZyQ1V2V0RZQ0FVRTlNcHdGNThLWURoQzZrV2Zwbm9tSkw1NDdWVUdJTFFUMHlXdWhwYlVJTHI0VFpjUUVnSmw0VGE2d2JGQURhSzhnd1U5Q09nX3hIR2xaczVCRjAwcW45Z2ZMRDBYNE5TR2JJSm1B?oc=5",
+      "date": "Sat, 03 Oct 2026 18:12:00 GMT",
       "detectedFigure": null
     },
     "iFlytek": {
-      "headline": "iFlytek P1 Pro review: discreet AI recorder tested - Cybernews",
-      "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE5NcWRKV19aYlJ0Ni1GYnNSWXhrbUtVaVpCNjlGXzU3TDRlZFZKZERiajd4Z2duVTVNYlZCeXZZbG5Ya1BpVlRXeHZVNWxVcy1LZndZSEZGdjRvdG9j?oc=5",
-      "date": "Fri, 25 Sep 2026 10:50:38 GMT",
+      "headline": "Interview: iFLYTEK Medical sees clinical integration as key to healthcare AI expansion in South Korea - digitimes",
+      "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOTnFXclh0VXhqRDJDMzdRS0FoemZkZVhtTDZ6bDhVNHZoa3JXR0prZW1BS2pQZHRUbWJremRzbzRtSDJFMmFZWkdIM2ZvSzNaUGg2bEtUb2tFSnNTclFNeE91ZjU3Y2F4Q0FFTG9nQy1weUtpUEY5LW9qQ01URmYzdVpNbDRPcEx2U0ljQzN3akhWRTk0czF1Yw?oc=5",
+      "date": "Wed, 30 Sep 2026 07:20:00 GMT",
       "detectedFigure": null
     },
     "Manycore Digital (曼恒)": {
@@ -128,9 +128,9 @@
       "detectedFigure": null
     },
     "Baichuan AI": {
-      "headline": "China’s generative AI tiger MiniMax pursues Hong Kong IPO to expand global reach - South China Morning Post",
-      "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPN1JsczRTR3NncnNZa3JMLXRCNk1XTmd0N2NMTExIcjZIU1ZZa1JGSzJEUHgxVFV1VFU5aElMUFdGdG1fb2piTUFJN2lRSmdCVHpETVp0c2lCM0ZwMlBIRU1tZjBnRjBiWHVQcDJNR19mRzYzUFZ3czduRmctc0tmNmQybXJZMkdTLVViellMNmFuaWRLbmR3czBrb21nRTJtc05Edi1Cb3Q3V2lJWUNWUGNTRWYtak9JcWs0bm9pVnI3ODJmQ25mZGlkV0dCdHJMTVZkZdIB1AFBVV95cUxOMTIxNWlPTkk2QzMtUHFlMmVILW9wTldzZjVkcmhILVp1dWZaN09iTExiNnVnMlVob2hsM3o4NVlPZHJGa1VpdDNfQ2pSTldGc3I3MDhWMkM4QWxmUl9zbjNRanN5U3Iya3lHS0tmbkhvYjhSS1JkbUd2aXFOaVItVkZiX3d0R19TeVI0Skk1b21kSXdER3lUOEpkRXFTMWdUTmFpdDl3NF9GNDhPZ2t6V01MZjB2NlVjbWY4T3I4OTBnc19TN1liTGtPaWdvU2ZnaVBEeA?oc=5",
-      "date": "Fri, 12 Dec 2025 08:00:00 GMT",
+      "headline": "Baichuan-M4: A Clinical-Grade Medical Agent System for Continuous Care - alphaXiv",
+      "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBOdEhUNXREZ19VcDB1VmFyRkQ1RUlFYkw0WTA5QVJBY3Q3YURFRjEtS3R0T1VQdGljMGktcFgxUzlZaGJfdHBOMDFMdXBFSXgy?oc=5",
+      "date": "Tue, 09 Jun 2026 07:00:00 GMT",
       "detectedFigure": null
     },
     "01.AI (Yi Series)": {
@@ -158,34 +158,34 @@
       "detectedFigure": null
     },
     "SoundAI (声智科技)": {
-      "headline": "Voice-controlled elevator system put into use in Beijing - China Daily",
-      "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE14amt3alFoWlZ0SzhHclhmRTZTWWdQQmJrR3B5aWRoeWNwOGhtVEYtNGpkREpYUWFidWF0V25falpkZ3pVSTZIMVRkRlh2VjZWZTFDWTFSY3BNaXhUTnptbTVVajl0S0F4QVN5UXpHaDZEaUYwV1dpdGNLR1Qzdw?oc=5",
-      "date": "Fri, 13 Mar 2020 07:00:00 GMT",
-      "detectedFigure": null
+      "headline": "SoundAI Revenue 2025: $1.9M Est. ARR - GetLatka",
+      "link": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE8xVXBhM0pQY1huVmxGTVEyaFoyNWYyT2tjZHI3dXVQcHgwdEFSUnhYN2FNOWJWMmV1MXZNMmZBUjc0ekl4ZnZ6T2NvUDJ5TkM0N2lYeQ?oc=5",
+      "date": "Tue, 15 Sep 2026 07:00:00 GMT",
+      "detectedFigure": "$1.9M"
     },
     "Agibot (智元机器人)": {
-      "headline": "The launch also marked the delivery to Chimelong of the 20,000th robot to roll off AGIBOT’s production line - agibot.com",
+      "headline": "AGIBOT and Chimelong Launch Large-Scale Embodied AI Theme Park with More Than 300 Robots - AgiBot",
       "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5QdVhGUTVMZXZZWGZveHQ4R3I2b2h0ZjdEbDlKLWVRTDdPeFNWN2hXLW9uZkFWTkhzdG1hcHdNaXVRWm9RdE9Dc0ZiMnMyWng3eFBuME5WbnZUSzhGTmE0?oc=5",
-      "date": "Sat, 26 Sep 2026 18:53:10 GMT",
+      "date": "Thu, 01 Oct 2026 16:46:51 GMT",
       "detectedFigure": null
     },
     "Horizon Robotics": {
-      "headline": "Volkswagen's CARIZON and Horizon Robotics deepen self-driving partnership in China - Reuters",
-      "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPRUdrSDd5YldsYk1kWEhIUFlCODBtZU1MZFlaSlNlWDhJa2prRHdfeXlmaU9PZTdZSmxBVFpuVnY5dVNTOGJCRVVja0FvWWNaVV9FbW8zeGR5ZjZLN21DbHpMZnBZUHFpVzhlSjBtQ3BrNklCTnJUX0tGb09udW9GNU1JSklKR01kVDQwTXNEYzhCTVVLMVRyc28tNFEzMEpFeUMtMVZBdm5DMzdwNFEtbzFQRGZSMEtZbkZOVnQ2TQ?oc=5",
-      "date": "Wed, 22 Jul 2026 07:00:00 GMT",
+      "headline": "One in three Chinese cars runs on Horizon Robotics’ driving brain - Dealroom",
+      "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQZTVPVzVNX3dua2lCNmhwU2RyWlo2dnZZNkhwZTg1T3FtT3E4eDJORWFhbGtGMl92SDk2Z2JJQXlIUDIzbVZfY1d2Qlc4bFR1R0dscWUxRzAyWk9adzRBMDQwMkhGRjhKX3hoM2hTMHM0VnpsNW1xZW1EaXZxZDR6aFE4eEhhVy16T2FLWjl6MV9iVXB1T3JzaS1sR1pZX1E?oc=5",
+      "date": "Wed, 30 Sep 2026 18:38:59 GMT",
       "detectedFigure": null
     },
     "Black Sesame Tech": {
       "headline": "Black Sesame Technologies, SHARETRONIC partner on integrated AI inference systems - Gasgoo",
-      "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxQRm9WVFJLdGtoS3U1YkFYR1pGTFNZcnkxQU81elFCTTVvV1FMdlVtVUtIbGUyNGoxUkRrN2JiZGJPaXBMYmZuMGpVeG1sb0ZPUWJzZXNETXZjbTlKUzhKS3ZMemlTNWJmRXpBWWdqdEpOaFVXNWEybGlCcHhId1pxazFmVU5iYVhNWGw3WWxOY0cxUUtjSDNYX1k0Yjl5MnkwUHUwV1JqLTNlbGFEMEt4dEtkU2Zrb2U4cE9xdWIyRno4R2M3VHhsb1RoUFFMaWoxVnR2RlRFY3Y?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPM2RlZWZOM0dGeHpoMS1FYXI3ekFSRkY4TmhocmRqbjA3OTh0WVNZazhBa3B4VmFPSHV1T1QtSC1sdFozTXVhcEI4WWx5c2tpaFRuT1ZoRnpBTlFSelhMSzdBSGNCVXNQbFluUTN3YTBINkJXRGtTdlZKbkJQOTJPVkJNbUQyOUthcHh0ZTJHZlAtQWNUenQteHV0YjM0WjI5R3Jnb2RDcXA2LUE5VjgxN3piUGNQRmxSOWwxMUtCOXc4WHdqY0pTREtBYjJZNDk1Mm5hVHFvaTNVdw?oc=5",
       "date": "Tue, 22 Sep 2026 03:15:33 GMT",
       "detectedFigure": null
     },
     "Kuaishou AI (Kling)": {
-      "headline": "General Atlantic in Talks to Lead Funding for China’s Kling AI - Bloomberg.com",
-      "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNNjh0R3BUUnJmNGdmVlQ0TnBKTGhCcUljNEo0UWpyTzhyUjlyU1VkYjlaQWlzdVZ6QkR5VHk3VHRUb0lWQjNUOUp0X0dST0ZWQWlvUmtwWjh0YXpmWURfeWhaQnJxZzFEWXUwNmtuS3dNUVN4bG5QcUc0YkduY3Z0R2RhZkl1R2I5c25zVEpfZ2lzYUQ1dzA3aXNLLVZyWkQxdTVsLVBzOGd0WkZod2hRSTlyU3BDdHpjNVJaWDJlR2RZM1Ri?oc=5",
-      "date": "Wed, 17 Jun 2026 07:00:00 GMT",
-      "detectedFigure": null
+      "headline": "Alibaba, Tencent back Kuaishou's Kling AI in $2.8 billion fundraise - Reuters",
+      "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPamxzWVd3d3VQaE1JdkN3TW12dDVQQXo1S3NxYm5EVXcwcGhsakIyNzd1UVprWk0xYXNYMWY2bk1VdHVlQkRKR2JpdUt5V1ozZGRIQ3AtbWpWeFBSVlUyRmZrWlU2di1VTncyYnFfYnA2NkU2bUY5VGNCXzhxb2NWUUNNelBBWUV2ZE9lLUpRZ2o3NWxQd0pPc1BGZFlhbmQ3WF9PTEtkOFp6dGZT?oc=5",
+      "date": "Fri, 03 Jul 2026 07:00:00 GMT",
+      "detectedFigure": "$2.8 billion"
     },
     "Vidu (生数科技)": {
       "headline": "Alibaba leads $290 million investment for building a new kind of AI model as LLM limits emerge - CNBC",
@@ -212,21 +212,21 @@
       "detectedFigure": null
     },
     "CAS Star (中科星图)": {
-      "headline": "China’s 156 satellites in Xingyan constellation to track orbiting objects, prevent collision - interestingengineering.com",
+      "headline": "China’s 156 satellites in Xingyan constellation to track orbiting objects, prevent collision - Interesting Engineering",
       "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxNcl9jN21Kb1ZlTURZaF9faGZhLTlEZWY4c3Fpamc4cm1nbWJSX25nUGJ4LWlXSTZUWkpvdkhLNU1odW5JNW5lRVlROXBSU1JvM1BELTZJMnF3Zi1rYWNnZnpHTjM3djhRVEgwbVJqQ3JrbnhlTWRwRWE1bU52OHlOaUdBOUZsbkZ5VFFOMVhHOS1nWTd2QUxPY1BNM0hZdw?oc=5",
       "date": "Sun, 30 Nov 2025 08:00:00 GMT",
       "detectedFigure": null
     },
     "MEGVII (Face++)": {
-      "headline": "China’s Face++ Raises $750M For Facial Recognition - Crunchbase News",
-      "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQMW1iT245RFdYTEdQZllsakJpMzVXbGxlUkh2WG5YN1hFa1h2b2xhOERTUllQQ3hNMFVHNlNraVVmTGhsczNsTUFkczdwaUVFT1ZEX3JUOHdFZkpIWnlDdkZMTDhqNFhQYWtDMVljTVlHcndPbmx2clBuSXFkb01mNWtBSDZGR0R0WE1B?oc=5",
-      "date": "Wed, 08 May 2019 07:00:00 GMT",
-      "detectedFigure": "$750M"
+      "headline": "The Amazing Ways Chinese Face Recognition Company Megvii (Face++) Uses AI And Machine Vision - Forbes",
+      "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxOVjRlcERLVGM1TC1jZllpNEp3VHZveThmcGRjWXAyZGN6M1B2Y29FVDBwZlJQZTVXMDJVN2djaGlTRFJ4eG9LNHJNSFJGTmlRdmZMdmRmT1FQWUhCeW9sZ01qbEpfeXZqT2VjWC1DeGhaWDdjZ0hUQXMwdjFRTWwtTzZOczZNd0F5a25ZdmtTMWxtTHhnVXVQZmxtMnkxWlg0M21BRVJHY1BxTG91Rzh3VzlMaEl5dU5XQVpPMHZXd2RxQnhWeHIxck05bDJLcmhTaDVWa29WNG8?oc=5",
+      "date": "Fri, 24 May 2019 07:00:00 GMT",
+      "detectedFigure": null
     },
     "Tencent Yuanbao": {
-      "headline": "Tencent Yuanbao Native HarmonyOS App Ships With Hunyuan Hy4 Preview - Pandaily",
-      "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTFBCZFRESTJRTVU4ZlFlUXZvNms4eWI0RG5oMlJvUGRycW03QzM1NlNxdEt3NlhwZ3Q3UGtwYnJRVXdLWXBJVzh3Rk0taWh0OU1GamROdHJvTWZibHVZbVB6Yi1WN1hBM1JPSFNOSWZBVVFZeWVIOGdLNk9odXRGUQ?oc=5",
-      "date": "Mon, 28 Sep 2026 07:48:27 GMT",
+      "headline": "Tencent pledges higher AI investment in 2026 after chip curbs hit capex plans - Reuters",
+      "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPOHI4MDJ5dGpiMmhkR2E5ejMwUndUNGRjWHhMdWNfWmhYZDVsVFVhME1DbERiVzc3X3Bicm82UnJYUU5ud25weFNhd0VPY0VqZ01nRUlUbVQ2TWxfeExZcTJLUUZXb01CRE1nTEp5UloxbnBwSXpRbF8yX2xBRGE3eE12eTlDMkhTS0tQV3RrSHNoU0syUF9Qa1V3cFg2QTVYV3hGX3o0YUlISlFtenJyLQ?oc=5",
+      "date": "Wed, 18 Mar 2026 07:00:00 GMT",
       "detectedFigure": null
     },
     "Lightyear Beyond (光年之外)": {
